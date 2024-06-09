@@ -78,7 +78,7 @@ module.exports.deleteDetails = async (req, res)=>{
 
 module.exports.getDetails = async (req, res)=>{
     try {
-        const details = await PersonalDetails.findById(req.user._id);
+        const details = await PersonalDetails.findById(req.params.id);
 
         if(!details){
             return res.status(400).json({

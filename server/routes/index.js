@@ -4,6 +4,7 @@ const homeController = require("../controller/home_controller");
 
 router.get("/", homeController.home)
 router.use('/user', require("./user"));
-router.use('/personal', require("./personal"))
+router.use('/personal', require("./personal"));
+router.use('/education', require("./education"))
 
 module.exports = router;
