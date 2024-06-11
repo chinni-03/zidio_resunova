@@ -18,21 +18,18 @@ module.exports.createedu = async (req, res) => {
 
 module.exports.updateEdu = async (req, res) => {
     try {
-        const { id } = req.params;
-        const updateData = req.body;
-        if (!updateData.education) {
-            return res.status(400).json({ error: 'Education data is required' });
-        }
-
-        const updatedEducation = await Education.findByIdAndUpdate(
-            id,
-            { $set: updateData },
-            { new: true, runValidators: true }
-        );
+        const updatedEducation = await Education.findById(req.params.id);
 
         if (!updatedEducation) {
             return res.status(404).json({ error: 'Education not found' });
         }
+        updatedEducation.institute = req.body.institute;
+        updatedEducation.qualification = req.body.qualification;
+        updatedEducation.subject = req.body.Education;
+        updatedEducation.startgraduyear = req.body.startgraduyear;
+        updatedEducation.startgradumonth = req.body.startgradumonth;
+        updatedEducation.endgradumonth = req.body.endgradumonth;
+        updatedEducation.endgraduyear = req.body.endgraduyear
 
         return res.status(200).json({
             message: "here is the education data!!",

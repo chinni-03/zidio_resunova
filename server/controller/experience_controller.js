@@ -18,21 +18,17 @@ module.exports.create = async (req, res)=>{
 
 module.exports.updateExe = async (req, res) => {
     try {
-        const { id } = req.params;
-        const updateData = req.body;
-        if (!updateData.education) {
-            return res.status(400).json({ error: 'Education data is required' });
-        }
-
-        const updatedExeperience = await Experience.findByIdAndUpdate(
-            id,
-            { $set: updateData },
-            { new: true, runValidators: true }
-        );
+        const updatedExeperience = await Experience.findById(req.params.id)
 
         if (!updatedExeperience) {
             return res.status(404).json({ error: 'Experience not found' });
         }
+        updatedExeperience.companyname = req.body.companyname;
+        updatedExeperience.position = req.body.position;
+        updatedExeperience.startyear = req.body.startyear;
+        updatedExeperience.startmonth = req.body.startmonth;
+        updatedExeperience.endyear = req.body.endyear;
+        updatedExeperience.endmonth = req.body.endmonth
 
         return res.status(200).json({
             message: "here is the experience data!!",

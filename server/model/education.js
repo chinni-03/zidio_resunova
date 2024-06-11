@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const educationSchema = new mongoose.Schema({
-    education:[{
         institute:{
             type: String,
             required: true
@@ -30,7 +29,6 @@ const educationSchema = new mongoose.Schema({
             type: Number,
             required: true
         }
-    }]
 },{
     timestamps: true
 })

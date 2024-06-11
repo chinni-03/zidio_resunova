@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const experienceSchema = new mongoose.Schema({
-    experience:[{
         companyname:{
             type: String,
             required: true
@@ -26,7 +25,6 @@ const experienceSchema = new mongoose.Schema({
             type: Number,
             required: true
         }
-    }]
 },{
     timestamps: true
 })
