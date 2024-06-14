@@ -1,28 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-body{
-     font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    }
+:root {
+    --light-green: #BFD8AF;
+    --dark-green: #00582F;
+    --off-white: #F8F8F8;
+}
 
-*{
+html {
+    height: 100%;
+    min-height: 100vh;
+    /* overflow: hidden; */
+    padding: 0;
     margin: 0;
-    border: border-box;
-   
 }
+
+#div1, #div2 {
+    height: 100vh;
+    overflow: hidden;
+}
+
 #div1{
-    background-color:#BFD8AF;
-    width: 50%;
+    background-color: var(--light-green);
+    width: 50%;;
     float: left;
-    height: 52rem;
-    margin-top: 0%;
-    
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.template{
-    height: 60vh;
-    margin-right: 8rem;
-    margin-top: 80px;
-    /* background-image: url("image.png"); */
+
+.template {
+    width: 70%;
+    margin: auto auto 0 auto;
+}
+
+img[alt="res"] {
+    width: 500%;
 }
 .resu{
     margin-top: 30px;
@@ -35,7 +49,6 @@ body{
     padding-left: 40px;
 }
 .logo{
-    background-image: url(../../assets/images/resunova-logo.png);
     height: 36px;
     width: 100%;
     background-size: cover;
@@ -50,17 +63,14 @@ body{
 
 
 #div2{
-    
     width: 50%;
     float: right;
-    height: 50rem;
 }
 .logincon{
-    
     height: 20rem;
     width: 60%;
     margin-top: 2rem;
-    margin-bottom: 7rem;
+    margin-bottom: 2rem;
     margin-left: 8rem;
 }
 .text{
@@ -70,35 +80,40 @@ body{
     margin-left: 31%;
 }
 .button{
-    margin-top: -5rem;
     margin-left: 37%;
     box-shadow: none;
-    
     height: 60px;
     width: 178px;
     border-radius: 16px;
     background-color: #BFD8AF;
-    border-color: transparent;
     font-size: 1.1rem;
     font-weight: bold;
     color: #00582F;
+    border: 2px solid;
+    border-color: var(--light-green);
 }
+
+input {
+    background: none;
+    padding: 1rem;
+    padding-left: 0;
+    outline: none;
+}
+
+.name div, .email div, .password div {
+    margin-top: -1.5rem;
+}
+
 .name{
-   
     height: 33%;
- 
 }
 .email{
- 
     height: 33%;
     margin-top: 10px;
- 
- 
 }
 .password{
     margin-top: 10px;
     height: 33%;
- 
 }
 
 .smiley{
@@ -122,6 +137,9 @@ img[alt="res"] {
     margin-top: 1rem;
     height: 30px;
 }
+
 .button:hover{
-    background-color: rgb(230, 230, 158);
+    background-color: transparent;
+    border: 2px solid;
+    border-color: var(--light-green);
 }

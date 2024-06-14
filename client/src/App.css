@@ -227,6 +227,10 @@ img[alt="tilt"] {
   display: flex;
 }
 
+img[alt="tilted-resume"] {
+  
+}
+
 .left-tilt img[alt="tilted-resume"] {
   transform: rotate(-25deg);
   justify-content: left;

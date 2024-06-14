@@ -3,23 +3,40 @@ import mainimage from "../../assets/images/harshini_resume.png";
 import happy from "../../assets/images/happy.png";
 import { useForm } from "../../context/Form";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 
 export const Signup = ()=>{
     const {userdata, setUserData, handleSignUp} = useForm();
+
+    const margin = {
+        marginLeft: "1rem",
+        marginTop: ".5rem",
+        fontWeight: 600
+    }
+
+    useEffect(() => {
+        document.title = "Sign Up"
+    })
+
     return (
         <>
         <div id="div1">
-        <div class="resu">
-            <div class="resulogo">
-                <div class="logo"></div>
+            <div class="resu">
+                {/* <div class="resulogo">
+                    <div class="logo"></div>
+                </div> */}
+                <a href="/" class="resutext">
+                    <div className="fit-content">
+                        <img src="/../../images/resunova-logo.png" style={margin} alt="resunova-logo" />
+                        <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
+                    </div>
+                </a>
             </div>
-            <a href="/" class="resutext">ResuNova</a>
+            <div class="template">
+                <img src={mainimage} alt="res"/>
+            </div>
         </div>
-        <div class="template">
-            <img src={mainimage} alt="res"/>
-        </div>
-    </div>
     <div id="div2">
         <div class="text">
             <p>Ready to join the family?</p>
