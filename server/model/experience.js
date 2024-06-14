@@ -1,31 +1,27 @@
 const mongoose = require('mongoose');
 
-const educationSchema = new mongoose.Schema({
-        institute:{
+const experienceSchema = new mongoose.Schema({
+        companyname:{
             type: String,
             required: true
         },
-        qualification:{
+        position:{
             type: String,
             required: true
         },
-        subject:{
-            type: String,
-            required: true
-        },
-        startgraduyear:{
+        startyear:{
             type: Number,
             required: true
         },
-        startgradumonth:{
+        startmonth:{
             type: Number,
             required: true
         },
-        endgraduyear:{
+        endyear:{
             type: Number,
             required: true
         },
-        endgradumonth:{
+        endmonth:{
             type: Number,
             required: true
         }
@@ -33,5 +29,5 @@ const educationSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const Education = mongoose.model("Education", educationSchema);
-module.exports = Education;
+const Experience = mongoose.model("Experience", experienceSchema);
+module.exports = Experience;
