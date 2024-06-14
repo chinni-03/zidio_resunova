@@ -109,3 +109,25 @@ module.exports.update = async (req,res)=>{
         })
     }
 }
+
+module.exports.getData = async (req, res)=>{
+    try {
+        const user = await User.findById(req.user._id);
+        if(!user){
+            return res.status(400).json({
+                message: "user not available or does not exist!",
+                success: false
+            })
+        }
+        return res.status(200).json({
+            message: "check user details!!",
+            success: true,
+            user
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error in getting the user details!",
+            error: error.message
+        })
+    }
+}

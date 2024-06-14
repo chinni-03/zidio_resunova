@@ -12,6 +12,7 @@ export const useForm = ()=>{
 export const FormProvider = ({children})=>{
     const navigate = useNavigate()
     const [userdata, setUserData] = useState({name: "", email: "", password: ""});
+    const [usersignIn, setUsersignIn] = useState({email: "", password: ""})
 
     const handleSignUp = async ()=>{
         try {
@@ -45,8 +46,32 @@ export const FormProvider = ({children})=>{
         }
     }
 
+    const handleSignIn = async ()=>{
+        try {
+            const {email, password} = usersignIn;
+            if (email === "" || password === ""){
+                toast.warn("input section should noty be empty!!")
+            }
+            const response = await axios.post("/user/signin", {email,password});
+            if(response.status === 200){
+                localStorage.setItem("token", response.data.token);
+                navigate("/")
+            }else{
+                toast.error(response.data.message)
+            }
+        } catch (error) {
+            if(error.response && error.response.data) {
+                // Display the error message from the server response
+                toast.error(error.response.data.message);
+            } else {
+                // Handle other types of errors (e.g., network issues)
+                toast.error("An error occurred during registration. Please try again.");
+            }
+        }
+    }
+
     return(
-        <FormContext.Provider value={{userdata, setUserData, handleSignUp}}>
+        <FormContext.Provider value={{userdata, setUserData, handleSignUp,usersignIn, setUsersignIn, handleSignIn}}>
             {children}
         </FormContext.Provider>
     )

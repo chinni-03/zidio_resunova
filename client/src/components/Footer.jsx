@@ -40,6 +40,7 @@ function Footer() {
                 <p>2024 Harshini Vijendra Kumar (to be changed)</p> {/* to be changed */}
             </div>
         </div>
+        <Footer/>
         </>
     )
 }
