@@ -29,7 +29,7 @@ module.exports.updateEdu = async (req, res) => {
         updatedEducation.startgraduyear = req.body.startgraduyear;
         updatedEducation.startgradumonth = req.body.startgradumonth;
         updatedEducation.endgradumonth = req.body.endgradumonth;
-        updatedEducation.endgraduyear = req.body.endgraduyear
+        updatedEducation.endgraduyear = req.body.endgraduyear;
 
         return res.status(200).json({
             message: "here is the education data!!",

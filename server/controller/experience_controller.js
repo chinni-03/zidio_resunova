@@ -57,3 +57,25 @@ module.exports.deleteExe = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while deleting experience details', details: err.message });
     }
 }
+
+module.exports.getdetails = async (req, res)=>{
+    try {
+        const getData = await Experience.findById(req.params.id);
+        if(!getData){
+            return res.status(400).json({
+                message: "Data not found or does not exist!",
+                success: false,
+            })
+        }
+        return res.status(200).json({
+            message: "check your details!",
+            success: true,
+            getData
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error in getting an data!!",
+            error: error.message
+        })
+    }
+}
