@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import GetStartedBtn from "./GetStartedBtn";
 
 function Section3 () {
@@ -11,7 +12,7 @@ function Section3 () {
             </div>
             <div className="center-text">
                 <p>What are you waiting for?</p>
-                <GetStartedBtn extraClass="align-center" btn="Let's get started" />
+                <Link to={'/signup'}><GetStartedBtn extraClass="align-center" btn="Let's get started" /></Link>
             </div>
             <div className="right-tilt">
                 <img src="/../../images/harshini_resume.png" alt="tilted-resume" />

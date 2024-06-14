@@ -32,7 +32,7 @@ html {
 
 .template {
     width: 70%;
-    margin: auto auto -5rem -2rem;
+    margin: auto auto 0 auto;
 }
 
 img[alt="res"] {
@@ -86,10 +86,11 @@ img[alt="res"] {
     width: 178px;
     border-radius: 16px;
     background-color: #BFD8AF;
-    border-color: transparent;
     font-size: 1.1rem;
     font-weight: bold;
     color: #00582F;
+    border: 2px solid;
+    border-color: var(--light-green);
 }
 
 input {
@@ -138,5 +139,7 @@ img[alt="res"] {
 }
 
 .button:hover{
-    background-color: rgb(230, 230, 158);
+    background-color: transparent;
+    border: 2px solid;
+    border-color: var(--light-green);
 }

@@ -3,6 +3,7 @@ import mainimage from "../../assets/images/harshini_resume.png";
 import happy from "../../assets/images/happy.png";
 import { useForm } from "../../context/Form";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 
 export const Signup = ()=>{
@@ -13,6 +14,10 @@ export const Signup = ()=>{
         marginTop: ".5rem",
         fontWeight: 600
     }
+
+    useEffect(() => {
+        document.title = "Sign Up"
+    })
 
     return (
         <>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -21,9 +22,11 @@ function Navbar() {
                                     </li>
                                 </ul>
                                 <form class="d-flex nav-btn" role="search">
-                                    <button class="btn" type="submit">
-                                        <img className="enter" src="/../../images/enter.png" alt="" />
+                                    <Link to={'/signup'}>
+                                        <button class="btn" type="submit">
+                                            <img className="enter" src="/../../images/enter.png" alt="" />
                                         </button>
+                                    </Link>
                                 </form>
                             </div>
                         </div>
