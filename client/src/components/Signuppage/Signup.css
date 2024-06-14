@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+     font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    }
+
+*{
+    margin: 0;
+    border: border-box;
+   
+}
+#div1{
+    background-color:#BFD8AF;
+    width: 50%;
+    float: left;
+    height: 52rem;
+    margin-top: 0%;
+    
+}
+.template{
+    height: 60vh;
+    margin-right: 8rem;
+    margin-top: 80px;
+    /* background-image: url("image.png"); */
+}
+.resu{
+    margin-top: 30px;
+    height: 36px;
+    display: flex;
+}
+.resulogo{
+    height: 36px;
+    width: 36px;
+    padding-left: 40px;
+}
+.logo{
+    background-image: url(../../assets/images/resunova-logo.png);
+    height: 36px;
+    width: 100%;
+    background-size: cover;
+}
+.resutext{
+    padding-left: 13px;
+    padding-top: 4px;
+    font-weight: bold;
+    font-size: 1.16rem;
+    color: #00582F;
+}
+
+
+#div2{
+    
+    width: 50%;
+    float: right;
+    height: 50rem;
+}
+.logincon{
+    
+    height: 20rem;
+    width: 60%;
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+    margin-left: 8rem;
+}
+.text{
+    font-weight: bold;
+    font-size: 1.35rem;
+    margin-top: 4rem;
+    margin-left: 31%;
+}
+.button{
+    margin-top: -5rem;
+    margin-left: 37%;
+    box-shadow: none;
+    
+    height: 60px;
+    width: 178px;
+    border-radius: 16px;
+    background-color: #BFD8AF;
+    border-color: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #00582F;
+}
+.name{
+   
+    height: 33%;
+ 
+}
+.email{
+ 
+    height: 33%;
+    margin-top: 10px;
+ 
+ 
+}
+.password{
+    margin-top: 10px;
+    height: 33%;
+ 
+}
+
+.smiley{
+    /* height: 128px; */
+    margin-top: 2.7rem;
+    width:128px;
+    margin-left: 40%;
+}
+.smiley img {
+    width: 100%;
+}
+img[alt="res"] {
+    width: 100%;
+    height: 647px;
+}
+#typing{
+    width: 100%;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    margin-top: 1rem;
+    height: 30px;
+}
+.button:hover{
+    background-color: rgb(230, 230, 158);
+}

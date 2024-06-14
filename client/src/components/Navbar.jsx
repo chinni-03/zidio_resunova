@@ -17,11 +17,13 @@ function Navbar() {
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li class="nav-item nav-right">
-                                        <a class="nav-link" aria-current="page" href="#">Get started</a>
+                                        <a class="nav-link" aria-current="page" href="/signup">Get started</a>
                                     </li>
                                 </ul>
                                 <form class="d-flex nav-btn" role="search">
-                                    <button class="btn" type="submit"><img className="enter" src="/../../images/enter.png" alt="" /></button>
+                                    <button class="btn" type="submit">
+                                        <img className="enter" src="/../../images/enter.png" alt="" />
+                                        </button>
                                 </form>
                             </div>
                         </div>

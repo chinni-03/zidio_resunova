@@ -1,17 +1,20 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Homepage from './components/homepage/Homepage';
+import { Signup } from './components/Signuppage/Signup';
+import { FormProvider } from './context/Form';
 
 function App() {
   return (
-    <Router>
       <div>
+      <FormProvider>
         <Routes>
           <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/signup" element={<Signup />} />
         </Routes>
+        </FormProvider>
       </div>
-    </Router>
   );
 }
 
