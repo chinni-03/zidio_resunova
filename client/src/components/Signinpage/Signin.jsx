@@ -5,8 +5,6 @@ import happy from '../../assets/images/happy.png';
 import logo from '../../assets/images/resunova-logo.png';
 
 export default function Signin() {
-
-export default function Signin() {
     
     useEffect(() => {
         document.title = "Sign In"
