@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import enter from '../assets/images/enter.png';
+import logo from '../assets/images/resunova-logo.png';
 
 function Navbar() {
     return (
@@ -8,7 +10,7 @@ function Navbar() {
                 <nav class="navbar navbar-expand-lg bg-light-green">
                     <div class="container-fluid">
                         <div className="fit-content">
-                            <img src="/../../images/resunova-logo.png" alt="resunova-logo" />
+                            <img src={logo} alt="resunova-logo" />
                             <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
                         </div>
                         <div className="right-nav">
@@ -24,7 +26,7 @@ function Navbar() {
                                 <form class="d-flex nav-btn" role="search">
                                     <Link to={'/signup'}>
                                         <button class="btn" type="submit">
-                                            <img className="enter" src="/../../images/enter.png" alt="" />
+                                            <img className="enter" src={enter} alt="" />
                                         </button>
                                     </Link>
                                 </form>

@@ -4,6 +4,7 @@ import happy from "../../assets/images/happy.png";
 import { useForm } from "../../context/Form";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
+import logo from '../../assets/images/resunova-logo.png'
 
 
 export const Signup = ()=>{
@@ -11,7 +12,7 @@ export const Signup = ()=>{
 
     const margin = {
         marginLeft: "1rem",
-        marginTop: ".5rem",
+        marginTop: "-.05rem",
         fontWeight: 600
     }
 
@@ -28,7 +29,7 @@ export const Signup = ()=>{
                 </div> */}
                 <a href="/" class="resutext">
                     <div className="fit-content">
-                        <img src="/../../images/resunova-logo.png" style={margin} alt="resunova-logo" />
+                        <img src={logo} style={margin} alt="resunova-logo" />
                         <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
                     </div>
                 </a>

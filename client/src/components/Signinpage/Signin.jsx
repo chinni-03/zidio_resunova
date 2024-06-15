@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const SigniIn = ()=>{
+export default function Signin() {
     
     useEffect(() => {
         document.title = "Sign In"
