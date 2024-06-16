@@ -1,0 +1,128 @@
+*{
+    /* height: 100vh; */
+    border: border-box;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+.head{
+ 
+    height: 7.3%;
+    margin-top: 3%;
+    display: flex;
+}
+.resulogo{
+    height: 100%;
+    width: 3.6%;
+    margin-left: 4.2%;
+    margin-top: 0.55%;
+}
+.logo{
+    /* background-image: url(resunova-logo.png); */
+    height: 1.7rem;
+    width: 1.8rem;
+    background-size: cover;
+    margin-left: 15%;
+
+}
+.resutext{
+    color: #00582f;
+    margin-left: 1.5%;
+    font-weight:625;
+    margin-top: 0.65%;
+
+}
+.button{
+    height: 100%;
+    width:10%;
+    border-radius: 1rem;
+    background-color: #BFD8AF;
+    border: transparent;
+    margin-left: 65%;
+    margin-bottom: 3%;
+}
+#sign{
+    color: #00582f;
+    font-weight: 650;
+    margin-top: 10%;
+}
+.userlogo{
+
+    height: 100%;
+    width: 3.6%;
+    margin-left: 3%
+}
+.userL{
+    /* background-image: url(user.png); */
+    height: 2.7rem;
+    width: 2.7rem;
+    background-size: cover;
+}
+.bigtext{
+
+    margin-top: 6%;
+    height: 7%;
+}
+#create{
+    color: #00582f;
+    font-size: x-large;
+    font-weight: 600;
+    margin-left: 38%;
+}
+.product{
+    height: 40%;
+    margin-top: 4%;
+    display: flex;
+}
+.resume{
+    background-color:#BFD8AF;
+    height: 100%;
+    width: 30%;
+    border-radius: 24px;
+    margin-left: 15%;
+}
+.coverletter{
+    background-color: #00582f;
+    height: 100%;
+    width: 30%;
+    border-radius: 24px;
+    margin-left: 10%;
+}
+.reslogo{
+   
+    height: 50%;
+    width: 30%;
+    margin-top: 12%;
+    margin-left: 35%;
+}
+.logo1{
+    /* background-image: url(resume.png); */
+    height: 7rem;
+    width: 7rem;
+    background-size: cover;
+}
+.restext{
+    margin-left: 42.3%;
+    color: #00582f;
+    font-weight: 620;
+    margin-top: 0.8%;
+}
+.covlogo{
+   
+    height: 50%;
+    width: 30%;
+    margin-top: 12.5%;
+    margin-left: 37%;
+}
+.logo2{
+    /* background-image: url(cover-letter.png); */
+    height: 6rem;
+    width: 6rem;
+    background-size: cover;
+}
+.covtext{
+    margin-left: 38.2%;
+    color: #BFD8AF;
+    font-weight: 620;
+    margin-top : 0.8%;
+}
+

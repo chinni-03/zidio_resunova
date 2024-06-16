@@ -11,6 +11,7 @@ import EduDetails from './components/Builder/EduDetails';
 import SkillDetails from './components/Builder/SkillDetails';
 import AwardDetails from './components/Builder/AwardDetails';
 import Add from './components/Builder/Add';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/skills" element={<SkillDetails />} />
           <Route path="/awards" element={<AwardDetails />} />
           <Route path="/add-section" element={<Add />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </FormProvider>
       </div>
