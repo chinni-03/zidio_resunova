@@ -3,9 +3,11 @@ import '../Signinpage/Signin.css';
 import resume from '../../assets/images/harshini_resume.png';
 import happy from '../../assets/images/happy.png';
 import logo from '../../assets/images/resunova-logo.png';
+import { useForm } from "../../context/Form";
+import { ToastContainer } from "react-toastify";
 
 export default function Signin() {
-    
+    const {usersignIn,setUsersignIn, handleSignIn} = useForm();
     useEffect(() => {
         document.title = "Sign In"
     })
@@ -38,22 +40,29 @@ export default function Signin() {
                     <div class="email">
                         <p>Email Address</p>
                         <div class="input-box">
-                            <input type="email" placeholder="Enter Your Email Address" id="typing"/>
+                        <input type="email" 
+                            value={usersignIn.email}
+                            onChange={(e)=>setUsersignIn({...usersignIn, email: e.target.value})}
+                            placeholder="Enter Your Email Address" id="typing"/>
                         </div>
                     </div>
                     <div class="password">
                         <p>Password</p>
                         <div class="input-box">
-                            <input type="password" placeholder="Enter Your Password" id="typing"/>
+                        <input type="password"
+                            value={usersignIn.password} 
+                            onChange={(e)=>setUsersignIn({...usersignIn, password: e.target.value})}
+                            placeholder="Enter Your Password" id="typing"/>
                         </div>
                     </div>
-                    <button class="button">
+                    <button class="button" type="submit" onClick={handleSignIn}> 
                             <p id="sign">
                                 Sign In
                             </p>
                     </button>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
         </>
     )
