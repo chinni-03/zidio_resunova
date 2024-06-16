@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Panel from "./Panel";
-import CustomForm from "./CustomForm";
 import Resume from "./Resume";
+import GetStartedBtn from "../homepage/GetStartedBtn";
 
 export default function ExpDetails() {
 
@@ -57,6 +57,7 @@ export default function ExpDetails() {
                         </div>
                     );
                     })}
+                    <GetStartedBtn extraClass="add" btn="Add more" />
                 </div>
             </div>
             <div className="res-parent">

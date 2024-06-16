@@ -2,7 +2,7 @@ import React from "react";
 import Contact from "./Contact";
 import Skills from "./Skills";
 import Education from "./Education";
-import Profile from "./Profile";
+import Summary from "./Summary";
 import Experience from "./Experience";
 
 export default function Resume(details) {
@@ -21,7 +21,7 @@ export default function Resume(details) {
                         <Education />
                     </div>
                     <div className="right-col">
-                        <Profile />
+                        <Summary />
                         <Experience />
                     </div>
                 </div>

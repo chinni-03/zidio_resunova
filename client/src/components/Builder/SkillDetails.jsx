@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Panel from "./Panel";
-import CustomForm from "./CustomForm";
 import Resume from "./Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 
@@ -13,13 +12,6 @@ export default function SkillDetails() {
 
     const details = {
         skill: "Skill"
-    }
-
-    const addSkill = () => {
-        return <>
-        <label htmlFor="skill" className="resume-label">Skill</label>
-        <input className="resume-input" type='text' id="skill" name="skill" placeholder="Skill" />
-        </>
     }
 
     return (
@@ -59,7 +51,7 @@ export default function SkillDetails() {
                         </div>
                     );
                     })}
-                    <GetStartedBtn onClick={addSkill()} extraClass="add" btn="Add more" />
+                    <GetStartedBtn extraClass="add" btn="Add more" />
                 </div>
             </div>
             <div className="res-parent">

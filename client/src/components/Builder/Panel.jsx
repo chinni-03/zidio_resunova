@@ -5,7 +5,6 @@ import edu from '../../assets/images/mortarboard.png';
 import skills from '../../assets/images/skills.png';
 import awards from '../../assets/images/medal.png';
 import exp from '../../assets/images/portfolio.png';
-import plus from '../../assets/images/plus.png';
 import { Link } from "react-router-dom";
 
 export default function Panel(props) {
@@ -18,7 +17,6 @@ export default function Panel(props) {
                 <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
                 <Link to={'/skills'}><PanelItem img={skills} /></Link>
                 <Link to={'/awards'}><PanelItem img={awards} /></Link>
-                <Link to={'/add'}><PanelItem img={plus} /></Link>       {/* to do */}
             </>
         } else if(props.page == "exp") {
             return <>
@@ -27,7 +25,6 @@ export default function Panel(props) {
                 <Link to={'/experience-details'}><PanelItem extraClass="selected" img={exp} /></Link>
                 <Link to={'/skills'}><PanelItem img={skills} /></Link>
                 <Link to={'/awards'}><PanelItem img={awards} /></Link>
-                <Link to={'/add'}><PanelItem img={plus} /></Link>
             </>
         } else if(props.page == "edu") {
             return <>
@@ -36,7 +33,6 @@ export default function Panel(props) {
                 <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
                 <Link to={'/skills'}><PanelItem img={skills} /></Link>
                 <Link to={'/awards'}><PanelItem img={awards} /></Link>
-                <Link to={'/add'}><PanelItem img={plus} /></Link>
             </>
         } else if(props.page == "skills") {
             return <>
@@ -45,7 +41,6 @@ export default function Panel(props) {
                 <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
                 <Link to={'/skills'}><PanelItem extraClass="selected" img={skills} /></Link>
                 <Link to={'/awards'}><PanelItem img={awards} /></Link>
-                <Link to={'/add'}><PanelItem img={plus} /></Link>
             </>
         } else if(props.page == "awards") {
             return <>
@@ -54,16 +49,6 @@ export default function Panel(props) {
                 <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
                 <Link to={'/skills'}><PanelItem img={skills} /></Link>
                 <Link to={'/awards'}><PanelItem extraClass="selected" img={awards} /></Link>
-                <Link to={'/add'}><PanelItem img={plus} /></Link>
-            </>
-        } else if(props.page == "add") {
-            return <>
-                <Link to={"/personal-details"}><PanelItem link="" img={profile} /></Link>
-                <Link to={'/education-details'}><PanelItem img={edu} /></Link>
-                <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
-                <Link to={'/skills'}><PanelItem img={skills} /></Link>
-                <Link to={'/awards'}><PanelItem img={awards} /></Link>
-                <Link to={'/add'}><PanelItem extraClass="selected" img={plus} /></Link>
             </>
         }
     }

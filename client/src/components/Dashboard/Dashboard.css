@@ -4,12 +4,6 @@
     margin: 0;
     font-family: "Open Sans", sans-serif;
 }
-.head{
- 
-    height: 7.3%;
-    margin-top: 3%;
-    display: flex;
-}
 .bigtext{
     margin-top: 5rem;
     margin-bottom: 5rem;
@@ -26,15 +20,6 @@
     display: flex;
     justify-content: space-evenly;
 }
-.cards:first-child{
-    background-color:#BFD8AF;
-}
-.cards:last-child {
-    background: #00582f;
-}
-.dash {
-    height: 90vh;
-}
 .cards {
     display: flex;
     flex-direction: column;
@@ -43,18 +28,13 @@
     width: 30%;
     padding: 4rem 2rem;
     border-radius: 1rem;
+    background-color:#BFD8AF;
 }
 .caption{
     color: #00582f;
     font-weight: 620;
     margin-top: 1rem;
 }
-.cov {
-    color: #BFD8AF;
-}
-.logo2{
-    /* background-image: url(cover-letter.png); */
-    height: 6rem;
-    width: 6rem;
-    background-size: cover;
+.dash {
+    height: 90vh;
 }

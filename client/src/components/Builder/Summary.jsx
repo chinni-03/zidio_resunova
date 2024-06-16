@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Profile() {
+export default function Summary() {
     return (
         <>
         <p className="section head">Education</p>
         <hr className="hr-mira" />
-        <p className="profile">Social Media Morkeling Specialist. uliizing my S+ years of
+        <p className="profile-desc head">Social Media Morkeling Specialist. uliizing my S+ years of
 experience in creating and executing successiul social
 media compaigns. developing engaging content,
 ‘analyzing and reporling on campaign perfomance. ond

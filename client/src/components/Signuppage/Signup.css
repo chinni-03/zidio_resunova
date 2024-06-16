@@ -9,16 +9,22 @@
 html {
     height: 100%;
     min-height: 100vh;
-    /* overflow: hidden; */
     padding: 0;
     margin: 0;
 }
 
-#div1, #div2 {
-    height: 100vh;
-    /* overflow: hidden; */
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+#div1, #div2 {
+    height: 100vh;
+}
+#typing {
+    margin-left: 0;
+}
 #div2 {
     display: flex;
     flex-direction: column;
@@ -60,7 +66,6 @@ img[alt="res"] {
     background-size: cover;
 }
 .resutext{
-    padding-left: 13px;
     font-weight: bold;
     font-size: 1.16rem;
     color: #00582F;
@@ -72,9 +77,9 @@ img[alt="res"] {
     float: right;
 }
 .logincon{
-    height: 20rem;
     width: 60%;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 .logincon p {
     margin-bottom: 0;
@@ -86,12 +91,8 @@ img[alt="res"] {
 }
 .button{
     box-shadow: none;
-    height: 60px;
-    width: 178px;
     border-radius: 16px;
     background-color: #BFD8AF;
-    font-size: 1.1rem;
-    font-weight: bold;
     color: #00582F;
     border: 2px solid;
     border-color: var(--light-green);
@@ -113,7 +114,7 @@ input {
 }
 
 .signup-email, .signup-password{
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .smiley{
@@ -152,4 +153,13 @@ button {
     background-color: transparent;
     border: 2px solid;
     border-color: var(--light-green);
+}
+
+.login-link {
+    text-decoration: underline;
+    color: rgb(92, 92, 255);
+    font-size: smaller;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }

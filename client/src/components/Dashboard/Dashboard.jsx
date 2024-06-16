@@ -28,13 +28,6 @@ export default function Dashboard() {
                     <div class="caption">Resume
                     </div>
                 </div>
-                <div class="cards">
-                    <div class="covlogo">
-                        <img src={letter} alt="" className="logo2" />
-                    </div>
-                    <div class="caption cov">Cover-Letter
-                    </div>
-                </div>
             </div>
         </div>
         <Footer />

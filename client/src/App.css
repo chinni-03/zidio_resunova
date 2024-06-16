@@ -371,6 +371,8 @@ img[alt="tilted-resume"] {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  color: var(--dark-green);
+  font-size: large;
 }
 
 .logo-plain {
@@ -393,6 +395,7 @@ img[alt="profile"] {
   width: 70%;
   margin: auto 0 auto auto;
   justify-content: space-between;
+  padding-left: .75rem;
 }
 
 .main-page {
@@ -401,6 +404,9 @@ img[alt="profile"] {
   margin: 0;
   margin-top: 2rem;
 }
+
+/* panel */
+
 .panel {
   display: flex;
   flex-direction: column;
@@ -432,6 +438,8 @@ img[alt="profile"] {
   border-color: transparent;
 }
 
+/* form */
+
 .main-page form {
   padding: 2rem;
 }
@@ -460,6 +468,8 @@ img[alt="profile"] {
   margin-top: 1rem;
   font-weight: bold;
 }
+
+/* resume 1 */
 
 .resume-label {
   width: 50%;
@@ -527,7 +537,6 @@ img[alt="profile"] {
   height: 85%;
   justify-content: space-between;
 }
-
 .res-content .left-col {
   width: 25%;
 }
@@ -536,17 +545,24 @@ img[alt="profile"] {
   width: 70%;
 }
 
-.res-content .head {
+.res-content .head, .prof-head {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 
 .res-content p:not(.head) {
   margin-bottom: 0;
 }
 
-.section {
+.profile-desc.head {
   margin-bottom: 1rem;
+  text-transform: none;
+  font-weight: normal;
+}
+
+.section {
+  margin-bottom: .5rem;
 }
 
 ul.skills {
@@ -563,13 +579,12 @@ ul.skills {
 }
 
 .add {
-  background: transparent;
-  transform: scale(0.75);
-  margin: 0 0 0 auto;
+  margin: auto 0 auto auto;
+  margin-top: 1rem;
 }
 
-.add:hover {
-  background: var(--light-green);
+.company {
+  font-style: italic;
 }
 
 

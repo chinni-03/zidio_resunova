@@ -48,13 +48,13 @@ img[alt="smile"]
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 #typing{
     width: 100%;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
-    height: 30px;
 }
 .signin-email {
     margin-top: 2rem;
@@ -62,13 +62,6 @@ img[alt="smile"]
 .signin-password {
     margin-top: 2rem;
 }
-button {
-    outline: none;
-    border: none;
-    background: none;
-    margin: 0 auto;
-}
-
 .w-30 {
     width: 30%;
 }

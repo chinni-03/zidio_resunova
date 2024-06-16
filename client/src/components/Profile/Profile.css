@@ -5,34 +5,18 @@
     font-family: "Open Sans", sans-serif;
 }
 .profile-page {
-    height: 100vh;
-}
-.head{
- 
-    height: 7.3%;
-    margin-top: 3%;
+    height: 90vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.resulogo{
-    height: 100%;
-    width: 3.6%;
-    margin-left: 4.2%;
-    margin-top: 0.55%;
-}
-.logo{
-    
-    height: 1.7rem;
-    width: 1.8rem;
-    background-size: cover;
-    margin-left: 15%;
-
-}
-.resutext{
-    color: #00582f;
-    margin-left: 1.5%;
-    font-weight:625;
-    margin-top: 0.65%;
-
+.profile-det {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;    
 }
 .button{
     height: 100%;
@@ -43,126 +27,42 @@
     margin-left: 65%;
     margin-bottom: 3%;
 }
-#sign{
-    color: #00582f;
-    font-weight: 650;
-    margin-top: 10%;
-}
-.userlogo{
-
-    height: 100%;
-    width: 3.6%;
-    margin-left: 3%
-}
-.userL{
-    height: 2.7rem;
-    width: 2.7rem;
-    background-size: cover;
-}
 .biglogo{
-   
-    height: 22%;
-    margin-top: 2%;
-    display: flex;
-    justify-content: center;
-}
-.blogo{
-   
-    height: 8rem;
-    width: 8rem;
-    background-size: cover;
-   
-}
-.name{
-
-    height: 7%;
-    margin-top: 1.5%;
-    display: flex;
-    justify-content: center;
+    width: 128px;
+    margin-bottom: 1rem;
 }
 #username{
-    font-size: x-large;
-    font-weight: 625;
-}
-.email{
-
-    height: 7%;
-    margin-top: 2%;
-    display: flex;
-    
-}
-.emailtext{
-    font-size: large;
     font-weight: 600;
-    margin-left: 20%;
-    margin-top: 0.5%;
-
+    font-size: x-large;
+}
+.profile-name {
+    margin-bottom: 3rem;
+}
+.input-box-profile {
+    margin: auto auto auto 0;
+    margin-left: 1rem;
+    width: 40%;
+}
+.profile-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.profile-section input {
+    width: 50%;
+}
+.profile-label {
+    width: 20%;
 }
 #typing{
-    width: 160%;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
     border-bottom: 1px solid black;
-    height: 2rem;
-    margin-left: 20%;
-    margin-top: 2.6%;
-
 }
-.emailbutton{
-    height: 100%;
-    width:15%;
-    border-radius: 1rem;
-    background-color: #BFD8AF;
-    border: transparent;
-    margin-left: 15%;
-}
-#changeemail{
-    color: #00582f;
-    margin-top: 4.5%;
-    font-weight: 680;
-}
-.password{
-
+.blank {
     height: 7%;
     margin-top: 1%;
-    display: flex;
-}
-.passtext{
-    font-size: large;
-    font-weight: 600;
-    margin-left: 23%;
-    margin-top: 0.9%;
-}
-.passbutton{
-    height: 100%;
-    width:15%;
-    border-radius: 1rem;
-    background-color: #BFD8AF;
-    border: transparent;
-    margin-left: 15%;
-}
-#showpass{
-    color: #00582f;
-    margin-top: 4.5%;
-    font-weight: 680;
-}
-.blank{
-
-    height: 7%;
-    margin-top: 1%;
-    
-}
-.changepassbutt{
-    height: 100%;
-    width:15%;
-    border-radius: 1rem;
-    background-color: #BFD8AF;
-    border: transparent;
-    margin-left: 57.7%;
-}
-#changepass{
-    color: #00582f;
-    margin-top: 4.5%;
-    font-weight: 680;
 }

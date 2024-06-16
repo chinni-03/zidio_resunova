@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import logo from '../../assets/images/resunova-logo.png'
 import GetStartedBtn from "../homepage/GetStartedBtn";
+import { Link } from "react-router-dom";
 
 
 export const Signup = ()=>{
@@ -25,13 +26,15 @@ export const Signup = ()=>{
         <>
         <div id="div1">
             <div class="resu">
-                <a href="/" class="resutext">
-                    <div className="fit-content">
-                        <img src={logo} style={margin} alt="resunova-logo" />
-                        <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
-                    </div>
-                </a>
-            </div>
+                    <a href="/" class="resutext">
+                        <Link to={'/'}>
+                            <div className="fit-content">
+                                <img src={logo} style={margin} alt="resunova-logo" />
+                                <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
+                            </div>
+                        </Link>
+                    </a>
+                </div>
             <div class="template">
                 <img src={mainimage} alt="res"/>
             </div>
@@ -71,6 +74,7 @@ export const Signup = ()=>{
                     name="password" placeholder="Enter Your Password" id="typing"/>
                 </div>
             </div>
+            <Link to={'/signin'} className="login-link"><p>Already a part of the family? Hop in!</p></Link>
         </div>
             <button type="submit" className="w-20" onClick={handleSignUp}>
                 <GetStartedBtn extraClass="w-100" btn="Sign up" />

@@ -4,6 +4,7 @@ import mail from '../assets/images/mail.png';
 import copyright from '../assets/images/copyright.png';
 import send from '../assets/images/send.png';
 import next from '../assets/images/next.png';
+import { Link } from "react-router-dom";
 
 function Footer() {
     return(
@@ -14,25 +15,26 @@ function Footer() {
                     <p className="fb-caption">Got a feedback? Drop them here</p>
                     <img src={next} alt="next" />
                 </div>
-                <a href="#" className="fb-station">
+                <Link to={'/feedback'} className="fb-station">
                     <p>Feedback Station</p>
                     <img src={send} alt="fb" />
-                </a>
+                </Link>
             </div>
             <div className="mission">
                 <div className="mission-txt">
-                    <div className="logo">
-                        <img src={logo} alt="logo" />
-                        <a href="/" className="navbar-brand brand fit-content">ResuNova</a>
-                    </div>
+                    <Link to={'/'}>
+                        <div className="footer-logo">
+                            <img src={logo} alt="logo" />
+                            <a href="/" className="navbar-brand brand fit-content">ResuNova</a>
+                        </div>
+                    </Link>
                     <div className="txt">We are indie developers based in India. <br />
                     Our mission: Empower job seekers worldwide. Make their journey smoother and more successful.</div>
                 </div>
                 <div className="tools">
                     <p>Career Tools</p>
                     <ul>
-                        <li>Resume Builder</li>
-                        <li>Pricing</li>
+                        <Link to={'/personal-details'}><li>Resume Builder</li></Link>
                     </ul>
                 </div>
             </div>
