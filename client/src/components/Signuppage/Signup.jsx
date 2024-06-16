@@ -5,6 +5,7 @@ import { useForm } from "../../context/Form";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import logo from '../../assets/images/resunova-logo.png'
+import GetStartedBtn from "../homepage/GetStartedBtn";
 
 
 export const Signup = ()=>{
@@ -24,9 +25,6 @@ export const Signup = ()=>{
         <>
         <div id="div1">
             <div class="resu">
-                {/* <div class="resulogo">
-                    <div class="logo"></div>
-                </div> */}
                 <a href="/" class="resutext">
                     <div className="fit-content">
                         <img src={logo} style={margin} alt="resunova-logo" />
@@ -46,7 +44,7 @@ export const Signup = ()=>{
             <img src={happy} alt="smile" />
         </div>
         <div class="logincon">
-            <div class="name">
+            <div class="signup-name">
                 <p>Name</p>
                 <div class="input-box">
                     <input type="text" name="name"
@@ -55,7 +53,7 @@ export const Signup = ()=>{
                     placeholder="Enter Your Full Name" id="typing"/>
                 </div>
             </div>
-            <div class="email">
+            <div class="signup-email">
                 <p>Email</p>
                 <div class="input-box">
                     <input type="email"
@@ -64,7 +62,7 @@ export const Signup = ()=>{
                     name="email" placeholder="Enter Your Email Address" id="typing"/>
                 </div>
             </div>
-            <div class="password">
+            <div class="signup-password">
                 <p>Password</p>
                 <div class="input-box">
                     <input type="password"
@@ -74,8 +72,8 @@ export const Signup = ()=>{
                 </div>
             </div>
         </div>
-            <button class="button" type="submit" onClick={handleSignUp}>
-                Sign Up
+            <button type="submit" className="w-20" onClick={handleSignUp}>
+                <GetStartedBtn extraClass="w-100" btn="Sign up" />
             </button>
             <ToastContainer/>
         </div>
