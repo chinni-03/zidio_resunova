@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    border: border box;
+    font-family: "Open Sans", sans-serif;
+}
+.feedback-page {
+    height: 100vh;
+}
+.heading1{
+ 
+    height: 2rem;
+    margin-top: 1.5rem;
+    display: flex;
+}
+.resulogo{
+  
+    height: 1.5rem;
+    width: 2rem;
+    margin-left: 2.4rem;
+}
+.logo{
+    
+    height: 2rem;
+    width: 2rem;
+    background-size: cover;
+}
+.resutext{
+    margin-top: 0.15rem;
+    margin-left: 2rem;
+    font-size: large;
+    font-weight: bold;
+    color: #00582F;
+}
+.heading2{
+
+    height: 1.8rem;
+    margin-top: 2.5rem;
+    font-size: x-large;
+    padding-left: 23%;
+    color: #00582F;
+    font-weight: bold;
+}
+.infocol{
+  
+    margin-top: 2.2rem;
+    height: 18rem;
+    margin-left: 23%;
+    margin-right: 22.7%;
+
+}
+#typing{
+    width: 100%;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    margin-top: 1.8rem;
+    height: 30px;
+}
+#log{
+    padding-top: 1rem;
+}
+.button{
+    height: 3.75rem;
+    width:19.25rem;
+    border-radius: 16px;
+    background-color: #BFD8AF;
+    border-color: transparent;
+    margin-left: 28.5%;
+    margin-top: 2rem;
+}
+#drop{
+    font-size: medium;
+    font-weight: 650;
+    color: #00582F;
+}
