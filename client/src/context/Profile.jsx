@@ -1,16 +1,14 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const DashboardContext = createContext();
+const ProfileContext = createContext();
 
-export const useDashboard = ()=>{
-    const value = useContext(DashboardContext);
+export const useProfile = ()=>{
+    const value = useContext(ProfileContext);
     return value
 }
 
-export const DashboardProvider = ({children})=>{
-    const navigate = useNavigate();
+export const ProfileProvider = ({children})=>{
     const [data, setData] = useState(null);
 
         const loggedIn = async (id)=>{
@@ -39,14 +37,10 @@ export const DashboardProvider = ({children})=>{
             }
         }
      // Only fetch data if data is null (to prevent infinite loop
-     const checkexpiry = () => {
-        localStorage.removeItem("token");
-        navigate("/signin")
-    }
     
     return(
-        <DashboardContext.Provider value={{data, loggedIn, checkexpiry}}>
+        <ProfileContext.Provider value={{data, loggedIn}}>
             {children}
-        </DashboardContext.Provider>
+        </ProfileContext.Provider>
     )
 }

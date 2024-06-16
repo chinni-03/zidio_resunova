@@ -15,6 +15,7 @@ export const FormProvider = ({ children }) => {
     const navigate = useNavigate()
     const [userdata, setUserData] = useState({ name: "", email: "", password: "" });
     const [usersignIn, setUsersignIn] = useState({ email: "", password: "" });
+    const [userlogged, setUserloggedIn] = useState([])
 
     const handleSignUp = async () => {
         try {
@@ -53,6 +54,7 @@ export const FormProvider = ({ children }) => {
             const { email, password } = usersignIn;
             if (email === "" || password === "") {
                 toast.warn("input section should not be empty!!");
+                console.log("here")
                 return;
             }
             const response = await axios.post("/user/signin", { email, password });
@@ -60,7 +62,10 @@ export const FormProvider = ({ children }) => {
                 const token = response.data.token
                 localStorage.setItem("token", token);
                 const decodedToken = jwtDecode(token);
-                navigate(`/dashboard/${decodedToken._id}`)
+                setUserloggedIn([decodedToken])
+                const tokenexpiry = decodedToken.exp * 1000;
+                localStorage.setItem("expiry", tokenexpiry)
+                navigate(`/profile/${decodedToken._id}`)
             } else {
                 toast.error(response.data.message)
             }
@@ -75,10 +80,16 @@ export const FormProvider = ({ children }) => {
         }
     }
 
+    const checkexpiry = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("expiry");
+        navigate("/signin")
+    }
+
     return (
         <FormContext.Provider value={{
             userdata, setUserData, handleSignUp, usersignIn,
-            setUsersignIn, handleSignIn
+            setUsersignIn, handleSignIn, checkexpiry, userlogged
         }}>
             {children}
         </FormContext.Provider>

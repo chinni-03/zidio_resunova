@@ -4,7 +4,7 @@ import GetStartedBtn from "../homepage/GetStartedBtn";
 import profile from '../../assets/images/user.png';
 import logo from '../../assets/images/resunova-logo.png';
 
-export default function Nav({data, checkexpiry}) {
+export default function Nav() {
     return (
         <>
         <div className="nav">
@@ -16,12 +16,11 @@ export default function Nav({data, checkexpiry}) {
                             <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
                         </div>
                         <div className="right-nav">
-                            <span>{data?.name}</span>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent" onClick={checkexpiry}>
-                                <GetStartedBtn extraClass="sign-out" btn="Sign out" />
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <Link to={'/signin'}><GetStartedBtn extraClass="sign-out" btn="Sign out" /></Link>
                                 <img src={profile} alt="profile" />
                             </div>
                         </div>
