@@ -1,4 +1,9 @@
 import React from "react";
+import logo from '../assets/images/resunova-logo.png';
+import mail from '../assets/images/mail.png';
+import copyright from '../assets/images/copyright.png';
+import send from '../assets/images/send.png';
+import next from '../assets/images/next.png';
 
 function Footer() {
     return(
@@ -7,17 +12,17 @@ function Footer() {
             <div className="feedback">
                 <div className="caption">
                     <p className="fb-caption">Got a feedback? Drop them here</p>
-                    <img src="/../../images/next.png" alt="next" />
+                    <img src={next} alt="next" />
                 </div>
                 <a href="#" className="fb-station">
                     <p>Feedback Station</p>
-                    <img src="/../../images/send.png" alt="fb" />
+                    <img src={send} alt="fb" />
                 </a>
             </div>
             <div className="mission">
                 <div className="mission-txt">
                     <div className="logo">
-                        <img src="/../../images/resunova-logo.png" alt="logo" />
+                        <img src={logo} alt="logo" />
                         <a href="/" className="navbar-brand brand fit-content">ResuNova</a>
                     </div>
                     <div className="txt">We are indie developers based in India. <br />
@@ -33,10 +38,10 @@ function Footer() {
             </div>
             <div className="contact">
                 <p className="contact-caption">Got queries? Drop a mail right away!</p>
-                <a href="mailto:support@resunova.com">support@resunova.com <img src="/../../images/mail.png" alt="" /></a>
+                <a href="mailto:support@resunova.com">support@resunova.com <img src={mail} alt="" /></a>
             </div>
             <div className="copyright">
-                <img src="/../../images/copyright.png" alt="copyright" />
+                <img src={copyright} alt="copyright" />
                 <p>2024 Harshini Vijendra Kumar (to be changed)</p> {/* to be changed */}
             </div>
         </div>

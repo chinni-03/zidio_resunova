@@ -1,4 +1,8 @@
 import React from "react";
+import creative from '../../assets/images/creative.png';
+import font from '../../assets/images/font-size.png';
+import time from '../../assets/images/time-left.png';
+import ease from '../../assets/images/easy-to-use.png';
 
 function Band() {
     return (
@@ -9,7 +13,7 @@ function Band() {
                     <div class="col">
                     <div className="features">
                         <div className="circle">
-                            <img src="/../../images/creative.png" alt="" />
+                            <img src={creative} alt="" />
                         </div>
                         <p>Creative Design</p>
                     </div>
@@ -17,7 +21,7 @@ function Band() {
                     <div class="col">
                         <div className="features">
                             <div className="circle">
-                                <img src="/../../images/font-size.png" alt="" />
+                                <img src={font} alt="" />
                             </div>
                             <p>Various Fonts</p>
                         </div>
@@ -25,7 +29,7 @@ function Band() {
                     <div class="col">
                         <div className="features">
                             <div className="circle">
-                                <img src="/../../images/time-left.png" alt="" />
+                                <img src={time} alt="" />
                             </div>
                             <p>Time-saving</p>
                         </div>
@@ -33,7 +37,7 @@ function Band() {
                     <div class="col">
                         <div className="features">
                             <div className="circle">
-                                <img src="/../../images/easy-to-use.png" alt="" />
+                                <img src={ease} alt="" />
                             </div>
                             <p>Easy to use</p>
                         </div>

@@ -362,6 +362,217 @@ img[alt="tilted-resume"] {
   margin-left: 1rem;
 }
 
+/* personal details */
+.plain {
+  background: transparent;
+}
+
+.plain-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logo-plain {
+  display: flex;
+  align-items: center;
+}
+
+.sign-out {
+  width: fit-content;
+  font-size: .8rem;
+  padding:.5rem 1.5rem;
+}
+
+img[alt="profile"] {
+  width: 20%;
+}
+
+.plain-bar .navbar-collapse {
+  display: flex;
+  width: 70%;
+  margin: auto 0 auto auto;
+  justify-content: space-between;
+}
+
+.main-page {
+  display: flex;
+  height: 86vh;
+  margin: 0;
+  margin-top: 2rem;
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+  height: 60%;
+  width: 10%;
+}
+
+.panel-item {
+  padding: .75rem;
+  border-radius: 16px;
+  width: 65%;
+  border: 2px solid;
+  border-color: var(--dark-green)
+}
+
+.panel-item:hover {
+  background: var(--light-green);
+  border-color: transparent;
+}
+
+.panel-item img {
+  width: 100%;
+}
+
+.selected {
+  background: var(--light-green);
+  border-color: transparent;
+}
+
+.main-page form {
+  padding: 2rem;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form {
+  padding: 2rem;
+  border: 2px solid;
+  border-color: var(--light-green);
+  border-radius: 16px;
+  height: 95%;
+  width: 90%;
+}
+
+.inputs {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.resume-label {
+  width: 50%;
+}
+
+.resume-input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid;
+  border-color: var(--light-green);
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.fillers {
+  display: flex;
+  width: 50%;
+}
+
+.res-parent {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.res {
+  width: 70%;
+  height: 95%;
+  background: #fff;
+  box-shadow: 5px 5px 5px rgb(212, 212, 212);
+  padding: 2rem;
+}
+
+.res-child {
+  height: 100%;
+  overflow: scroll;
+}
+
+.res .username, .res .des {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.res .username {
+  font-size: 16px;
+}
+
+.des {
+  font-size: 11px;
+}
+
+.hr-mira {
+  margin: -.5rem 0 .25rem 0;
+  width: 100%;
+}
+
+.hr-mira:last-child {
+  margin: -.75rem 0 0 0;
+}
+
+.res-content {
+  display: flex;
+  font-size: 10px;
+  margin-top: 1rem;
+  height: 85%;
+  justify-content: space-between;
+}
+
+.res-content .left-col {
+  width: 25%;
+}
+
+.res-content .right-col {
+  width: 70%;
+}
+
+.res-content .head {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.res-content p:not(.head) {
+  margin-bottom: 0;
+}
+
+.section {
+  margin-bottom: 1rem;
+}
+
+ul.skills {
+  list-style: none;
+  padding: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.add {
+  background: transparent;
+  transform: scale(0.75);
+  margin: 0 0 0 auto;
+}
+
+.add:hover {
+  background: var(--light-green);
+}
+
+
 
 /* responsiveness */
 
