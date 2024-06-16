@@ -13,6 +13,9 @@ import AwardDetails from './components/Builder/AwardDetails';
 import Add from './components/Builder/Add';
 import Dashboard from './components/Dashboard/Dashboard';
 import { DashboardProvider } from './context/dashboard';
+import Profile from './components/Profile/Profile';
+import Feedback1 from './components/Feedback/Feedback1';
+import Feedback2 from './components/Feedback/Feedback2';
 
 function App() {
   return (
@@ -30,6 +33,10 @@ function App() {
           <Route path="/awards" element={<AwardDetails />} />
           <Route path="/add-section" element={<Add />} />
           <Route path="/dashboard/:id" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/feedback" element={<Feedback1 />} />
+          <Route path="/feedback-submitted" element={<Feedback2 />} />
         </Routes>
         </DashboardProvider>
       </FormProvider>
