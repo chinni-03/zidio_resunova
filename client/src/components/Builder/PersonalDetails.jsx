@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Panel from "./Panel";
-import Resume from "./Resume";
+import Resume from "./Resume/Resume";
+import Resume2 from "./Resume2/Resume2";
 
 export default function PersonalDetails() {
 
@@ -62,6 +63,7 @@ export default function PersonalDetails() {
             </div>
             <div className="res-parent">
                 <Resume />
+                <Resume2 />
             </div>
         </div>
         </>

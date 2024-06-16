@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 /* custom styles */
 :root {
   --light-green: #BFD8AF;
   --dark-green: #00582F;
   --off-white: #F8F8F8;
+  --gold: #aaaa77;
 }
 
 *, *::before, *::after {
@@ -491,13 +493,18 @@ img[alt="profile"] {
 
 .res-parent {
   width: 50%;
+  height: 95%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  overflow: scroll;
+  gap: 2rem;
 }
 
 .res {
   width: 70%;
-  height: 95%;
+  height: 100%;
   background: #fff;
   box-shadow: 5px 5px 5px rgb(212, 212, 212);
   padding: 2rem;
@@ -587,6 +594,55 @@ ul.skills {
   font-style: italic;
 }
 
+/* resume 2 */
+
+.res2 .res-child {
+  margin: -2rem -2rem 0;
+}
+
+.color-name {
+  background-color: #3b4d5c;
+  color: var(--gold);
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.color-name .des {
+  margin-bottom: 0;
+}
+
+.color-name .hr-mira {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.color-name .username, .color-name .des {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 2px;
+}
+
+.res2 .res-content {
+  padding: 0 2rem 2rem;
+}
+
+.res2 hr {
+  /* background: var(--gold); */
+  border: none;
+  border-bottom: 1px solid;
+  border-color: var(--gold);
+}
+
+.res2 .left-col {
+  padding-right: .5rem;
+  border: none;
+  border-right: 1px solid;
+  border-color: var(--gold);
+}
+
+.serif, .skills.serif {
+  font-family: "Playfair Display", serif;
+  letter-spacing: .5px;
+}
 
 
 /* responsiveness */

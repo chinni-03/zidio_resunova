@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Panel from "./Panel";
 import GetStartedBtn from "../homepage/GetStartedBtn";
-import Resume from "./Resume";
+import Resume from "./Resume/Resume";
 
 export default function EduDetails() {
 

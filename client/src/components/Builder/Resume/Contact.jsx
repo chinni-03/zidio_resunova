@@ -9,6 +9,8 @@ export default function Contact() {
             <p>Phone: 1234567890</p>
             <p>email: xyz@example.com</p>
             <p>Website: www.example.com</p>
+            <p>Github: /miraks</p>
+            <p>LinkedIn: /miraks</p>
         </div>
         </>
     )
