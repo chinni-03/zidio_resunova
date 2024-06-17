@@ -21,13 +21,13 @@ export default function Nav() {
                         </Link>
                         <span>{data?.name}</span>
                         <div className="right-nav">
-                            <button class="navbar-toggler" onClick={checkexpiry}
+                            <button class="navbar-toggler"
                             type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent" onClick={checkexpiry}>
-                                <GetStartedBtn extraClass="sign-out" btn="Sign out"  />
-                                <img src={profile} alt="profile" />
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <button type="button" onClick={checkexpiry}><GetStartedBtn extraClass="sign-out" btn="Sign out" /></button>
+                                <Link to={"/profile"}><img src={profile} alt="profile" /></Link>
                             </div>
                         </div>
                     </div>
