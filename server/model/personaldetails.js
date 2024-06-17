@@ -25,12 +25,6 @@ const persondetailsschema = new mongoose.Schema({
     },
     linkedin:{
         type: String,
-    },
-    instagram:{
-        type: String
-    },
-    facebook:{
-        type: String
     }
 },{
     timestamps: true

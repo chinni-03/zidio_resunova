@@ -37,8 +37,6 @@ module.exports.updateDetails = async (req, res)=>{
         details.useremail = req.body.useremail;
         details.github = req.body.github;
         details.linkedin= req.body.linkedin;
-        details.facebook= req.body.facebook;
-        details.instagram = req.body.instagram;
         details.phone = req.body.phone;
         details.designation= req.body.designation
         await details.save();

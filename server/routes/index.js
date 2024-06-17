@@ -8,6 +8,7 @@ router.use('/personal', require("./personal"));
 router.use('/education', require("./education"));
 router.use("/skill", require("./skill"));
 router.use("/award", require("./award"));
-router.use("/feedback", require("./feedback"))
+router.use("/feedback", require("./feedback"));
+router.use("/project", require("./project"))
 
 module.exports = router;
