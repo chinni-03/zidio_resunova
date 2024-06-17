@@ -2,7 +2,15 @@ const Experience = require("../model/experience");
 
 module.exports.create = async (req, res)=>{
     try {
-        const newExperience = await Experience.create(req.body);
+        const newExperience = await Experience.create({
+            companyname: req.body.companyname,
+            position: req.body.position,
+            startyear: req.body.startyear,
+            startmonth: req.body.startmonth,
+            endyear: req.body.endyear,
+            endmonth: req.body.endmonth,
+            user: req.user._id
+        });
         return res.status(200).json({
             message: "experience is created!!",
             success: true,
@@ -55,6 +63,29 @@ module.exports.deleteExe = async (req, res) => {
         })
     } catch (err) {
         res.status(500).json({ error: 'An error occurred while deleting experience details', details: err.message });
+    }
+}
+
+module.exports.getAllDetails = async (req, res)=>{
+    try {
+        const userId = req.params.userId
+        const getAllData = await Experience.find({user: userId})
+        if(!getAllData){
+            return res.status(400).json({
+                message: "details not found or not available!!!",
+                success: false
+            })
+        }
+        return res.status(200).json({
+            message: "check resume data",
+            success: true,
+            getAllData
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error in getting all the Experience details!!",
+            error: error.message
+        })
     }
 }
 

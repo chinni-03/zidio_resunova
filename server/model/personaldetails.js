@@ -6,7 +6,7 @@ const persondetailsschema = new mongoose.Schema({
         required: true
     },
     phone:{
-        type: Number,
+        type: String,
         required: true
     },
     designation:{
@@ -25,6 +25,11 @@ const persondetailsschema = new mongoose.Schema({
     },
     linkedin:{
         type: String,
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required: true
     }
 },{
     timestamps: true
