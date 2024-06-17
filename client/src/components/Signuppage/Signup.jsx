@@ -7,10 +7,11 @@ import { useEffect } from "react";
 import logo from '../../assets/images/resunova-logo.png'
 import GetStartedBtn from "../homepage/GetStartedBtn";
 import { Link } from "react-router-dom";
+import {FaEye, FaEyeSlash} from "react-icons/fa";
 
 
 export const Signup = ()=>{
-    const {userdata, setUserData, handleSignUp} = useForm();
+    const {userdata, setUserData, handleSignUp, handleVisibility, visible} = useForm();
 
     const margin = {
         marginLeft: "1rem",
@@ -68,11 +69,12 @@ export const Signup = ()=>{
             <div class="signup-password">
                 <p>Password</p>
                 <div class="input-box">
-                    <input type="password"
+                    <input type={visible?"text":"password"}
                     value={userdata.password}
                     onChange={(e)=>setUserData({...userdata, password: e.target.value})} 
                     name="password" placeholder="Enter Your Password" id="typing"/>
                 </div>
+                {visible?<FaEye onClick={handleVisibility}/>: <FaEyeSlash onClick={handleVisibility}/>}
             </div>
             <Link to={'/signin'} className="login-link"><p>Already a part of the family? Hop in!</p></Link>
         </div>

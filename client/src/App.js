@@ -15,11 +15,13 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import Feedback1 from './components/Feedback/Feedback1';
 import Feedback2 from './components/Feedback/Feedback2';
+import { DashboardProvider } from './context/dashboard';
 
 function App() {
   return (
       <div>
       <FormProvider>
+        <DashboardProvider>
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route path="/signup" element={<Signup />} />
@@ -30,11 +32,12 @@ function App() {
           <Route path="/skills" element={<SkillDetails />} />
           <Route path="/awards" element={<AwardDetails />} />
           <Route path="/add-section" element={<Add />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/:id" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/feedback" element={<Feedback1 />} />
           <Route path="/feedback-submitted" element={<Feedback2 />} />
         </Routes>
+        </DashboardProvider>
       </FormProvider>
       </div>
   );

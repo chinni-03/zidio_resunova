@@ -6,12 +6,22 @@ import resume from '../../assets/images/resume.png';
 import letter from '../../assets/images/cover-letter.png';
 import Nav from "../Builder/Nav";
 import Footer from "../Footer";
+import { useDashboard } from "../../context/dashboard";
+import { useParams } from "react-router-dom";
 
 export default function Dashboard() {
+    const {id} = useParams();
+    const {loggedIn} = useDashboard();
 
     useEffect(() => {
         document.title = "Dashboard"
     })
+
+    useEffect(()=>{
+        if(id){
+            loggedIn(id)
+        }
+    },[id,loggedIn])
 
     return (
         <>
@@ -21,13 +31,13 @@ export default function Dashboard() {
                 <p id="create">What shall we create today?</p>
             </div>
             <div class="product">
-                <div class="cards">
+                <a class="cards" href="/personal-details">
                     <div class="resume">
                         <img src={resume} className="logo1" alt="" />
                     </div>
                     <div class="caption">Resume
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <Footer />
