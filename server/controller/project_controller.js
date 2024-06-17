@@ -2,7 +2,16 @@ const Project = require("../model/project");
 
 module.exports.create = async (req, res)=>{
     try {
-        const newProject = Project.create(req.body);
+        const newProject = Project.create({
+            title: req.body.title,
+            decription: req.body.decription,
+            company: req.body.company,
+            startmonth: req.body.startmonth,
+            startyear: req.body.startyear,
+            endmonth: req.body.endmonth,
+            endyear: req.body.endyear,
+            user: req.user._id
+        });
         return res.status(200).json({
             message: "your project hasbeen created!",
             success: true,
@@ -64,6 +73,29 @@ module.exports.delete = async (req, res)=>{
     } catch (error) {
         return res.status(500).json({
             message: "Internal server error in deleting the project!",
+            error: error.message
+        })
+    }
+}
+
+module.exports.getAllDetails = async (req, res)=>{
+    try {
+        const userId = req.params.userId
+        const getAllData = await Project.find({user: userId})
+        if(!getAllData){
+            return res.status(400).json({
+                message: "details not found or not available!!!",
+                success: false
+            })
+        }
+        return res.status(200).json({
+            message: "check resume data",
+            success: true,
+            getAllData
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error in getting all the project details!!",
             error: error.message
         })
     }

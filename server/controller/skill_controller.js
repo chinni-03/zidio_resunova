@@ -2,7 +2,10 @@ const Skill = require("../model/skill");
 
 module.exports.create = async (req, res)=>{
     try {
-        const newSkill = await Skill.create(req.body);
+        const newSkill = await Skill.create({
+            skill: req.body.skill,
+            user: req.user._id
+        });
         return res.status(200).json({
             message: "Skill has been added successfully!",
             success: true,
@@ -56,6 +59,29 @@ module.exports.delete = async (req,res)=>{
     } catch (error) {
         return res.status(500).json({
             message: "Internal error in deleting the skill!",
+            error: error.message
+        })
+    }
+}
+
+module.exports.getAllDetails = async (req, res)=>{
+    try {
+        const userId = req.params.userId
+        const getAllData = await Skill.find({user: userId})
+        if(!getAllData){
+            return res.status(400).json({
+                message: "details not found or not available!!!",
+                success: false
+            })
+        }
+        return res.status(200).json({
+            message: "check resume data",
+            success: true,
+            getAllData
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error in getting all the Skill details!!",
             error: error.message
         })
     }

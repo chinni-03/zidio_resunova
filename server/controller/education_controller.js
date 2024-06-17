@@ -2,7 +2,16 @@ const Education = require("../model/education");
 
 module.exports.createedu = async (req, res) => {
     try {
-        const createEdu = await Education.create(req.body);
+        const createEdu = await Education.create({
+            institute: req.body.institute,
+            qualification: req.body.qualification,
+            subject: req.body.subject,
+            startgradumonth: req.body.startgradumonth,
+            startgraduyear: req.body.startgraduyear,
+            endgradumonth: req.body.endgradumonth,
+            endgraduyear: req.body.endgraduyear,
+            user: req.user._id
+        });
         return res.status(200).json({
             message: "education is created",
             success: true,
@@ -56,6 +65,29 @@ module.exports.deleteEdu = async (req, res)=>{
         })
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while deleting education details', details: err.message });
+    }
+}
+
+module.exports.getAllDetails = async (req, res)=>{
+    try {
+        const userId = req.params.userId
+        const getAllData = await Education.find({user: userId})
+        if(!getAllData){
+            return res.status(400).json({
+                message: "details not found or not available!!!",
+                success: false
+            })
+        }
+        return res.status(200).json({
+            message: "check resume data",
+            success: true,
+            getAllData
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error in getting all the education details!!",
+            error: error.message
+        })
     }
 }
 
