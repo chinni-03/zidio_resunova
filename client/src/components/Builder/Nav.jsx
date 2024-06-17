@@ -26,8 +26,8 @@ export default function Nav() {
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent" onClick={checkexpiry}>
-                                <GetStartedBtn extraClass="sign-out" btn="Sign out"  />
-                                <img src={profile} alt="profile" />
+                                <Link to={'/signin'}><GetStartedBtn extraClass="sign-out" btn="Sign out"  /></Link>
+                                <Link to={'/profile'}><img src={profile} alt="profile" /></Link>
                             </div>
                         </div>
                     </div>

@@ -73,8 +73,8 @@ export const Signup = ()=>{
                     value={userdata.password}
                     onChange={(e)=>setUserData({...userdata, password: e.target.value})} 
                     name="password" placeholder="Enter Your Password" id="typing"/>
+                    <span className="eye">{visible?<FaEye onClick={handleVisibility}/>: <FaEyeSlash onClick={handleVisibility}/>}</span>
                 </div>
-                {visible?<FaEye onClick={handleVisibility}/>: <FaEyeSlash onClick={handleVisibility}/>}
             </div>
             <Link to={'/signin'} className="login-link"><p>Already a part of the family? Hop in!</p></Link>
         </div>

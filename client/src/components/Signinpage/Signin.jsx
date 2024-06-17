@@ -64,13 +64,13 @@ export default function Signin() {
                             value={usersignIn.password} 
                             onChange={(e)=>setUsersignIn({...usersignIn, password: e.target.value})}
                             placeholder="Enter Your Password" id="typing"/>
-                            {visible? <FaEye onClick={handleVisibility}/>:<FaEyeSlash onClick={handleVisibility}/>}
+                        <span className="eye">{visible? <FaEye onClick={handleVisibility}/>:<FaEyeSlash onClick={handleVisibility}/>}</span>
                         </div>
                     </div>
                     <Link to={'/signup'} className="login-link"><p>Not a part of the family? Join now!</p></Link>
                 </div>
                 <button className="w-20" type="submit" onClick={handleSignIn}> 
-                    <GetStartedBtn extraClass="w-100" btn="Sign up" />
+                    <GetStartedBtn extraClass="w-100" btn="Sign in" />
                 </button>
             </div>
             <ToastContainer/>
