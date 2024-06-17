@@ -28,6 +28,9 @@ export default function Nav() {
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <button type="button" onClick={checkexpiry}><GetStartedBtn extraClass="sign-out" btn="Sign out" /></button>
                                 <Link to={"/profile"}><img src={profile} alt="profile" /></Link>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent" onClick={checkexpiry}>
+                                <Link to={'/signin'}><GetStartedBtn extraClass="sign-out" btn="Sign out"  /></Link>
+                                <Link to={'/profile'}><img src={profile} alt="profile" /></Link>
                             </div>
                         </div>
                     </div>
