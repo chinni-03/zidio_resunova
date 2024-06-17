@@ -7,9 +7,10 @@ import { useForm } from "../../context/Form";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
 import GetStartedBtn from "../homepage/GetStartedBtn";
+import {FaEye, FaEyeSlash} from "react-icons/fa";
 
 export default function Signin() {
-    const {usersignIn,setUsersignIn, handleSignIn} = useForm();
+    const {usersignIn,setUsersignIn, handleSignIn,handleVisibility,visible} = useForm();
     useEffect(() => {
         document.title = "Sign In"
     })
@@ -59,10 +60,11 @@ export default function Signin() {
                     <div class="signin-password">
                         <p>Password</p>
                         <div class="input-box">
-                        <input type="password"
+                        <input type={visible?"text": "password"}
                             value={usersignIn.password} 
                             onChange={(e)=>setUsersignIn({...usersignIn, password: e.target.value})}
                             placeholder="Enter Your Password" id="typing"/>
+                            {visible? <FaEye onClick={handleVisibility}/>:<FaEyeSlash onClick={handleVisibility}/>}
                         </div>
                     </div>
                     <Link to={'/signup'} className="login-link"><p>Not a part of the family? Join now!</p></Link>

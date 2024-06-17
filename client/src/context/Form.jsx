@@ -15,7 +15,7 @@ export const FormProvider = ({ children }) => {
     const navigate = useNavigate()
     const [userdata, setUserData] = useState({ name: "", email: "", password: "" });
     const [usersignIn, setUsersignIn] = useState({ email: "", password: "" });
-    const [userlogged, setUserloggedIn] = useState([])
+    const [visible, setVisible] = useState(false)
 
     const handleSignUp = async () => {
         try {
@@ -62,10 +62,7 @@ export const FormProvider = ({ children }) => {
                 const token = response.data.token
                 localStorage.setItem("token", token);
                 const decodedToken = jwtDecode(token);
-                setUserloggedIn([decodedToken])
-                const tokenexpiry = decodedToken.exp * 1000;
-                localStorage.setItem("expiry", tokenexpiry)
-                navigate(`/profile/${decodedToken._id}`)
+                navigate(`/dashboard/${decodedToken._id}`)
             } else {
                 toast.error(response.data.message)
             }
@@ -80,16 +77,14 @@ export const FormProvider = ({ children }) => {
         }
     }
 
-    const checkexpiry = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("expiry");
-        navigate("/signin")
+    const handleVisibility = ()=>{
+        setVisible(visible=> !visible)
     }
 
     return (
         <FormContext.Provider value={{
             userdata, setUserData, handleSignUp, usersignIn,
-            setUsersignIn, handleSignIn, checkexpiry, userlogged
+            setUsersignIn, handleSignIn, handleVisibility, visible
         }}>
             {children}
         </FormContext.Provider>
