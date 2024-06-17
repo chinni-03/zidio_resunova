@@ -6,10 +6,10 @@ import send from '../assets/images/send.png';
 import next from '../assets/images/next.png';
 import { Link } from "react-router-dom";
 
-function Footer() {
+function Footer(props) {
     return(
         <>
-        <div className="footer">
+        <div className={`footer ${props.extraClass}`}>
             <div className="feedback">
                 <div className="caption">
                     <p className="fb-caption">Got a feedback? Drop them here</p>

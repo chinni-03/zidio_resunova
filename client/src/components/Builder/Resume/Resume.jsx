@@ -21,7 +21,6 @@ export default function Resume(details) {
                         <Education />
                     </div>
                     <div className="right-col">
-                        <Summary />
                         <Experience />
                     </div>
                 </div>

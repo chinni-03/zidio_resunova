@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from '../Builder/Nav';
 import Footer from '../Footer';
 import '../Feedback/Feedback1.css';
 import { Link } from "react-router-dom";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 export default function Feedback1() {
+
+    useEffect(() => {
+        document.title = "Feedback";
+    })
+
     return (
         <>
         <Nav />
