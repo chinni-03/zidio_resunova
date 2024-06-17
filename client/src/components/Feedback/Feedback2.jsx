@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../Builder/Nav";
 import Footer from "../Footer";
 import '../Feedback/Feedback2.css';
 import checked from '../../assets/images/checked.png';
@@ -7,7 +6,6 @@ import checked from '../../assets/images/checked.png';
 export default function Feedback2() {
     return (
         <>
-        <Nav />
     <div class="checklogo">
         <img src={checked} class="clogo" alt=""/>
     </div>

@@ -3,7 +3,7 @@ const Feedback = require("../model/feedback");
 module.exports.create = async (req, res)=>{
     try {
         const existingFeedback = await Feedback.findOne({email: req.body.email});
-        if(!existingFeedback){
+        if(existingFeedback){
             return res.status(400).json({
                 message: "We got your feedback thankyou!!",
                 success: false
@@ -16,7 +16,7 @@ module.exports.create = async (req, res)=>{
             newFeedback
         })
     } catch (error) {
-        return res.status(400).json({
+        return res.status(500).json({
             message: "Internal server error in giving in feedback!",
             error: error.message
         })
