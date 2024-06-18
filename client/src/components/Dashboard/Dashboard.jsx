@@ -6,23 +6,13 @@ import resume from '../../assets/images/resume.png';
 import letter from '../../assets/images/cover-letter.png';
 import Nav from "../Builder/Nav";
 import Footer from "../Footer";
-import { useDashboard } from "../../context/dashboard";
-import { useParams } from "react-router-dom";
+
 
 export default function Dashboard() {
-    const {id} = useParams();
-    const {loggedIn, checkTokenExpiry} = useDashboard();
 
     useEffect(() => {
         document.title = "Dashboard"
     })
-
-    useEffect(() => {
-        checkTokenExpiry();
-        if(id){
-            loggedIn(id)
-        }
-    }, [id,checkTokenExpiry]);
 
 
     return (

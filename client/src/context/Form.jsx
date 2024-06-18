@@ -63,7 +63,7 @@ export const FormProvider = ({ children }) => {
                 localStorage.setItem("token", token);
                 const decodedToken = jwtDecode(token);
                 localStorage.setItem("time", decodedToken.exp)
-                navigate(`/dashboard/${decodedToken._id}`)
+                navigate(`/dashboard`)
             } else {
                 toast.error(response.data.message)
             }

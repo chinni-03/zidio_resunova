@@ -36,7 +36,7 @@ function App() {
           <Route path="/skills" element={<SkillDetails />} />
           <Route path="/awards" element={<AwardDetails />} />
           <Route path="/add-section" element={<Add />} />
-          <Route path="/dashboard/:id" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/feedback" element={<Feedback1 />} />
           <Route path="/feedback-submitted" element={<Feedback2 />} />
