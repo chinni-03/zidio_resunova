@@ -10,10 +10,21 @@ export default function AwardDetails() {
         document.title = "Resume Builder";
     })
 
-    const details = {
+    const initialdetails = {
         name: "Award Name",
         institute: "Awarding Institute",
         year: "Awarded Year"
+    }
+
+    const [addmoreaward, setAddmoreaward] = useState([initialdetails]);
+    const addmoreSection = ()=>{
+        setAddmoreaward([...addmoreaward, initialdetails])
+    }
+
+    const deleteSection = (index)=>{
+        const updateawardinput = [...addmoreaward]
+        updateawardinput.splice(index,1)
+        setAddmoreaward(updateawardinput)
     }
 
     const addSkill = () => {
@@ -43,6 +54,8 @@ export default function AwardDetails() {
                     }
                 } /> */}
                 <div className="form">
+                    {addmoreaward.map((details, index)=>(
+                        <div>
                 {Object.keys(details).map((key, index) => {
                     if (key === 'title' || key === 'subtitle') {
                         if (key === 'subtitle') {
@@ -60,7 +73,12 @@ export default function AwardDetails() {
                         </div>
                     );
                     })}
+                    {index>0 && (<button type="button" onClick={()=>deleteSection(index)}>remove</button>)}
+                    </div>
+                    ))}
+                    <button type="button" onClick={addmoreSection}>
                     <GetStartedBtn onClick={addSkill()} extraClass="add" btn="Add more" />
+                    </button>
                 </div>
             </div>
             <div className="res-parent">

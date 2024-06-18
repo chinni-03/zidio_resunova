@@ -10,7 +10,7 @@ export default function ExpDetails() {
         document.title = "Resume Builder";
     })
 
-    const details = {
+    const initialdetails = {
         title: "Experience Details",
         company: "Company name",
         designation: "Designation",
@@ -18,6 +18,18 @@ export default function ExpDetails() {
         startMonth: "Start month",
         endYear: "End year",
         endMonth: "End month",
+    }
+
+    const [expinputs, setExpInputs] = useState([initialdetails]);
+
+    const addExpSection = ()=>{
+        setExpInputs([...expinputs, initialdetails])
+    }
+
+    const deleteExpSection = (index)=>{
+        const updateSection = [...expinputs];
+        updateSection.splice(index,1);
+        setExpInputs(updateSection)
     }
 
     return (
@@ -40,6 +52,8 @@ export default function ExpDetails() {
                     }
                 } /> */}
                 <div className="form">
+                    {expinputs.map((details,index)=>(
+                        <div key={index} className="experience-section">
                 {Object.keys(details).map((key, index) => {
                     if (key === 'title' || key === 'subtitle') {
                         if (key === 'subtitle') {
@@ -57,7 +71,12 @@ export default function ExpDetails() {
                         </div>
                     );
                     })}
-                    <GetStartedBtn extraClass="add" btn="Add more" />
+                    {index>0 && (<button type="button" onClick={()=>deleteExpSection(index)}>remove</button>)}
+                     </div>
+                    ))}
+                    <button type="button" onClick={addExpSection}>
+                        <GetStartedBtn extraClass="add" btn="Add more" />
+                        </button>
                 </div>
             </div>
             <div className="res-parent">
