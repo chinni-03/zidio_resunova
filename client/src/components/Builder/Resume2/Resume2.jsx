@@ -23,7 +23,7 @@ export default function Resume2() {
                         <Education2 />
                     </div>
                     <div className="right-col">
-                        <Summary2 />
+                        {/* <Summary2 /> */}
                         <Experience2 />
                     </div>
                 </div>

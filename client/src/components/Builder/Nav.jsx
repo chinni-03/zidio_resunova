@@ -19,7 +19,7 @@ export default function Nav() {
                                     <a className="navbar-brand brand fit-content" href="#">ResuNova</a>
                                 </div>
                             </Link>
-                            <span>{data?.name}</span>
+                            <span className="user-name">{data?.name}</span>
                             <div className="right-nav">
                                 <button className="navbar-toggler"
                                         type="button" data-bs-toggle="collapse"

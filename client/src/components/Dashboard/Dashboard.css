@@ -13,22 +13,19 @@
     color: #00582f;
     font-size: x-large;
     font-weight: 600;
-    margin-left: 38%;
+    text-align: center;
 }
 .product{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .cards {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    padding: 4rem 2rem;
     border-radius: 1rem;
-    background-color:#BFD8AF;
 }
 .caption{
     color: #00582f;
@@ -37,4 +34,17 @@
 }
 .dash {
     height: 90vh;
+}
+.resu-cap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cap {
+    margin-top: 1.5rem;
+}
+img[alt="resu"] {
+    width: 50%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.196);
+    cursor: pointer;
 }

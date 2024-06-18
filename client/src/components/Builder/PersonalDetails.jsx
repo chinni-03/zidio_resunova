@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Panel from "./Panel";
-import Resume from "./Resume/Resume";
 import Resume2 from "./Resume2/Resume2";
+import Resume from "./Resume/Resume";
+import { useParams } from "react-router-dom";
 
 export default function PersonalDetails() {
 
@@ -20,6 +21,18 @@ export default function PersonalDetails() {
         subtitle: "Additional Details",
         ghub: "Github Profile",
         linkedin: "LinkedIn Profile"
+    }
+
+    const selectedResume = useParams();
+
+    const render = () => {
+        console.log(selectedResume);
+        console.log(selectedResume.resumeType);
+        if(selectedResume.resumeType === "resume") {
+            return <Resume />
+        } else if (selectedResume.resumeType === "resume2") {
+            return <Resume2 />
+        }
     }
 
     return (
@@ -62,8 +75,7 @@ export default function PersonalDetails() {
                 </div>
             </div>
             <div className="res-parent">
-                <Resume />
-                <Resume2 />
+            {render()}
             </div>
         </div>
         </>
