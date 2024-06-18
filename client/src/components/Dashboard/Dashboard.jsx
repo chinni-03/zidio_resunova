@@ -11,17 +11,19 @@ import { useParams } from "react-router-dom";
 
 export default function Dashboard() {
     const {id} = useParams();
-    const {loggedIn} = useDashboard();
+    const {loggedIn, checkTokenExpiry} = useDashboard();
 
     useEffect(() => {
         document.title = "Dashboard"
     })
 
-    useEffect(()=>{
+    useEffect(() => {
+        checkTokenExpiry();
         if(id){
             loggedIn(id)
         }
-    },[id,loggedIn])
+    }, [id,checkTokenExpiry]);
+
 
     return (
         <>
