@@ -1,18 +1,19 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 const FormContext = createContext();
 
 export const useForm = () => {
     const value = useContext(FormContext);
+
     return value
 }
 
 export const FormProvider = ({ children }) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [userdata, setUserData] = useState({ name: "", email: "", password: "" });
     const [usersignIn, setUsersignIn] = useState({ email: "", password: "" });
     const [visible, setVisible] = useState(false)
@@ -26,8 +27,9 @@ export const FormProvider = ({ children }) => {
             }
             const response = await axios.post("/user/create", { name, email, password });
             if (response.status === 200) {
+                toast.success("User registered successfully!");
                 setUserData({ name: "", email: "", password: "" });
-                navigate("/signin")
+                navigate("/signin");
             } else if (response.status === 400) {
                 toast.warn(response.data.message);
             } else if (response.status === 401) {
