@@ -4,7 +4,7 @@ import resume from '../../assets/images/harshini_resume.png';
 import happy from '../../assets/images/happy.png';
 import logo from '../../assets/images/resunova-logo.png';
 import { useForm } from "../../context/Form";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
@@ -12,8 +12,9 @@ import {FaEye, FaEyeSlash} from "react-icons/fa";
 export default function Signin() {
     const {usersignIn,setUsersignIn, handleSignIn,handleVisibility,visible} = useForm();
     useEffect(() => {
-        document.title = "Sign In"
-    })
+        document.title = "Sign In";
+        toast.success("User registered successfully!!");
+    },[])
 
     const margin = {
         marginLeft: "1rem",

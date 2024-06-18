@@ -15,21 +15,11 @@ import Resume from "../Builder/Resume/Resume";
 import Resume2 from "../Builder/Resume2/Resume2";
 
 export default function Dashboard() {
-    const {id} = useParams();
-    const {loggedIn, checkTokenExpiry} = useDashboard();
-    const {loggedIn} = useDashboard();
     const [selectedResume, setSelectedResume] = useState(null)
 
     useEffect(() => {
         document.title = "Dashboard"
     })
-
-    useEffect(() => {
-        checkTokenExpiry();
-        if(id){
-            loggedIn(id)
-        }
-    }, [id,checkTokenExpiry]);
 
 
     const navigate = useNavigate();

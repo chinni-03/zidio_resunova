@@ -3,6 +3,7 @@ import Nav from "../Builder/Nav";
 import Footer from "../Footer";
 import '../Feedback/Feedback2.css';
 import checked from '../../assets/images/checked.png';
+import Navbar from "../Navbar";
 
 export default function Feedback2() {
 
@@ -12,7 +13,7 @@ export default function Feedback2() {
 
     return (
         <>
-        <Nav />
+        <Navbar/>
     <div className="feed-2">
         <div class="checklogo">
             <img src={checked} class="clogo" alt=""/>

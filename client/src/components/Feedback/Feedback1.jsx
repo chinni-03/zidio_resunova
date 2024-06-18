@@ -4,6 +4,7 @@ import Footer from '../Footer';
 import '../Feedback/Feedback1.css';
 import { Link } from "react-router-dom";
 import GetStartedBtn from "../homepage/GetStartedBtn";
+import Navbar from "../Navbar";
 export default function Feedback1() {
 
     useEffect(() => {
@@ -12,7 +13,7 @@ export default function Feedback1() {
 
     return (
         <>
-        <Nav />
+        <Navbar/>
         <div className="feedback-page">
             <div class="heading2">Hey! It’s great to see that you’ve got some feedback for us!</div>
                 <div class="infocol">

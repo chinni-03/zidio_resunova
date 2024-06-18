@@ -13,10 +13,10 @@ export const DashboardProvider = ({children})=>{
     const navigate = useNavigate();
     const [data, setData] = useState(null);
 
-        const loggedIn = async (id)=>{
+        const loggedIn = async ()=>{
             try {
                 const token = localStorage.getItem("token")
-                const response = await axios.get(`/user/user-data/${id}`,{
+                const response = await axios.get(`/user/user-data`,{
                     headers:{
                         "Authorization": `Bearer ${token}`
                     }
@@ -56,9 +56,15 @@ export const DashboardProvider = ({children})=>{
             navigate("/signin");
         }
     }
+
+    function handleLoggedout(){
+        localStorage.removeItem("token");
+        localStorage.removeItem("time");
+        navigate("/signin")
+    }
     
     return(
-        <DashboardContext.Provider value={{data, loggedIn, checkTokenExpiry}}>
+        <DashboardContext.Provider value={{data, loggedIn, checkTokenExpiry,handleLoggedout}}>
             {children}
         </DashboardContext.Provider>
     )

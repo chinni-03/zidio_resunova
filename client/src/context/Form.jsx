@@ -26,9 +26,8 @@ export const FormProvider = ({ children }) => {
             }
             const response = await axios.post("/user/create", { name, email, password });
             if (response.status === 200) {
-                toast.success("User registered successfully!!");
                 setUserData({ name: "", email: "", password: "" });
-                navigate("/")
+                navigate("/signin")
             } else if (response.status === 400) {
                 toast.warn(response.data.message);
             } else if (response.status === 401) {
@@ -63,7 +62,7 @@ export const FormProvider = ({ children }) => {
                 localStorage.setItem("token", token);
                 const decodedToken = jwtDecode(token);
                 localStorage.setItem("time", decodedToken.exp)
-                navigate(`/dashboard/${decodedToken._id}`)
+                navigate(`/dashboard`)
             } else {
                 toast.error(response.data.message)
             }
