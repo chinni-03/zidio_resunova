@@ -5,18 +5,18 @@ import Education from "./Education";
 import Summary from "./Summary";
 import Experience from "./Experience";
 
-export default function Resume(details) {
+export default function Resume({resumeDetails}) {
     return(
         <>
         <div className="res">
             <div className="res-child">
-                <p className="username">Mira Karlson</p>
+                <p className="fname">{resumeDetails?.username || "Mira Karlson"}</p>
                 <hr className="hr-mira" />
-                <p className="des">Social media marketing specialist</p>
+                <p className="des">{resumeDetails?.designation || "Social media marketing specialist"}</p>
                 <hr className="hr-mira" />
                 <div className="res-content">
                     <div className="left-col">
-                        <Contact />
+                        <Contact resumeDetails={resumeDetails} />
                         <Skills />
                         <Education />
                     </div>

@@ -522,12 +522,12 @@ img[alt="profile"] {
   overflow: scroll;
 }
 
-.res .username, .res .des {
+.res .fname, .res .des {
   text-align: center;
   text-transform: uppercase;
 }
 
-.res .username {
+.res .fname {
   font-size: 16px;
 }
 
@@ -623,7 +623,7 @@ ul.skills {
   margin: 0 auto;
 }
 
-.color-name .username, .color-name .des {
+.color-name .fname, .color-name .des {
   font-family: "Playfair Display", serif;
   letter-spacing: 2px;
 }

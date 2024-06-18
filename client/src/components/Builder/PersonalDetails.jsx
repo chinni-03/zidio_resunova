@@ -4,34 +4,45 @@ import Panel from "./Panel";
 import Resume2 from "./Resume2/Resume2";
 import Resume from "./Resume/Resume";
 import { useParams } from "react-router-dom";
+import { usePersonal } from "../../context/resumeContext/personal_details";
+import GetStartedBtn from "../homepage/GetStartedBtn";
 
 export default function PersonalDetails() {
+    const {handleOnChange, formData,handlePersonalsignup} = usePersonal();
+    const [resumeDetails, setResumeDetails] = useState({
+        username:"", 
+        useremail:"",
+        phone:"",
+        designation:"",
+        portfolio:"",
+        github:"",
+        linkedin:""
+    });
 
     useEffect(() => {
         document.title = "Resume Builder";
-    })
+        setResumeDetails(formData)
+    },[formData])
 
     const details = {
         title: "Personal Details",
-        fname: "Enter your full name",
+        username: "Enter your full name",
         phone: "Enter your phone number",
         designation: "Enter your designation",
         portfolio: "Add portfolio link",
-        email: "Enter email address",
+        useremail: "Enter email address",
         subtitle: "Additional Details",
-        ghub: "Github Profile",
+        github: "Github Profile",
         linkedin: "LinkedIn Profile"
     }
 
     const selectedResume = useParams();
 
     const render = () => {
-        console.log(selectedResume);
-        console.log(selectedResume.resumeType);
         if(selectedResume.resumeType === "resume") {
-            return <Resume />
+            return <Resume resumeDetails={resumeDetails} />
         } else if (selectedResume.resumeType === "resume2") {
-            return <Resume2 />
+            return <Resume2 resumeDetails={resumeDetails} />
         }
     }
 
@@ -68,11 +79,16 @@ export default function PersonalDetails() {
                     return (
                         <div key={index} className="inputs">
                         <label htmlFor={key} className="resume-label">{details[key]}</label>
-                        <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} placeholder={details[key]} />
+                        <input className="resume-input" 
+                        type={isLinkField ? 'url' : 'text'} id={key} name={key}
+                        value={formData[key]}
+                        onChange={handleOnChange}
+                        placeholder={details[key]} />
                         </div>
                     );
                     })}
                 </div>
+                
             </div>
             <div className="res-parent">
             {render()}

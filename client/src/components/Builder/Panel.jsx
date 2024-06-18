@@ -12,7 +12,7 @@ export default function Panel(props) {
     const selected = () => {
         if(props.page == "personal") {
             return <>
-                <Link to={"/personal-details"}><PanelItem link="" extraClass="selected" img={profile} /></Link>
+                <Link to={`/personal-details/`}><PanelItem link="" extraClass="selected" img={profile} /></Link>
                 <Link to={'/education-details'}><PanelItem img={edu} /></Link>
                 <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
                 <Link to={'/skills'}><PanelItem img={skills} /></Link>
