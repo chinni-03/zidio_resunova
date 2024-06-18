@@ -4,13 +4,18 @@ import GetStartedBtn from "../homepage/GetStartedBtn";
 import profile from '../../assets/images/user.png';
 import logo from '../../assets/images/resunova-logo.png';
 import { useDashboard } from "../../context/dashboard";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Nav() {
     const {loggedIn, checkTokenExpiry, data,handleLoggedout} = useDashboard();
     useEffect(() => {
         checkTokenExpiry();
-        loggedIn()
+        loggedIn();
     }, [checkTokenExpiry]);
+
+    useEffect(()=>{
+        toast.success("You have logged In successfully!")
+    },[])
 
     return (
         <>
@@ -46,6 +51,7 @@ export default function Nav() {
                         </div>
                     </div>
                 </nav>
+                <ToastContainer/>
             </div>
         </>
     )

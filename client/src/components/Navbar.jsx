@@ -11,7 +11,7 @@ function Navbar() {
                     <div class="container-fluid">
                         <div className="fit-content">
                             <img src={logo} alt="resunova-logo" />
-                            <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
+                            <a class="navbar-brand brand fit-content" href="/">ResuNova</a>
                         </div>
                         <div className="right-nav">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
