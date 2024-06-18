@@ -7,14 +7,16 @@ import { useForm } from "../../context/Form";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import GetStartedBtn from "../homepage/GetStartedBtn";
-import {FaEye, FaEyeSlash} from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Signin() {
-    const {usersignIn,setUsersignIn, handleSignIn,handleVisibility,visible} = useForm();
+    const { usersignIn, setUsersignIn, handleSignIn, handleVisibility, visible } = useForm();
+
     useEffect(() => {
         document.title = "Sign In";
-        toast.success("User registered successfully!!");
-    },[])
+
+        toast.success("Welcome to signin page!")
+    }, []);
 
     const margin = {
         marginLeft: "1rem",
@@ -23,60 +25,63 @@ export default function Signin() {
     }
 
     return (
-        <>
         <div className="signin">
-        <div id="div1">
-            <div class="resu">
-                <a href="/" class="resutext">
-                    <Link to={'/'}>
+            <div id="div1">
+                <div className="resu">
+                    <Link to='/'>
                         <div className="fit-content">
                             <img src={logo} style={margin} alt="resunova-logo" />
-                            <a class="navbar-brand brand fit-content" href="#">ResuNova</a>
+                            <span className="navbar-brand brand fit-content">ResuNova</span>
                         </div>
                     </Link>
-                </a>
+                </div>
+                <div className="template">
+                    <img src={resume} alt="res" />
+                </div>
             </div>
-            <div class="template">
-                <img src={resume} alt="res"/>
-            </div>
-        </div>
 
-            <div class="right">
-                <div class="head2">
+            <div className="right">
+                <div className="head2">
                     Welcome back, fam!
                 </div>
-                <div class="smiley">
-                    <img src={happy} alt="smile"/>
+                <div className="smiley">
+                    <img src={happy} alt="smile" />
                 </div>
-                <div class="login">
-                    <div class="signin-email">
+                <div className="login">
+                    <div className="signin-email">
                         <p>Email</p>
-                        <div class="input-box">
-                        <input type="email" 
-                            value={usersignIn.email}
-                            onChange={(e)=>setUsersignIn({...usersignIn, email: e.target.value})}
-                            placeholder="Enter Your Email Address" id="typing"/>
+                        <div className="input-box">
+                            <input
+                                type="email"
+                                value={usersignIn.email}
+                                onChange={(e) => setUsersignIn({ ...usersignIn, email: e.target.value })}
+                                placeholder="Enter Your Email Address"
+                                id="typing"
+                            />
                         </div>
                     </div>
-                    <div class="signin-password">
+                    <div className="signin-password">
                         <p>Password</p>
-                        <div class="input-box">
-                        <input type={visible?"text": "password"}
-                            value={usersignIn.password} 
-                            onChange={(e)=>setUsersignIn({...usersignIn, password: e.target.value})}
-                            placeholder="Enter Your Password" id="typing"/>
-                        <span className="eye">{visible? <FaEye onClick={handleVisibility}/>:<FaEyeSlash onClick={handleVisibility}/>}</span>
+                        <div className="input-box">
+                            <input
+                                type={visible ? "text" : "password"}
+                                value={usersignIn.password}
+                                onChange={(e) => setUsersignIn({ ...usersignIn, password: e.target.value })}
+                                placeholder="Enter Your Password"
+                                id="typing"
+                            />
+                            <span className="eye" onClick={handleVisibility}>
+                                {visible ? <FaEye /> : <FaEyeSlash />}
+                            </span>
                         </div>
                     </div>
-                    <Link to={'/signup'} className="login-link"><p>Not a part of the family? Join now!</p></Link>
+                    <Link to='/signup' className="login-link"><p>Not a part of the family? Join now!</p></Link>
                 </div>
-                <button className="w-20" type="submit" onClick={handleSignIn}> 
+                <button className="w-20" type="submit" onClick={handleSignIn}>
                     <GetStartedBtn extraClass="w-100" btn="Sign in" />
                 </button>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
-        </>
-    )
-
+    );
 }
