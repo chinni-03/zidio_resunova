@@ -10,8 +10,19 @@ export default function SkillDetails() {
         document.title = "Resume Builder";
     })
 
-    const details = {
+    const initialdetails = {
         skill: "Skill"
+    }
+
+    const [skillinputs, setSkillinputs] = useState([initialdetails]);
+    const addmoreSkill = ()=>{
+        setSkillinputs([...skillinputs, initialdetails])
+    }
+
+    const deleteSkillInputs = (index)=>{
+        const updateSkillinputs = [...skillinputs];
+        updateSkillinputs.splice(index,1);
+        setSkillinputs(updateSkillinputs)
     }
 
     return (
@@ -34,6 +45,8 @@ export default function SkillDetails() {
                     }
                 } /> */}
                 <div className="form">
+                    {skillinputs.map((details, index)=>(
+                        <div key={index} className="skill-section">
                 {Object.keys(details).map((key, index) => {
                     if (key === 'title' || key === 'subtitle') {
                         if (key === 'subtitle') {
@@ -51,7 +64,13 @@ export default function SkillDetails() {
                         </div>
                     );
                     })}
+                    {index>0 &&
+                    (<button type="button" onClick={()=>deleteSkillInputs(index)}>remove</button>)}
+                    </div>
+                    ))}
+                    <button type="button" onClick={addmoreSkill}>
                     <GetStartedBtn extraClass="add" btn="Add more" />
+                    </button>
                 </div>
             </div>
             <div className="res-parent">

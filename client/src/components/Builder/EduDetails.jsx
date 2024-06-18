@@ -10,7 +10,7 @@ export default function EduDetails() {
         document.title = "Resume Builder";
     })
 
-    const details = {
+    const initialdetails = {
         title: "Education Details",
         institute: "Institute name",
         quali: "Qualification",
@@ -21,37 +21,56 @@ export default function EduDetails() {
         endMonth: "End month",
     }
 
+    const [educationinputs, setEducationinputs] = useState([initialdetails])
+
+    const addMoreSections = () => {
+        setEducationinputs([...educationinputs, initialdetails]);
+    }
+
+    const deleteSections = (index) => {
+        const updatesection = [...educationinputs];
+        updatesection.splice(index, 1)
+        setEducationinputs(updatesection)
+    }
+
     return (
         <>
-        <Nav />
-        <div className="main-page">
-            <div className="fillers">
-                <Panel page="edu" />
-                <div className="form">
-                {Object.keys(details).map((key, index) => {
-                    if (key === 'title' || key === 'subtitle') {
-                        if (key === 'subtitle') {
-                            return <p className="subtitle" key={index}>{details[key]}</p>;
-                        }
-                        return <p className="title" key={index}>{details[key]}</p>;
-                    }
-                    
-                    const isLinkField = key === 'portfolio' || key === 'ghub' || key === 'linkedin';
+            <Nav />
+            <div className="main-page">
+                <div className="fillers">
+                    <Panel page="edu" />
+                    <div className="form">
+                        {educationinputs.map((details, index) => (
+                            <div key={index} className="education-section">
+                                {Object.keys(details).map((key, index) => {
+                                    if (key === 'title' || key === 'subtitle') {
+                                        if (key === 'subtitle') {
+                                            return <p className="subtitle" key={index}>{details[key]}</p>;
+                                        }
+                                        return <p className="title" key={index}>{details[key]}</p>;
+                                    }
 
-                    return (
-                        <div key={index} className="inputs">
-                        <label htmlFor={key} className="resume-label">{details[key]}</label>
-                        <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} placeholder={details[key]} />
-                        </div>
-                    );
-                    })}
-                    <GetStartedBtn extraClass="add" btn="Add more" />
+                                    const isLinkField = key === 'portfolio' || key === 'ghub' || key === 'linkedin';
+
+                                    return (
+                                        <div key={index} className="inputs">
+                                            <label htmlFor={key} className="resume-label">{details[key]}</label>
+                                            <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} placeholder={details[key]} />
+                                        </div>
+                                    );
+                                })}
+                                {index>0 && 
+                                (<button type="button" onClick={()=>deleteSections(index)}>removesection</button>
+                            )}
+                            </div>
+                        ))}
+                        <button type="button" onClick={addMoreSections}><GetStartedBtn extraClass="add" btn="Add more" /></button>
+                    </div>
+                </div>
+                <div className="res-parent">
+                    <Resume />
                 </div>
             </div>
-            <div className="res-parent">
-                <Resume />
-            </div>
-        </div>
         </>
     )
 }
