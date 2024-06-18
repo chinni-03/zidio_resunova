@@ -39,13 +39,26 @@ export const DashboardProvider = ({children})=>{
             }
         }
      // Only fetch data if data is null (to prevent infinite loop
-     const checkexpiry = () => {
-        localStorage.removeItem("token");
-        navigate("/signin")
+     const checkTokenExpiry = () => {
+        const token = localStorage.getItem("token");
+        const tokenExp = localStorage.getItem("time");
+
+        if (token && tokenExp) {
+            const currentTime = Date.now() / 1000; // Current time in seconds
+            if (currentTime > tokenExp) {
+                // Token has expired
+                localStorage.removeItem("token");
+                localStorage.removeItem("time");
+                navigate("/signin");
+            }
+        } else {
+            // Token or token expiry time not found, redirect to sign-in
+            navigate("/signin");
+        }
     }
     
     return(
-        <DashboardContext.Provider value={{data, loggedIn, checkexpiry}}>
+        <DashboardContext.Provider value={{data, loggedIn, checkTokenExpiry}}>
             {children}
         </DashboardContext.Provider>
     )

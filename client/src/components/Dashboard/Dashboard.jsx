@@ -16,6 +16,7 @@ import Resume2 from "../Builder/Resume2/Resume2";
 
 export default function Dashboard() {
     const {id} = useParams();
+    const {loggedIn, checkTokenExpiry} = useDashboard();
     const {loggedIn} = useDashboard();
     const [selectedResume, setSelectedResume] = useState(null)
 
@@ -23,11 +24,13 @@ export default function Dashboard() {
         document.title = "Dashboard"
     })
 
-    useEffect(()=>{
+    useEffect(() => {
+        checkTokenExpiry();
         if(id){
             loggedIn(id)
         }
-    },[id,loggedIn])
+    }, [id,checkTokenExpiry]);
+
 
     const navigate = useNavigate();
 
