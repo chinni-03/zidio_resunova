@@ -19,6 +19,7 @@ import { DashboardProvider } from './context/dashboard';
 import { FeedbackProvider } from './context/feedback';
 import { PersonalProvider } from './context/resumeContext/personal_details';
 import { EducationProvider } from './context/resumeContext/education_details';
+import About from './components/About/About';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/feedback" element={<Feedback1 />} />
           <Route path="/feedback-submitted" element={<Feedback2 />} />
+          <Route path='/about' element={<About />} />
         </Routes>
         </EducationProvider>
         </PersonalProvider>
