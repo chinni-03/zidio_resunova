@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/" element={<Homepage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/personal-details" element={<PersonalDetails />} />
+          <Route path="/personal-details/:resumeType" element={<PersonalDetails />} />
           <Route path="/education-details" element={<EduDetails />} />
           <Route path="/experience-details" element={<ExpDetails />} />
           <Route path="/skills" element={<SkillDetails />} />

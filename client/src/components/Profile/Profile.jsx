@@ -34,7 +34,7 @@ export default function Profile() {
                 <GetStartedBtn extraClass="ms-auto" btn="Change password"/>
             </div>
          </div>
-    <Footer />
+    <Footer extraClass="scale-font" />
         </>
     )
 }

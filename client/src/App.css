@@ -375,6 +375,11 @@ img[alt="tilted-resume"] {
   justify-content: space-between;
   color: var(--dark-green);
   font-size: large;
+  text-align: right;
+}
+
+.user-name {
+  margin: auto 1.5rem auto auto;
 }
 
 .logo-plain {
@@ -504,7 +509,8 @@ img[alt="profile"] {
 }
 
 .res {
-  width: 70%;
+  width: 71%;
+  min-height: 90vh;
   height: 100%;
   background: #fff;
   box-shadow: 5px 5px 5px rgb(212, 212, 212);
@@ -668,6 +674,12 @@ ul.skills {
   padding: 0;
 }
 
+.scale-font {
+  font-size: small;
+}
+
+
+
 /* responsiveness */
 
 @media (max-width: 1280px) {
@@ -680,6 +692,9 @@ ul.skills {
   .caption2 {
     font-size: 44px;
     margin-left: -1rem;
+  }
+  * {
+    transform: scale(0.8);
   }
 }
 

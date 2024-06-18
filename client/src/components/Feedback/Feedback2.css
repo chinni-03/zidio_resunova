@@ -4,67 +4,22 @@
     /* height: 100vh; */
     font-family: "Open Sans", sans-serif;
 }
-.heading{
-
-    height:5%;
-    margin-top: 2.5%;
+.feed-2 {
     display: flex;
-}
-.resulogo{
-
-    height: 100%;
-    width: 3%;
-    margin-left: 4.5%;
-}
-.logo{
-    
-    height: 1.7rem;
-    width: 1.7rem;
-    background-size: cover;
-    padding-left: 12%; 
-}
-.resutext{
-    margin-left: 2%;
-    margin-top: 0.2%;
-    font-size: large;
-    font-weight: bold;
-    color: #00582F;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
 }
 .checklogo{
-
-    height: 20%;
-    margin-top: 8%;
-    margin-left: 45.1%;
-    margin-right: 41.9%;
-}
-.clogo{
-    
-    height: 7.2rem;
-    width: 7.2rem;
-    background-size: cover;
-    margin-left: 1.45rem;
-
-}
-.smalltext{
-
-    height: 4%;
-    margin-top: 3%;
+    width: 20%;
+    margin-bottom: 2rem;
 }
 #greenS{
     color: #00582F;
-    padding-left: 40.8%;
-    font-weight: 630;
-}
-.bigtext1{
-  
-    height: 6%;
-    margin-top: 5%;
-    margin-left: 39%;
-}
-.bigtext2{
-   
-    height: 6%;
-    margin-left: 34.4%;
+    font-weight: 600;
 }
 #greenB{
     color: #00582F;
