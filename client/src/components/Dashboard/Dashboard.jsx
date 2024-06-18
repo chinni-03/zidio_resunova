@@ -6,20 +6,19 @@ import "../Dashboard/Dashboard.css";
 // import letter from '../../assets/images/cover-letter.png';
 import Nav from "../Builder/Nav";
 import Footer from "../Footer";
-import { useDashboard } from "../../context/dashboard";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import mira from '../../assets/images/mira.png';
 import mira2 from '../../assets/images/mira2.png';
-import PersonalDetails from "../Builder/PersonalDetails";
-import Resume from "../Builder/Resume/Resume";
-import Resume2 from "../Builder/Resume2/Resume2";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Dashboard() {
     const [selectedResume, setSelectedResume] = useState(null)
 
     useEffect(() => {
         document.title = "Dashboard"
+        toast.success("You have logged In successfully!");
     })
+    
 
 
     const navigate = useNavigate();
@@ -51,6 +50,7 @@ export default function Dashboard() {
                         <p className="cap">Creative Resume</p>
                     </div>
             </div>
+            <ToastContainer/>
         </div>
         <Footer />
         </>
