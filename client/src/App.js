@@ -10,7 +10,6 @@ import ExpDetails from './components/Builder/ExpDetails';
 import EduDetails from './components/Builder/EduDetails';
 import SkillDetails from './components/Builder/SkillDetails';
 import AwardDetails from './components/Builder/AwardDetails';
-import Add from './components/Builder/Add';
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import Feedback1 from './components/Feedback/Feedback1';
@@ -21,6 +20,7 @@ import { PersonalProvider } from './context/resumeContext/personal_details';
 import { EducationProvider } from './context/resumeContext/education_details';
 import About from './components/About/About';
 import { ExperienceProvider } from './context/resumeContext/experience_details';
+import ProjectDetails from './components/Builder/ProjectDetails';
 
 function App() {
   return (
@@ -31,26 +31,26 @@ function App() {
             <PersonalProvider>
               <EducationProvider>
                 <ExperienceProvider>
-        <Routes>
-          <Route exact path="/" element={<Homepage />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/personal-details/:resumeType" element={<PersonalDetails />} />
-          <Route path="/education-details" element={<EduDetails />} />
-          <Route path="/experience-details" element={<ExpDetails />} />
-          <Route path="/skills" element={<SkillDetails />} />
-          <Route path="/awards" element={<AwardDetails />} />
-          <Route path="/add-section" element={<Add />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/feedback" element={<Feedback1 />} />
-          <Route path="/feedback-submitted" element={<Feedback2 />} />
-          <Route path='/about' element={<About />} />
-        </Routes>
-        </ExperienceProvider>
-        </EducationProvider>
-        </PersonalProvider>
-        </FeedbackProvider>
+                  <Routes>
+                    <Route exact path="/" element={<Homepage />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/signin" element={<Signin />} />
+                    <Route path="/personal-details/:resumeType" element={<PersonalDetails />} />
+                    <Route path="/education-details/:resumeType" element={<EduDetails />} />
+                    <Route path="/experience-details/:resumeType" element={<ExpDetails />} />
+                    <Route path="/skills/:resumeType" element={<SkillDetails />} />
+                    <Route path="/awards/:resumeType" element={<AwardDetails />} />
+                    <Route path="/project-details/:resumeType" element={<ProjectDetails />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/feedback" element={<Feedback1 />} />
+                    <Route path="/feedback-submitted" element={<Feedback2 />} />
+                    <Route path='/about' element={<About />} />
+                  </Routes>
+                </ExperienceProvider>
+              </EducationProvider>
+            </PersonalProvider>
+          </FeedbackProvider>
         </DashboardProvider>
       </FormProvider>
       </div>

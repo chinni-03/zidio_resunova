@@ -6,28 +6,33 @@ import GetStartedBtn from "../homepage/GetStartedBtn";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 
-export default function AwardDetails() {
+export default function ProjectDetails() {
 
     useEffect(() => {
         document.title = "Resume Builder";
     })
 
     const initialdetails = {
-        title: "Award Details",
-        name: "Award Name",
-        institute: "Awarding Institute",
-        year: "Awarded Year"
+        title: "Project Details",
+        project: "Project Title",
+        company: "Project Institue",
+        startYear: "Start year",
+        startMonth: "Start month",
+        endYear: "End year",
+        endMonth: "End month",
+        desc: "Description"
     }
 
-    const [addmoreaward, setAddmoreaward] = useState([initialdetails]);
-    const addmoreSection = ()=>{
-        setAddmoreaward([...addmoreaward, initialdetails])
+    const [proinputs, setProInputs] = useState([initialdetails]);
+
+    const addProSection = ()=>{
+        setProInputs([...proinputs, initialdetails])
     }
 
-    const deleteSection = (index)=>{
-        const updateawardinput = [...addmoreaward]
-        updateawardinput.splice(index,1)
-        setAddmoreaward(updateawardinput)
+    const deleteProSection = (index)=>{
+        const updateSection = [...proinputs];
+        updateSection.splice(index,1);
+        setProInputs(updateSection)
     }
 
     const {resumeType} = useParams();
@@ -45,10 +50,10 @@ export default function AwardDetails() {
         <Nav />
         <div className="main-page">
             <div className="fillers">
-                <Panel page="awards" resume={resumeType} />
+                <Panel page="projects" resume={resumeType} />
                 <div className="form">
-                    {addmoreaward.map((details, index)=>(
-                        <div>
+                    {proinputs.map((details,index)=>(
+                        <div key={index} className="experience-section">
                 {Object.keys(details).map((key, index) => {
                     if (key === 'title' || key === 'subtitle') {
                         if (key === 'subtitle') {
@@ -66,12 +71,12 @@ export default function AwardDetails() {
                         </div>
                     );
                     })}
-                    {index>0 && (<button type="button" className="w-100" onClick={()=>deleteSection(index)}>
-                        <GetStartedBtn extraClass="add red-btn align-right" btn="Remove" />
-                    </button>)}
-                    </div>
+                    {index>0 && (<button type="button" className="w-100" onClick={()=>deleteProSection(index)}>
+                            <GetStartedBtn extraClass="add align-right red-btn" btn="Remove" />
+                        </button>)}
+                     </div>
                     ))}
-                    <button type="button" className="w-100" onClick={addmoreSection}>
+                    <button type="button" className="w-100" onClick={addProSection}>
                         <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
                     </button>
                 </div>

@@ -1,11 +1,9 @@
 import React from "react";
 
-export default function PanelItem(props) {
+export default function PanelItem({img, extraClass}) {
     return (
-        <>
-        <div className={`panel-item ${props.extraClass}`}>
-            <img src={props.img} alt="" />
+        <div className={`panel-item ${extraClass}`}>
+            <img src={img} alt="" />
         </div>
-        </>
-    )
+    );
 }

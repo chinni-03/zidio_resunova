@@ -5,52 +5,38 @@ import edu from '../../assets/images/mortarboard.png';
 import skills from '../../assets/images/skills.png';
 import awards from '../../assets/images/medal.png';
 import exp from '../../assets/images/portfolio.png';
+import projects from '../../assets/images/project.png';
 import { Link } from "react-router-dom";
 
-export default function Panel(props) {
+export default function Panel({page, resume}) {
+
+    const basePath = (type) => `/${type}/${resume}`;
 
     const selected = () => {
-        if(props.page == "personal") {
-            return <>
-                <Link to={`/personal-details/`}><PanelItem link="" extraClass="selected" img={profile} /></Link>
-                <Link to={'/education-details'}><PanelItem img={edu} /></Link>
-                <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
-                <Link to={'/skills'}><PanelItem img={skills} /></Link>
-                <Link to={'/awards'}><PanelItem img={awards} /></Link>
-            </>
-        } else if(props.page == "exp") {
-            return <>
-                <Link to={"/personal-details"}><PanelItem link="" img={profile} /></Link>
-                <Link to={'/education-details'}><PanelItem img={edu} /></Link>
-                <Link to={'/experience-details'}><PanelItem extraClass="selected" img={exp} /></Link>
-                <Link to={'/skills'}><PanelItem img={skills} /></Link>
-                <Link to={'/awards'}><PanelItem img={awards} /></Link>
-            </>
-        } else if(props.page == "edu") {
-            return <>
-                <Link to={"/personal-details"}><PanelItem link="" img={profile} /></Link>
-                <Link to={'/education-details'}><PanelItem extraClass="selected" img={edu} /></Link>
-                <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
-                <Link to={'/skills'}><PanelItem img={skills} /></Link>
-                <Link to={'/awards'}><PanelItem img={awards} /></Link>
-            </>
-        } else if(props.page == "skills") {
-            return <>
-                <Link to={"/personal-details"}><PanelItem link="" img={profile} /></Link>
-                <Link to={'/education-details'}><PanelItem img={edu} /></Link>
-                <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
-                <Link to={'/skills'}><PanelItem extraClass="selected" img={skills} /></Link>
-                <Link to={'/awards'}><PanelItem img={awards} /></Link>
-            </>
-        } else if(props.page == "awards") {
-            return <>
-                <Link to={"/personal-details"}><PanelItem link="" img={profile} /></Link>
-                <Link to={'/education-details'}><PanelItem img={edu} /></Link>
-                <Link to={'/experience-details'}><PanelItem img={exp} /></Link>
-                <Link to={'/skills'}><PanelItem img={skills} /></Link>
-                <Link to={'/awards'}><PanelItem extraClass="selected" img={awards} /></Link>
-            </>
-        }
+        console.log("logged" + resume)
+        const paths = {
+            personal: `${basePath("personal-details")}`,
+            exp: `${basePath("experience-details")}`,
+            edu: `${basePath("education-details")}`,
+            skills: `${basePath("skills")}`,
+            awards: `${basePath("awards")}`,
+            projects: `${basePath("project-details")}`
+        };
+
+        const icons = [
+            { path: paths.personal, img: profile, name: "personal" },
+            { path: paths.edu, img: edu, name: "edu" },
+            { path: paths.exp, img: exp, name: "exp" },
+            { path: paths.skills, img: skills, name: "skills" },
+            { path: paths.awards, img: awards, name: "awards" },
+            { path: paths.projects, img: projects, name: "projects" }
+        ];
+
+        return icons.map(({ path, img, name }) => (
+            <Link key={name} to={path}>
+                <PanelItem extraClass={page === name ? "selected" : ""} img={img} />
+            </Link>
+        ));
     }
 
     return (

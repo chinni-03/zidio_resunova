@@ -3,6 +3,8 @@ import Nav from "./Nav";
 import Panel from "./Panel";
 import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
+import { useParams } from "react-router-dom";
+import Resume2 from "./Resume2/Resume2";
 
 export default function ExpDetails() {
 
@@ -32,25 +34,22 @@ export default function ExpDetails() {
         setExpInputs(updateSection)
     }
 
+    const {resumeType} = useParams();
+
+    const render = () => {
+        if(resumeType === "resume") {
+            return <Resume />
+        } else if (resumeType === "resume2") {
+            return <Resume2 />
+        }
+    }
+
     return (
         <>
         <Nav />
         <div className="main-page">
             <div className="fillers">
-                <Panel page="exp" />
-                {/* <CustomForm details={
-                    {
-                        title: "Personal Details",
-                        fname: "Enter your full name",
-                        phone: "Enter your phone number",
-                        designation: "Enter your designation",
-                        portfolio: "Add portfolio link",
-                        email: "Enter email address",
-                        subtitle: "Additional Details",
-                        ghub: "Github Profile",
-                        linkedin: "LinkedIn Profile"
-                    }
-                } /> */}
+                <Panel page="exp" resume={resumeType} />
                 <div className="form">
                     {expinputs.map((details,index)=>(
                         <div key={index} className="experience-section">
@@ -71,16 +70,20 @@ export default function ExpDetails() {
                         </div>
                     );
                     })}
-                    {index>0 && (<button type="button" onClick={()=>deleteExpSection(index)}>remove</button>)}
+                    {index>0 && (<button type="button" className="w-100" onClick={()=>deleteExpSection(index)}>
+                        <GetStartedBtn extraClass="add red-btn align-right" btn="Remove" />
+                    </button>)}
                      </div>
                     ))}
-                    <button type="button" onClick={addExpSection}>
-                        <GetStartedBtn extraClass="add" btn="Add more" />
+                    <div className="btns w-100">
+                        <button type="button" className="w-100" onClick={addExpSection}>
+                            <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
                         </button>
+                    </div>
                 </div>
             </div>
             <div className="res-parent">
-                <Resume />
+                {render()}
             </div>
         </div>
         </>

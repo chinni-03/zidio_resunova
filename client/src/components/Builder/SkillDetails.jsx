@@ -3,6 +3,8 @@ import Nav from "./Nav";
 import Panel from "./Panel";
 import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
+import { useParams } from "react-router-dom";
+import Resume2 from "./Resume2/Resume2";
 
 export default function SkillDetails() {
 
@@ -25,25 +27,22 @@ export default function SkillDetails() {
         setSkillinputs(updateSkillinputs)
     }
 
+    const {resumeType} = useParams();
+
+    const render = () => {
+        if(resumeType === "resume") {
+            return <Resume />
+        } else if (resumeType === "resume2") {
+            return <Resume2 />
+        }
+    }
+
     return (
         <>
         <Nav />
         <div className="main-page">
             <div className="fillers">
-                <Panel page="skills" />
-                {/* <CustomForm details={
-                    {
-                        title: "Personal Details",
-                        fname: "Enter your full name",
-                        phone: "Enter your phone number",
-                        designation: "Enter your designation",
-                        portfolio: "Add portfolio link",
-                        email: "Enter email address",
-                        subtitle: "Additional Details",
-                        ghub: "Github Profile",
-                        linkedin: "LinkedIn Profile"
-                    }
-                } /> */}
+                <Panel page="skills" resume={resumeType} />
                 <div className="form">
                     {skillinputs.map((details, index)=>(
                         <div key={index} className="skill-section">
@@ -65,16 +64,18 @@ export default function SkillDetails() {
                     );
                     })}
                     {index>0 &&
-                    (<button type="button" onClick={()=>deleteSkillInputs(index)}>remove</button>)}
+                    (<button type="button" className="w-100" onClick={()=>deleteSkillInputs(index)}>
+                        <GetStartedBtn extraClass="add red-btn align-right" btn="Remove" />
+                    </button>)}
                     </div>
                     ))}
-                    <button type="button" onClick={addmoreSkill}>
-                    <GetStartedBtn extraClass="add" btn="Add more" />
+                    <button type="button" className="w-100" onClick={addmoreSkill}>
+                        <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
                     </button>
                 </div>
             </div>
             <div className="res-parent">
-                <Resume />
+                {render()}
             </div>
         </div>
         </>

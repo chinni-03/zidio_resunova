@@ -1,140 +1,52 @@
-*{
-    border: border-box;
-    margin: 0%;
-    font-family: "Open Sans", sans-serif;
-}
-.head{
- 
-    height: 7.3%;
-    margin-top: 3%;
+.resu-desc {
     display: flex;
-}
-.resulogo{
-    height: 100%;
-    width: 3.6%;
-    margin-left: 4.2%;
-    margin-top: 0.55%;
-}
-.logo{
-  
-    height: 1.7rem;
-    width: 1.8rem;
-    background-size: cover;
-    margin-left: 15%;
-
-}
-.resutext{
-    color: #00582f;
-    margin-left: 1.5%;
-    font-weight:625;
-    margin-top: 0.65%;
-
-}
-.button{
-    height: 100%;
-    width:10%;
-    border-radius: 1rem;
-    background-color: #BFD8AF;
-    border: transparent;
-    margin-left: 65%;
-    margin-bottom: 3%;
-}
-#sign{
-    color: #00582f;
-    font-weight: 650;
-    margin-top: 10%;
-}
-.userlogo{
-
-    height: 100%;
-    width: 3.6%;
-    margin-left: 3%
-}
-.userL{
-
-    height: 2.7rem;
-    width: 2.7rem;
-    background-size: cover;
-}
-.text{
-    height: 7%;
-    width: 100%;
-    margin-top: 5%;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    font-size: x-large;
-    font-weight: 600;
+    font-size: large;
+    padding: 4rem;
+    gap: 2rem;
+}
+.resu-des {
+    line-height: 2;
+}
+.text-des{
+    width: 70%;
     color: #00582f;
 }
-.Harshini{
-
-    height: 38%;
-    width: 100%;
-    margin-top: 10%;
+.text {
+    text-align: center;
+    color: #00582f;
+    font-size: xx-large;
+}
+.desig {
+    font-size: 20px;
+    font-weight: 500;
+}
+.desig span {
+    font-size: 14px;
+    font-style: italic;
+}
+.Harshini, .Amit, .Rohan{
     display: flex;
+    justify-content: space-between;
     background-color: #E1F0DA;
-    /* #D4E7C5
-    #BFD8AF */
-    padding: 4rem 0;
+    padding: 4rem;
+    margin-top: 10rem;
 }
-.pic1{
+.pic{
     border: 1px solid black;
-    height: 100%;
-    width: 18%;
+    width: 20%;
     border-radius: 50%;
-    margin-left: 7%;
-}
-.text1{
-  
-    height: 100%;
-    width: 67%;
-    margin-left: 5%;
-    background-color: #F8F8F8;
-    border-radius: 1rem;
 }
 .Rohan{
-    height: 38%;
-    width: 100%;
-    margin-top: 15%;
-    display: flex;
     background-color:#D4E7C5;
-    padding: 4rem 0;
-}
-.pic2{
-    border: 1px solid black;
-    height: 100%;
-    width: 18%;
-    border-radius: 50%;
-    margin-left: 5%;
-}
-.text2{
-  
-    height: 100%;
-    width: 67%;
-    margin-left: 5%;
-    background-color: #F8F8F8;
-    border-radius: 1rem;
+    margin-top: 20rem;
 }
 .Amit{
-    height: 38%;
-    width: 100%;
-    margin-top: 15%;
-    display: flex;
     background-color: #BFD8AF;
-    padding: 4rem 0;
+    margin-top: 20rem;
 }
-.pic3{
-    border: 1px solid black;
-    height: 100%;
-    width: 18%;
-    border-radius: 50%;
-    margin-left: 7%;
-}
-.text3{
-    background-color: #F8F8F8;
-    border-radius: 1rem;
-    height: 100%;
-    width: 67%;
-    margin-left: 5%;
+
+.aboutus {
+    margin-bottom: 20rem;
 }

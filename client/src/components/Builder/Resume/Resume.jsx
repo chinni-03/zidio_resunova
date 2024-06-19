@@ -2,8 +2,8 @@ import React from "react";
 import Contact from "./Contact";
 import Skills from "./Skills";
 import Education from "./Education";
-import Summary from "./Summary";
 import Experience from "./Experience";
+import Projects from "./Projects";
 
 export default function Resume({resumeDetails}) {
     return(
@@ -22,6 +22,7 @@ export default function Resume({resumeDetails}) {
                     </div>
                     <div className="right-col">
                         <Experience />
+                        <Projects />
                     </div>
                 </div>
             </div>

@@ -25,13 +25,20 @@ export default function Profile() {
                 <GetStartedBtn btn="Change email-address"/>
                 </div>
                 <div class="profile-section">
-                    <div class="profile-label">Password : </div>
+                    <div class="profile-label pass">Old Password : </div>
                     <div class="input-box-profile">
                         <input type="password" placeholder="XXXXXXXXXX" id="typing"/>
                     </div>
-                    <GetStartedBtn btn="Show password"/>
+                    <GetStartedBtn btn="Show old password"/>
                 </div>
-                <GetStartedBtn extraClass="ms-auto" btn="Change password"/>
+                <div class="profile-section">
+                    <div class="profile-label pass">New Password : </div>
+                    <div class="input-box-profile">
+                        <input type="password" placeholder="XXXXXXXXXX" disabled id="typing"/>
+                    </div>
+                    <GetStartedBtn btn="Show new password"/>
+                </div>
+                <GetStartedBtn extraClass="ms-auto" btn="Confirm change password"/>
             </div>
          </div>
     <Footer extraClass="scale-font" />

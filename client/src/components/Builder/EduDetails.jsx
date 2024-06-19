@@ -97,6 +97,8 @@ import GetStartedBtn from "../homepage/GetStartedBtn";
 import Resume from "./Resume/Resume";
 import { useEducation } from "../../context/resumeContext/education_details";
 import { ToastContainer, toast } from "react-toastify";
+import { useParams } from "react-router-dom";
+import Resume2 from "./Resume2/Resume2";
 
 export default function EduDetails() {
     const { educationdata, handleOnChange, handleEdusubmit } = useEducation();
@@ -128,12 +130,22 @@ export default function EduDetails() {
         setEducationinputs(updatedSections);
     };
 
+    const {resumeType} = useParams();
+
+    const render = () => {
+        if(resumeType === "resume") {
+            return <Resume />
+        } else if (resumeType === "resume2") {
+            return <Resume2 />
+        }
+    }
+
     return (
         <>
             <Nav />
             <div className="main-page">
                 <div className="fillers">
-                    <Panel page="edu" />
+                    <Panel page="edu" resume={resumeType} />
                     <div className="form">
                         {educationinputs.map((details, index) => (
                             <div key={index} className="education-section">
@@ -163,18 +175,24 @@ export default function EduDetails() {
                                     );
                                 })}
                                 {index > 0 && (
-                                    <button type="button" onClick={() => deleteSections(index)}>Remove Section</button>
+                                    <button type="button" className="w-100" onClick={() => deleteSections(index)}>
+                                        <GetStartedBtn extraClass="add red-btn align-right" btn="Remove" />
+                                    </button>
                                 )}
                             </div>
                         ))}
-                        <button type="button" onClick={handleEdusubmit}>save</button>
-                        <button type="button" onClick={addMoreSections}>
-                            <GetStartedBtn extraClass="add" btn="Add more" />
-                        </button>
+                        <div className="btns">
+                            <button type="button" className="w-50" onClick={handleEdusubmit}>
+                                <GetStartedBtn extraClass="add w-50 align-left" btn="Save" />
+                            </button>
+                            <button type="button" className="w-50" onClick={addMoreSections}>
+                                <GetStartedBtn extraClass="add w-50 align-right transparent" btn="Add more" />
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="res-parent">
-                    <Resume />
+                    {render()}
                 </div>
                 <ToastContainer/>
             </div>

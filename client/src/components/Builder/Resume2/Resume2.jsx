@@ -3,6 +3,7 @@ import Contact2 from "../Resume2/Contact2";
 import Skills2 from "../Resume2/Skills2";
 import Education2 from "../Resume2/Education2";
 import Experience2 from "../Resume2/Experience2";
+import Projects2 from "../Resume2/Projects2";
 
 export default function Resume2({resumeDetails}) {
     return(
@@ -22,8 +23,8 @@ export default function Resume2({resumeDetails}) {
                         <Education2 />
                     </div>
                     <div className="right-col">
-                        {/* <Summary2 /> */}
                         <Experience2 />
+                        <Projects2 />
                     </div>
                 </div>
             </div>

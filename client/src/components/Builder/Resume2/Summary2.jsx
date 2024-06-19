@@ -6,13 +6,13 @@ export default function Summary2() {
         <p className="section head serif">Education</p>
         <hr className="hr-mira" />
         <p className="profile-desc head serif">Social Media Morkeling Specialist. uliizing my S+ years of
-experience in creating and executing successiul social
-media compaigns. developing engaging content,
-‘analyzing and reporling on campaign perfomance. ond
-s1aying up 1o dale with the lofest rends and best practices
-in sociol media markeing. My goal s 10 increase brand
-awareness. engagement. and conversion rates whie
-delivering exceptional results and exceeding goals for the
+            experience in creating and executing successiul social
+            media compaigns. developing engaging content,
+            ‘analyzing and reporling on campaign perfomance. ond
+            s1aying up 1o dale with the lofest rends and best practices
+            in sociol media markeing. My goal s 10 increase brand
+            awareness. engagement. and conversion rates whie
+            delivering exceptional results and exceeding goals for the
 company.</p>
         </>
     )

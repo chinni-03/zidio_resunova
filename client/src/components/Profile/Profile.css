@@ -56,6 +56,12 @@
 .profile-label {
     width: 20%;
 }
+.profile-label.pass {
+    display: flex;
+    align-self: flex-start;
+    padding: .3rem;
+    padding-left: 0;
+}
 #typing{
     border-top: transparent;
     border-left: transparent;

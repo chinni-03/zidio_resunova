@@ -36,12 +36,12 @@ export default function PersonalDetails() {
         linkedin: "LinkedIn Profile"
     }
 
-    const selectedResume = useParams();
+    const {resumeType} = useParams();
 
     const render = () => {
-        if(selectedResume.resumeType === "resume") {
+        if(resumeType === "resume") {
             return <Resume resumeDetails={resumeDetails} />
-        } else if (selectedResume.resumeType === "resume2") {
+        } else if (resumeType === "resume2") {
             return <Resume2 resumeDetails={resumeDetails} />
         }
     }
@@ -51,20 +51,7 @@ export default function PersonalDetails() {
         <Nav />
         <div className="main-page">
             <div className="fillers">
-                <Panel page="personal" />
-                {/* <CustomForm details={
-                    {
-                        title: "Personal Details",
-                        fname: "Enter your full name",
-                        phone: "Enter your phone number",
-                        designation: "Enter your designation",
-                        portfolio: "Add portfolio link",
-                        email: "Enter email address",
-                        subtitle: "Additional Details",
-                        ghub: "Github Profile",
-                        linkedin: "LinkedIn Profile"
-                    }
-                } /> */}
+                <Panel page="personal" resume={resumeType} />
                 <div className="form">
                 {Object.keys(details).map((key, index) => {
                     if (key === 'title' || key === 'subtitle') {
@@ -91,7 +78,7 @@ export default function PersonalDetails() {
                 
             </div>
             <div className="res-parent">
-            {render()}
+                {render()}
             </div>
         </div>
         </>

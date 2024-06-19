@@ -7,6 +7,7 @@
   --dark-green: #00582F;
   --off-white: #F8F8F8;
   --gold: #aaaa77;
+  --red: #FF6969;
 }
 
 *, *::before, *::after {
@@ -47,6 +48,7 @@ img[alt="resunova-logo"] {
   width: 5%;
   margin-right: 12px;
 }
+
 
 /* navbar */
 .nav-right a {
@@ -464,6 +466,7 @@ img[alt="profile"] {
   border-radius: 16px;
   height: 95%;
   width: 90%;
+  overflow: scroll;
 }
 
 .inputs {
@@ -550,6 +553,7 @@ img[alt="profile"] {
   margin-top: 1rem;
   height: 85%;
   justify-content: space-between;
+  padding-bottom: 0;
 }
 .res-content .left-col {
   width: 25%;
@@ -576,6 +580,10 @@ img[alt="profile"] {
 }
 
 .section {
+  margin-bottom: .5rem;
+}
+
+.section .head {
   margin-bottom: .5rem;
 }
 
@@ -629,7 +637,7 @@ ul.skills {
 }
 
 .res2 .res-content {
-  padding: 0 2rem 2rem;
+  padding: 0 2rem;
 }
 
 .res2 hr {
@@ -644,6 +652,16 @@ ul.skills {
   border: none;
   border-right: 1px solid;
   border-color: var(--gold);
+  height: 100%;
+}
+
+.res2 .right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.res2 .head:not(.head) {
+  margin-top: .5rem;
 }
 
 .serif, .skills.serif {
@@ -678,6 +696,51 @@ ul.skills {
   font-size: small;
 }
 
+.red-btn {
+  background: var(--red);
+  color: var(--off-white);
+  border-color: var(--red);
+}
+
+.red-btn:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.transparent {
+  background: transparent;
+  color: var(--dark-green);
+}
+
+.transparent:hover {
+  background: var(--light-green);
+  color: var(--dark-green);
+}
+
+/* btns save and add */
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* align left */
+.align-left {
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: 0
+}
+
+/* col-exp */
+.col-exp {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.change-pass {
+  margin-top: 1.5rem;
+}
 
 
 /* responsiveness */
