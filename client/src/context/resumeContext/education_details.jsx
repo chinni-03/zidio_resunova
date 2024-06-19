@@ -14,10 +14,10 @@ export const EducationProvider = ({ children }) => {
             institute: "",
             qualification: "",
             subject: "",
-            startgraduyear: 0,
-            startgradumonth: 0,
-            endgraduyear: 0,
-            endgradumonth: 0
+            startgraduyear: null,
+            startgradumonth: null,
+            endgraduyear: null,
+            endgradumonth: null
         }
     ]);
 
@@ -47,10 +47,10 @@ export const EducationProvider = ({ children }) => {
                     institute: "",
                     qualification: "",
                     subject: "",
-                    startgraduyear: 0,
-                    startgradumonth: 0,
-                    endgraduyear: 0,
-                    endgradumonth: 0
+                    startgraduyear: null,
+                    startgradumonth: null,
+                    endgraduyear: null,
+                    endgradumonth: null
                 }]);
             } else {
                 toast.error(response.data.message);
