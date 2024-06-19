@@ -20,6 +20,7 @@ import { FeedbackProvider } from './context/feedback';
 import { PersonalProvider } from './context/resumeContext/personal_details';
 import { EducationProvider } from './context/resumeContext/education_details';
 import About from './components/About/About';
+import { ExperienceProvider } from './context/resumeContext/experience_details';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <FeedbackProvider>
             <PersonalProvider>
               <EducationProvider>
+                <ExperienceProvider>
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route path="/signup" element={<Signup />} />
@@ -45,6 +47,7 @@ function App() {
           <Route path="/feedback-submitted" element={<Feedback2 />} />
           <Route path='/about' element={<About />} />
         </Routes>
+        </ExperienceProvider>
         </EducationProvider>
         </PersonalProvider>
         </FeedbackProvider>
