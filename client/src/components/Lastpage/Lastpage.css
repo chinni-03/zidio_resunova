@@ -1,0 +1,79 @@
+*{
+    height: 100vh;
+    margin: 0%;
+    border: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.works{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+}
+.left{
+
+    height: 100%;
+    width: 50%;
+    background-color: #bfd8af;
+}
+.textline1{
+ 
+    height: 10%;
+    width: 100%;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+}
+.textline2{
+
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#random{
+    font-size: x-large;
+    font-weight: 625;
+    color: #00582f;
+}
+.smiley{
+
+    height: 22%;
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.happy{
+    height: 100%;
+    width: 20%;
+}
+.right{
+    height: 100%;
+    width: 50%;
+    display: flex;
+}
+.preview{
+    border: 1px solid black;
+    height: 90%;
+    width: 60%;
+    margin-left: 5%;
+    margin-top: 4.7%;
+    background-color: white;
+}
+.download{
+    height: 10%;
+    width: 30%;
+    margin-top: 42%;
+    border-radius: 1rem;
+    margin-left: 3%;
+    background-color: #00582f;
+}
+#text{
+    margin-top: 7.5%;
+    font-size: large;
+    font-weight: 600;
+    color: aliceblue;
+}

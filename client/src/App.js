@@ -21,6 +21,7 @@ import { EducationProvider } from './context/resumeContext/education_details';
 import About from './components/About/About';
 import { ExperienceProvider } from './context/resumeContext/experience_details';
 import ProjectDetails from './components/Builder/ProjectDetails';
+import Lastpage from './components/Lastpage/Lastpage';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
                     <Route path="/feedback" element={<Feedback1 />} />
                     <Route path="/feedback-submitted" element={<Feedback2 />} />
                     <Route path='/about' element={<About />} />
+                    <Route path='/download-resume' element={<Lastpage />} />
                   </Routes>
                 </ExperienceProvider>
               </EducationProvider>
