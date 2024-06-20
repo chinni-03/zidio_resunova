@@ -83,37 +83,21 @@ export default function ExpDetails() {
                                 </button>)}
                             </div>
                         ))}
-                        <div className="btns w-100">
-                            <button type="button" className="w-100" onClick={addExpSection}>
-                                <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
+                        <div className="btns">
+                            <button className="w-50" type="button">
+                                <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
+                            </button>
+                            <button type="button" className="w-50" onClick={addExpSection}>
+                                <GetStartedBtn extraClass="add align-right w-50 transparent" btn="Add more" />
                             </button>
                         </div>
-                    );
-                    })}
-                    {index>0 && (<button type="button" className="w-100" onClick={()=>deleteExpSection(index)}>
-                        <GetStartedBtn extraClass="add red-btn align-right" btn="Remove" />
-                    </button>)}
-                     </div>
-                    ))}
-                    <div className="btns">
-                        <button className="w-50" type="button">
-                            <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
-                        </button>
-                        <button type="button" className="w-50" onClick={addExpSection}>
-                            <GetStartedBtn extraClass="add align-right w-50 transparent" btn="Add more" />
-                        </button>
                     </div>
                 </div>
                 <div className="res-parent">
                     {render()}
                 </div>
+                <RoundBtn />
             </div>
-
-            <div className="res-parent">
-                {render()}
-            </div>
-            <RoundBtn />
-        </div>
         </>
     )
 }
