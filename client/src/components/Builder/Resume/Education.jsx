@@ -3,15 +3,13 @@ import { useEducation } from "../../../context/resumeContext/education_details";
 
 export default function Education() {
     const {educationdata} = useEducation();
-    console.log(educationdata)
     return (
         <>
         <p className="section head">Education</p>
         <hr className="hr-mira" />
-        {educationdata.map((education)=>(
+        {educationdata.map((education, index)=>(
             <>
-            {console.log(education)}
-            <div className="edu">
+            <div className="edu" key={index}>
                 <p className="institute">{education?.institute||"Bellows College"}</p>
                 <p className="bold upper year">
                     <b>{education?.startgradumonth && education?.startgraduyear ? 
