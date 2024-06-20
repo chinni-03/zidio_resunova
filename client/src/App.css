@@ -590,6 +590,7 @@ img[alt="profile"] {
 ul.skills {
   list-style: none;
   padding: 0;
+  margin-bottom: 0;
 }
 
 .bold {
@@ -650,6 +651,8 @@ ul.skills {
 .res2 .left-col {
   padding-right: .5rem;
   border: none;
+  display: flex;
+  flex-direction: column;
   border-right: 1px solid;
   border-color: var(--gold);
   height: 100%;
@@ -740,6 +743,36 @@ ul.skills {
 
 .change-pass {
   margin-top: 1.5rem;
+}
+
+/* download btn */
+.round-btn {
+  background: var(--dark-green);
+  padding: 1rem;
+  width: 2rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 2rem;
+}
+
+.round-btn-white {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: var(--dark-green);
+  position: absolute;
+  right: 1rem;
+  bottom: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.round-btn-white img {
+  width: 1rem;
 }
 
 

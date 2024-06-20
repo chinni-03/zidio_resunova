@@ -8,6 +8,7 @@ import { useEducation } from "../../context/resumeContext/education_details";
 import { ToastContainer, toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
+import RoundBtn from "../RoundBtn";
 
 export default function EduDetails() {
     const { educationdata, handleOnChange, handleEdusubmit } = useEducation();
@@ -103,6 +104,7 @@ export default function EduDetails() {
                 <div className="res-parent">
                     {render()}
                 </div>
+                <RoundBtn />
                 <ToastContainer/>
             </div>
         </>

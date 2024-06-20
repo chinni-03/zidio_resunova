@@ -4,6 +4,7 @@ import Skills2 from "../Resume2/Skills2";
 import Education2 from "../Resume2/Education2";
 import Experience2 from "../Resume2/Experience2";
 import Projects2 from "../Resume2/Projects2";
+import Awards2 from "./Awards2";
 
 export default function Resume2({resumeDetails}) {
     return(
@@ -21,6 +22,7 @@ export default function Resume2({resumeDetails}) {
                         <Contact2 resumeDetails={resumeDetails} />
                         <Skills2 />
                         <Education2 />
+                        <Awards2 />
                     </div>
                     <div className="right-col">
                         <Experience2 />
