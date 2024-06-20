@@ -5,6 +5,7 @@ import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
+import RoundBtn from '../RoundBtn';
 
 export default function ExpDetails() {
 
@@ -75,9 +76,12 @@ export default function ExpDetails() {
                     </button>)}
                      </div>
                     ))}
-                    <div className="btns w-100">
-                        <button type="button" className="w-100" onClick={addExpSection}>
-                            <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
+                    <div className="btns">
+                        <button className="w-50" type="button">
+                            <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
+                        </button>
+                        <button type="button" className="w-50" onClick={addExpSection}>
+                            <GetStartedBtn extraClass="add align-right w-50 transparent" btn="Add more" />
                         </button>
                     </div>
                 </div>
@@ -85,6 +89,7 @@ export default function ExpDetails() {
             <div className="res-parent">
                 {render()}
             </div>
+            <RoundBtn />
         </div>
         </>
     )

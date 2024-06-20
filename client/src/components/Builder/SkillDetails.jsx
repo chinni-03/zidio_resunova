@@ -5,6 +5,7 @@ import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
+import RoundBtn from "../RoundBtn";
 
 export default function SkillDetails() {
 
@@ -69,14 +70,20 @@ export default function SkillDetails() {
                     </button>)}
                     </div>
                     ))}
-                    <button type="button" className="w-100" onClick={addmoreSkill}>
-                        <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
-                    </button>
+                    <div className="btns">
+                        <button type="button" className="w-50">
+                            <GetStartedBtn extraClass="add w-50 align-left" btn="Save" />
+                        </button>
+                        <button type="button" className="w-50" onClick={addmoreSkill}>
+                            <GetStartedBtn extraClass="add w-50 align-right transparent" btn="Add more" />
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="res-parent">
                 {render()}
             </div>
+            <RoundBtn />
         </div>
         </>
     )

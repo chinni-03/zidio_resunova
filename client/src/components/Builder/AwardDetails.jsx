@@ -5,6 +5,7 @@ import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
+import RoundBtn from "../RoundBtn";
 
 export default function AwardDetails() {
 
@@ -71,14 +72,20 @@ export default function AwardDetails() {
                     </button>)}
                     </div>
                     ))}
-                    <button type="button" className="w-100" onClick={addmoreSection}>
-                        <GetStartedBtn extraClass="add align-right transparent" btn="Add more" />
-                    </button>
+                    <div className="btns">
+                        <button className="w-50" type="button">
+                            <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
+                        </button>
+                        <button type="button" className="w-50" onClick={addmoreSection}>
+                            <GetStartedBtn extraClass="add align-right transparent w-50" btn="Add more" />
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="res-parent">
                 {render()}
             </div>
+            <RoundBtn />
         </div>
         </>
     )

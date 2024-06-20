@@ -1,79 +1,70 @@
-*{
+:root {
+    --light-green: #BFD8AF;
+    --dark-green: #00582F;
+    --off-white: #F8F8F8;
+    --gold: #aaaa77;
+    --red: #FF6969;
+  }
+
+.down {
+    width: 100%;
     height: 100vh;
-    margin: 0%;
-    border: border-box;
-    font-family: "Open Sans", sans-serif;
-}
-
-
-.works{
-    height: 100%;
-    width: 100%;
-
     display: flex;
 }
-.left{
 
-    height: 100%;
-    width: 50%;
-    background-color: #bfd8af;
-}
-.textline1{
- 
-    height: 10%;
-    width: 100%;
-    margin-top: 20%;
+.resu-logo {
+    margin: 1rem;
     display: flex;
-    justify-content: center;
-}
-.textline2{
-
-    height: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-#random{
-    font-size: x-large;
-    font-weight: 625;
-    color: #00582f;
-}
-.smiley{
-
-    height: 22%;
-    width: 100%;
-    margin-top: 2%;
-    display: flex;
-    justify-content: center;
-}
-.happy{
-    height: 100%;
-    width: 20%;
-}
-.right{
-    height: 100%;
-    width: 50%;
-    display: flex;
-}
-.preview{
-    border: 1px solid black;
-    height: 90%;
-    width: 60%;
-    margin-left: 5%;
-    margin-top: 4.7%;
-    background-color: white;
-}
-.download{
-    height: 10%;
-    width: 30%;
-    margin-top: 42%;
-    border-radius: 1rem;
-    margin-left: 3%;
-    background-color: #00582f;
-}
-#text{
-    margin-top: 7.5%;
-    font-size: large;
+    gap: .5rem;
+    font-size: 16px;
     font-weight: 600;
-    color: aliceblue;
+    color: var(--dark-green);
+    align-items: center;
+}
+
+.down-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+}
+#preview-txt {
+    font-size: xx-large;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    color: var(--dark-green);
+}
+
+.resu-logo p {
+    margin: auto 0;
+}
+
+.left-down {
+    width: 50%;
+    background: var(--light-green);
+    display: flex;
+    flex-direction: column;
+}
+
+.right-down {
+    width: 50%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview {
+    width: 70%;
+    height: 89%;
+    margin: 0 auto;
+}
+
+.resume-pdf {
+    width: 100%;
+    height: 100%;
 }

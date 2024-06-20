@@ -13,7 +13,6 @@ export default function Panel({page, resume}) {
     const basePath = (type) => `/${type}/${resume}`;
 
     const selected = () => {
-        console.log("logged" + resume)
         const paths = {
             personal: `${basePath("personal-details")}`,
             exp: `${basePath("experience-details")}`,

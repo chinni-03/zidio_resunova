@@ -6,6 +6,7 @@ import Resume from "./Resume/Resume";
 import { useParams } from "react-router-dom";
 import { usePersonal } from "../../context/resumeContext/personal_details";
 import GetStartedBtn from "../homepage/GetStartedBtn";
+import RoundBtn from "../RoundBtn";
 
 export default function PersonalDetails() {
     const {handleOnChange, formData,handlePersonalsignup} = usePersonal();
@@ -74,12 +75,21 @@ export default function PersonalDetails() {
                         </div>
                     );
                     })}
+                    <div className="btns">
+                        <button className="w-50" type="button">
+                            <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
+                        </button>
+                        <button type="button" className="w-50">
+                            <GetStartedBtn extraClass="add align-right transparent w-50" btn="Add more" />
+                        </button>
+                    </div>
                 </div>
                 
             </div>
             <div className="res-parent">
                 {render()}
             </div>
+            <RoundBtn />
         </div>
         </>
     )

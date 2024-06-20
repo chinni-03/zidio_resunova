@@ -1,33 +1,36 @@
 import React from "react";
 import "../Lastpage/Lastpage.css";
-import happy from '../../assets/images/happy.png'
+import happy from '../../assets/images/happy.png';
+import logo from '../../assets/images/resunova-logo.png';
+import {Link} from 'react-router-dom';
+import RoundBtn from '../RoundBtn';
 
 
 export default function Lastpage()
 {
     return (
         <>
-        <div class="works">
-            <div class="left">
-                <div class="textline1">
-                    <p id="random">
-                        THIS IS HOW
-                    </p>
-                </div>
-                <div class="textline2">
-                    <p id="random">
-                        YOUR RESUME LOOKS!
-                    </p>
-                </div>
-                <div class="smiley">
-                    <img src={happy} class="happy" alt=""/>
+        <div class="down">
+            <div class="left-down">
+                <Link to={'/'} className="resu-logo">
+                    <img src={logo} alt="resunova-logo" />
+                    <p>ResuNova</p>
+                </Link>
+                <div class="preview">
+                    <div className="resume-pdf">
+                    </div>
                 </div>
             </div>
-            <div class="right">
-                <div class="preview"></div>
-                <button class="download">
-                    <p id="text">DOWNLOAD</p>
-                </button>
+            <div class="right-down">
+                <div className="down-content">
+                    <div id="preview-txt">
+                        <p>
+                            Here's a final preview of your resume!
+                        </p>
+                    </div>
+                    <img src={happy} alt="" />
+                </div>
+                <RoundBtn />
             </div>
         </div>
         </>

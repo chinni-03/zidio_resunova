@@ -6,8 +6,10 @@ export default function Experience() {
         <p className="section head">Experience</p>
         <hr className="hr-mira" />
         <div className="expe">
-                <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
-                <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+                <div className="col-exp">
+                        <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
+                        <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+                </div>
                 <p className="quali">Developed and executed successtul social media
                         compaigns across multiple piatfors fo increase brond
                         awareness and dfve iraffic fo the company's website.
@@ -21,8 +23,10 @@ export default function Experience() {
                 <br />
         </div>
         <div className="expe">
-                <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
-                <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+                <div className="col-exp">
+                        <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
+                        <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+                </div>
                 <p className="quali">Developed and executed successtul social media
                         compaigns across multiple piatfors fo increase brond
                         awareness and dfve iraffic fo the company's website.

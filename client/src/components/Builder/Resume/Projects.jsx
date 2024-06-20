@@ -6,16 +6,20 @@ export default function Projects() {
         <p className="section head">Projects</p>
         <hr className="hr-mira" />
         <div className="proj">
-            <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
-            <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+            <div className="col-exp">
+                <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
+                <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+            </div>
             <p className="quali">Developed and executed successtul social media
     campaigns across multiple piatfors fo increase brond
     awareness and dfve iraffic fo the company's website.</p>
             <br />
         </div>
         <div className="proj">
-            <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
-            <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+            <div className="col-exp">
+                <p className="institute">Social Media Marketing Specialist | <span className="company">Google</span></p>
+                <p className="bold upper year"><span className="month">MM</span>/<span className="year">YYYY</span> - <span className="month2">MM</span>/<span className="year2">YYYY</span></p>
+            </div>
             <p className="quali">Developed and executed successtul social media
     campaigns across multiple piatfors fo increase brond
     awareness and dfve iraffic fo the company's website.</p>
