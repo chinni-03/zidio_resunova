@@ -21,6 +21,7 @@ import { EducationProvider } from './context/resumeContext/education_details';
 import About from './components/About/About';
 import { ExperienceProvider } from './context/resumeContext/experience_details';
 import ProjectDetails from './components/Builder/ProjectDetails';
+import { ProjectProvider } from './context/resumeContext/projectdetails';
 import Lastpage from './components/Lastpage/Lastpage';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <PersonalProvider>
               <EducationProvider>
                 <ExperienceProvider>
+                  <ProjectProvider>
                   <Routes>
                     <Route exact path="/" element={<Homepage />} />
                     <Route path="/signup" element={<Signup />} />
@@ -49,6 +51,7 @@ function App() {
                     <Route path='/about' element={<About />} />
                     <Route path='/download-resume' element={<Lastpage />} />
                   </Routes>
+                  </ProjectProvider>
                 </ExperienceProvider>
               </EducationProvider>
             </PersonalProvider>
