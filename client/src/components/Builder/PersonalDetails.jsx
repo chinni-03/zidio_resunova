@@ -79,9 +79,6 @@ export default function PersonalDetails() {
                         <button className="w-50" type="button">
                             <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
                         </button>
-                        <button type="button" className="w-50">
-                            <GetStartedBtn extraClass="add align-right transparent w-50" btn="Add more" />
-                        </button>
                     </div>
                 </div>
                 
