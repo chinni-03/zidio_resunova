@@ -48,7 +48,7 @@ function App() {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/feedback" element={<Feedback1 />} />
                     <Route path="/feedback-submitted" element={<Feedback2 />} />
-                    <Route path='/about' element={<About />} />
+                    <Route path='/developers' element={<About />} />
                     <Route path='/download-resume' element={<Lastpage />} />
                   </Routes>
                   </ProjectProvider>

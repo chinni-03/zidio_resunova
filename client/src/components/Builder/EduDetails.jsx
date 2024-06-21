@@ -79,7 +79,6 @@ export default function EduDetails() {
                                                 onChange={(e) => handleOnChange(index, e)}
                                                 id={key}
                                                 name={key}
-                                                placeholder={details[key]}
                                             />
                                         </div>
                                     );

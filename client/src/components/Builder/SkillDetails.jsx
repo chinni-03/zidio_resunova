@@ -60,7 +60,7 @@ export default function SkillDetails() {
                     return (
                         <div key={index} className="inputs">
                         <label htmlFor={key} className="resume-label">{details[key]}</label>
-                        <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} placeholder={details[key]} />
+                        <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} />
                         </div>
                     );
                     })}

@@ -74,7 +74,7 @@ export default function ExpDetails() {
                                             type={isLinkField ? 'number' : 'text'}
                                             value={experienceData[index] ? experienceData[index][key]: ""}
                                             onChange={(e)=>handleOnchange(index, e)}
-                                            id={key} name={key} placeholder={details[key]} />
+                                            id={key} name={key} />
                                         </div>
                                     );
                                 })}

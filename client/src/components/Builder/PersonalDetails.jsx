@@ -70,8 +70,7 @@ export default function PersonalDetails() {
                         <input className="resume-input" 
                         type={isLinkField ? 'url' : 'text'} id={key} name={key}
                         value={formData[key]}
-                        onChange={handleOnChange}
-                        placeholder={details[key]} />
+                        onChange={handleOnChange} />
                         </div>
                     );
                     })}
