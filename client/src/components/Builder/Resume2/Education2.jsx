@@ -3,7 +3,6 @@ import { useEducation } from "../../../context/resumeContext/education_details";
 
 export default function Education2() {
     const {educationdata} = useEducation();
-    console.log(educationdata)
 
     return (
         <>
@@ -11,7 +10,6 @@ export default function Education2() {
         <hr className="hr-mira" />
         {educationdata.map((education)=>(
             <>
-            {console.log(education)}
             <div className="edu">
                 <p className="institute serif">{education?.institute||"Bellows College"}</p>
                 <p className="bold upper year serif">

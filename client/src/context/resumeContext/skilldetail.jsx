@@ -20,6 +20,7 @@ export const SkillProvider = ({children})=>{
             ...updateData[index],
             [e.target.name]: e.target.value
         }
+        setSkillData(updateData)
     }
 
     const handleSubmitData = async ()=>{
