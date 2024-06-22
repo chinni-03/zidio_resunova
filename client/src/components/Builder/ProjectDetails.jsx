@@ -6,8 +6,10 @@ import GetStartedBtn from "../homepage/GetStartedBtn";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import RoundBtn from "../RoundBtn";
+import { useProject } from "../../context/resumeContext/projectdetails";
 
 export default function ProjectDetails() {
+    const {handleOnChange, handleSubmitProject, projectData} = useProject();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -15,13 +17,12 @@ export default function ProjectDetails() {
 
     const initialdetails = {
         title: "Project Details",
-        project: "Project Title",
         company: "Project Institue",
-        startYear: "Start year",
-        startMonth: "Start month",
-        endYear: "End year",
-        endMonth: "End month",
-        desc: "Description"
+        startyear: "Start year",
+        startmonth: "Start month",
+        endyear: "End year",
+        endmonth: "End month",
+        decription: "Description"
     }
 
     const [proinputs, setProInputs] = useState([initialdetails]);
@@ -55,20 +56,24 @@ export default function ProjectDetails() {
                 <div className="form">
                     {proinputs.map((details,index)=>(
                         <div key={index} className="experience-section">
-                {Object.keys(details).map((key, index) => {
+                {Object.keys(details).map((key, idx) => {
                     if (key === 'title' || key === 'subtitle') {
                         if (key === 'subtitle') {
-                            return <p className="subtitle" key={index}>{details[key]}</p>;
+                            return <p className="subtitle" key={idx}>{details[key]}</p>;
                         }
-                        return <p className="title" key={index}>{details[key]}</p>;
+                        return <p className="title" key={idx}>{details[key]}</p>;
                     }
                     
-                    const isLinkField = key === 'portfolio' || key === 'ghub' || key === 'linkedin';
+                    const isLinkField = key === 'startyear' || key === 'startmonth' || key === 'endmonth' || key === 'endyear';
 
                     return (
-                        <div key={index} className="inputs">
+                        <div key={idx} className="inputs">
                         <label htmlFor={key} className="resume-label">{details[key]}</label>
-                        <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} />
+                        <input className="resume-input" 
+                        value={projectData[index]?projectData[index][key]:""}
+                        onChange={(e)=>handleOnChange(index, e)}
+                        type={isLinkField ? 'number' : 'text'} 
+                        id={key} name={key} />
                         </div>
                     );
                     })}

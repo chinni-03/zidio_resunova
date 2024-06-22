@@ -6,8 +6,10 @@ import GetStartedBtn from "../homepage/GetStartedBtn";
 import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import RoundBtn from "../RoundBtn";
+import { useSkill } from "../../context/resumeContext/skilldetail";
 
 export default function SkillDetails() {
+    const {skillData, handleOnChange, handleSubmitData} = useSkill();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -47,20 +49,22 @@ export default function SkillDetails() {
                 <div className="form">
                     {skillinputs.map((details, index)=>(
                         <div key={index} className="skill-section">
-                {Object.keys(details).map((key, index) => {
+                {Object.keys(details).map((key, idx) => {
                     if (key === 'title' || key === 'subtitle') {
                         if (key === 'subtitle') {
-                            return <p className="subtitle" key={index}>{details[key]}</p>;
+                            return <p className="subtitle" key={idx}>{details[key]}</p>;
                         }
-                        return <p className="title" key={index}>{details[key]}</p>;
+                        return <p className="title" key={idx}>{details[key]}</p>;
                     }
-                    
-                    const isLinkField = key === 'portfolio' || key === 'ghub' || key === 'linkedin';
+                
 
                     return (
-                        <div key={index} className="inputs">
+                        <div key={idx} className="inputs">
                         <label htmlFor={key} className="resume-label">{details[key]}</label>
-                        <input className="resume-input" type={isLinkField ? 'url' : 'text'} id={key} name={key} />
+                        <input className="resume-input" 
+                        value={skillData[index]? skillData[index][key]:""}
+                        onChange={(e)=>handleOnChange(index,e)}
+                        type="text" id="skill" name="skill" />
                         </div>
                     );
                     })}
