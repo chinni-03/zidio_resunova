@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const AwardContext = createContext();
@@ -15,6 +15,8 @@ export const AwardProvider = ({children})=>{
         institute:"",
         awardyear:null
     }]);
+    const [getAwardData, setGetAwardData] = useState([]);
+
     const handleOnChange = (index,e)=>{
         const updateData = [...awardData];
         updateData[index] = {
@@ -26,7 +28,7 @@ export const AwardProvider = ({children})=>{
     const handleSubmitData = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("/award/create-details",{awardData},
+            const response = await axios.post("/award/create-details",{awarddata:awardData},
                 {headers:{
                     "Authorization": `Bearer ${token}`
                 }}
@@ -46,8 +48,28 @@ export const AwardProvider = ({children})=>{
             console.log(error)
         }
     }
+
+    const fetchAwardData = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get("/award/view-all-data", {
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+        if (response.status === 200) {
+                setGetAwardData(response.data.getAllData);
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            console.log("error in fetching education data", error);
+        }
+    }
+    useEffect(()=>{fetchAwardData()},[getAwardData])
     return(
-        <AwardContext.Provider value={{handleOnChange, awardData, handleSubmitData}}>
+        <AwardContext.Provider value={{handleOnChange, awardData, handleSubmitData, getAwardData}}>
             {children}
         </AwardContext.Provider>
     )

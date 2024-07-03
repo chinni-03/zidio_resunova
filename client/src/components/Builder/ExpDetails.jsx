@@ -9,7 +9,7 @@ import { useExperience } from "../../context/resumeContext/experience_details";
 import RoundBtn from '../RoundBtn';
 
 export default function ExpDetails() {
-    const {handleOnchange,experienceData,handlesubmitExe} = useExperience();
+    const {handleOnchange,experienceData,handleSubmitExe} = useExperience();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -84,7 +84,7 @@ export default function ExpDetails() {
                             </div>
                         ))}
                         <div className="btns">
-                            <button className="w-50" type="button">
+                            <button className="w-50" type="button" onClick={handleSubmitExe}>
                                 <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
                             </button>
                             <button type="button" className="w-50" onClick={addExpSection}>

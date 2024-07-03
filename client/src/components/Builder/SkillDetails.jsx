@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import RoundBtn from "../RoundBtn";
 import { useSkill } from "../../context/resumeContext/skilldetail";
+import { ToastContainer } from "react-toastify";
 
 export default function SkillDetails() {
     const {skillData, handleOnChange, handleSubmitData} = useSkill();
@@ -75,7 +76,7 @@ export default function SkillDetails() {
                     </div>
                     ))}
                     <div className="btns">
-                        <button type="button" className="w-50">
+                        <button type="button" className="w-50" onClick={handleSubmitData}>
                             <GetStartedBtn extraClass="add w-50 align-left" btn="Save" />
                         </button>
                         <button type="button" className="w-50" onClick={addmoreSkill}>
@@ -88,6 +89,7 @@ export default function SkillDetails() {
                 {render()}
             </div>
             <RoundBtn />
+            <ToastContainer/>
         </div>
         </>
     )

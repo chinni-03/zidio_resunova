@@ -2,17 +2,24 @@ const Award = require('../model/awards');
 
 module.exports.create = async (req, res)=>{
     try {
-        const newAward = await Award.create({
-            awardname: req.body.awardname,
-            institute: req.body.institute,
-            awardyear: req.body.awardyear,
-            user: req.user._id
-        });
+        const { awarddata } = req.body;
+        const userId = req.user._id;
+        if (!Array.isArray(awarddata) || awarddata.length === 0) {
+            return res.status(400).json({
+                message: "No award data provided",
+                success: false
+            });
+        }
+        const awardRecords = awarddata.map(data => ({
+            ...data,
+            user: userId
+        }));
+        const createAward = await Award.insertMany(awardRecords);
         return res.status(200).json({
-            message: "award section has been created!!",
+            message: "Award records created successfully",
             success: true,
-            newAward
-        })
+            createAward
+        });
     } catch (error) {
         return res.status(500).json({
             message: "Internal Server error in creating the award!!",
@@ -72,8 +79,7 @@ module.exports.delete = async (req, res)=>{
 
 module.exports.getAllDetails = async (req, res)=>{
     try {
-        const userId = req.params.userId
-        const getAllData = await Award.find({user: userId})
+        const getAllData = await Award.find({user: req.user._id}).sort({createdAt:-1})
         if(!getAllData){
             return res.status(400).json({
                 message: "details not found or not available!!!",

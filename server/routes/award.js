@@ -7,5 +7,6 @@ router.post("/create-details",passport.authenticate("jwt", {session: false}),awa
 router.patch("/update-details/:id",passport.authenticate("jwt", {session: false}),awardController.update);
 router.delete("/delete-details/:id", passport.authenticate("jwt", {session: false}), awardController.delete);
 router.get("/get-details/:id", passport.authenticate("jwt", {session: false}), awardController.getawards);
+router.get("/view-all-data", passport.authenticate("jwt", {session: false}), awardController.getAllDetails);
 
 module.exports = router;

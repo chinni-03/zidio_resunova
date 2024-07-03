@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const ExperienceContext = createContext();
@@ -20,6 +20,8 @@ export const ExperienceProvider = ({children})=>{
         }
     ]);
 
+    const [getExeperienceData, setGetExperienceData] = useState([])
+
     const handleOnchange = (index, e)=>{
         const updateExperience = [...experienceData];
         updateExperience[index] = {
@@ -28,37 +30,61 @@ export const ExperienceProvider = ({children})=>{
         }
         setExperienceData(updateExperience)
     }
-    const handlesubmitExe = async ()=>{
+    const handleSubmitExe = async () => {
         try {
             const token = localStorage.getItem("token");
-        const response = await axios.post("/experience/create-exe",
-            {experienceData},
-            {
-                headers:{
+            const response = await axios.post("/experience/create-exe",
+                { experiencedata: experienceData },
+                {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                }
+            );
+            if (response.status === 200) {
+                toast.success("Your details were updated successfully!");
+                setExperienceData([{
+                    companyname: "",
+                    position: "",
+                    startyear: "",
+                    startmonth: "",
+                    endyear: "",
+                    endmonth: ""
+                }]);
+                await fetchExperienceData();
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            console.log("Internal server error in updating the experience", error);
+            toast.error("Internal server error in updating the experience");
+        }
+    };
+
+    const fetchExperienceData = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get("/experience/view-all-details", {
+                headers: {
                     "Authorization": `Bearer ${token}`
                 }
             });
-            if(response.status === 200){
-                toast.success("your details updated successfully!!");
-                setExperienceData([{
-                    companyname:"",
-                    position:"",
-                    startyear:null,
-                    startmonth: null,
-                    endyear:null,
-                    endmonth: null
-                }])
-            }else{
+            if (response.status === 200) {
+                setGetExperienceData(response.data.getAllData);
+            } else {
                 toast.error(response.data.message);
             }
-            
         } catch (error) {
-            console.log("Internal server error in updating the experience", error)
+            console.log("Error fetching experience data", error);
         }
+    };
 
-    }
+    useEffect(() => {
+        fetchExperienceData();
+    }, [getExeperienceData]);
+    
     return(
-        <ExperienceContext.Provider value={{handleOnchange,experienceData,handlesubmitExe}}>
+        <ExperienceContext.Provider value={{handleOnchange,experienceData,handleSubmitExe,getExeperienceData}}>
             {children}
         </ExperienceContext.Provider>
     )

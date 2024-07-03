@@ -23,7 +23,6 @@ export const DashboardProvider = ({children})=>{
             })
                 if(response.status === 200){
                     const userData = response.data.user;
-                    console.log("here is the user data",userData)
                     setData(userData)
                 }else{
                     console.log(response.data.message)

@@ -7,6 +7,7 @@ router.post("/create-details",passport.authenticate("jwt", {session: false}),edu
 router.patch("/update-details/:id",passport.authenticate("jwt", {session: false}),educationController.updateEdu);
 router.delete("/delete-details/:id", passport.authenticate("jwt", {session: false}), educationController.deleteEdu);
 router.get("/get-details/:id", passport.authenticate("jwt", {session: false}), educationController.getEdu);
+router.get("/get-All-data", passport.authenticate("jwt", {session: false}), educationController.getAllDetails);
 
 
 module.exports = router;

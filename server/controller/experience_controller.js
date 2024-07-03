@@ -1,28 +1,36 @@
 const Experience = require("../model/experience");
 
-module.exports.create = async (req, res)=>{
+module.exports.create = async (req, res) => {
     try {
-        const newExperience = await Experience.create({
-            companyname: req.body.companyname,
-            position: req.body.position,
-            startyear: req.body.startyear,
-            startmonth: req.body.startmonth,
-            endyear: req.body.endyear,
-            endmonth: req.body.endmonth,
-            user: req.user._id
-        });
+        const { experiencedata } = req.body;
+        const userId = req.user._id;
+
+        if (!Array.isArray(experiencedata) || experiencedata.length === 0) {
+            return res.status(400).json({
+                message: "No experience data provided",
+                success: false
+            });
+        }
+
+        const experienceRecords = experiencedata.map(data => ({
+            ...data,
+            user: userId
+        }));
+
+        const createExe = await Experience.insertMany(experienceRecords);
+
         return res.status(200).json({
-            message: "experience is created!!",
+            message: "Experience records created successfully",
             success: true,
-            newExperience
-        })
+            createExe
+        });
     } catch (error) {
         return res.status(500).json({
-            message: "Internal server in creating the experience!!",
-            details: error.message
-        })
+            message: "Internal server error in creating the experience records",
+            error: error.message
+        });
     }
-}
+};
 
 module.exports.updateExe = async (req, res) => {
     try {
@@ -68,8 +76,7 @@ module.exports.deleteExe = async (req, res) => {
 
 module.exports.getAllDetails = async (req, res)=>{
     try {
-        const userId = req.params.userId
-        const getAllData = await Experience.find({user: userId})
+        const getAllData = await Experience.find({user: req.user._id}).sort({createdAt: -1})
         if(!getAllData){
             return res.status(400).json({
                 message: "details not found or not available!!!",

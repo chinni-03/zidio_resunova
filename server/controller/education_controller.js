@@ -2,28 +2,29 @@ const Education = require("../model/education");
 
 module.exports.createedu = async (req, res) => {
     try {
-        const createEdu = await Education.create({
-            institute: req.body.institute,
-            qualification: req.body.qualification,
-            subject: req.body.subject,
-            startgradumonth: req.body.startgradumonth,
-            startgraduyear: req.body.startgraduyear,
-            endgradumonth: req.body.endgradumonth,
-            endgraduyear: req.body.endgraduyear,
-            user: req.user._id
-        });
+        const { educationdata } = req.body;
+        const userId = req.user._id;
+
+        const educationRecords = educationdata.map(data => ({
+            ...data,
+            user: userId
+        }));
+
+        const createEdu = await Education.insertMany(educationRecords);
+
         return res.status(200).json({
-            message: "education is created",
+            message: "Education records created successfully",
             success: true,
             createEdu
-        })
+        });
     } catch (error) {
         return res.status(500).json({
-            message: "Internal server error in creating the education section!!",
+            message: "Internal server error in creating the education section",
             error: error.message
-        })
+        });
     }
-}
+};
+
 
 module.exports.updateEdu = async (req, res) => {
     try {
@@ -70,8 +71,7 @@ module.exports.deleteEdu = async (req, res)=>{
 
 module.exports.getAllDetails = async (req, res)=>{
     try {
-        const userId = req.params.userId
-        const getAllData = await Education.find({user: userId})
+        const getAllData = await Education.find({user: req.user._id}).sort({createdAt: -1})
         if(!getAllData){
             return res.status(400).json({
                 message: "details not found or not available!!!",

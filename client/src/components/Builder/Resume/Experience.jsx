@@ -2,12 +2,12 @@ import React from "react";
 import { useExperience } from "../../../context/resumeContext/experience_details";
 
 export default function Experience() {
-        const {experienceData} = useExperience();
+        const {experienceData,getExeperienceData} = useExperience();
     return (
         <>
         <p className="section head">Experience</p>
         <hr className="hr-mira" />
-        {experienceData.map((exedata,index)=>(
+        {getExeperienceData.map((exedata,index)=>(
                 <>
                 <div className="expe" key={index}>
                         <p className="institute">{exedata?.position||"Social Media Marketing Specialist"} |
