@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const ProjectContext = createContext();
@@ -22,6 +22,8 @@ export const ProjectProvider = ({children})=>{
         }
     ]);
 
+    const [getProjectData, setGetProjectData] = useState([])
+
     const handleOnChange = (index, e)=>{
         const updateProject = [...projectData];
         updateProject[index]={
@@ -34,7 +36,7 @@ export const ProjectProvider = ({children})=>{
     const handleSubmitProject = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("/project/create",{projectData},
+            const response = await axios.post("/project/create",{projectedata:projectData},
                 {headers:{
                     "Authorization": `Bearer ${token}`
                 }}
@@ -43,10 +45,10 @@ export const ProjectProvider = ({children})=>{
                 toast.success("your details updated successfully!!");
                 setProjectData([{
                     title:"",
-                    startyear:null,
-                    startmonth:null,
-                    endyear:null,
-                    endmonth:null,
+                    startyear:"",
+                    startmonth:"",
+                    endyear:"",
+                    endmonth:"",
                     company:"",
                     description:""
                 }])
@@ -59,8 +61,29 @@ export const ProjectProvider = ({children})=>{
         }
     }
 
+    const fetchData = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get(`/project/view-all-detail`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if (response.status === 200) {
+                setGetProjectData(response.data.getAllData);
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            toast.error("An error occurred while fetching the details");
+            console.log("Error fetching personal details", error);
+        }
+    };
+
+    useEffect(()=>{fetchData()},[getProjectData])
+
     return(
-        <ProjectContext.Provider value={{handleOnChange, handleSubmitProject, projectData}}>
+        <ProjectContext.Provider value={{handleOnChange, handleSubmitProject, projectData,getProjectData}}>
             {children}
         </ProjectContext.Provider>
     )

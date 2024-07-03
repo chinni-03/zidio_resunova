@@ -86,8 +86,7 @@ module.exports.deleteDetails = async (req, res)=>{
 
 module.exports.getAllDetails = async (req, res)=>{
     try {
-        const userId = req.params.userId
-        const getAllData = await PersonalDetails.find({user: userId})
+        const getAllData = await PersonalDetails.findOne({user: req.user._id}).sort({createdAt: -1})
         if(!getAllData){
             return res.status(400).json({
                 message: "details not found or not available!!!",

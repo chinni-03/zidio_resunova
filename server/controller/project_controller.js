@@ -2,21 +2,24 @@ const Project = require("../model/project");
 
 module.exports.create = async (req, res)=>{
     try {
-        const newProject = Project.create({
-            title: req.body.title,
-            decription: req.body.decription,
-            company: req.body.company,
-            startmonth: req.body.startmonth,
-            startyear: req.body.startyear,
-            endmonth: req.body.endmonth,
-            endyear: req.body.endyear,
-            user: req.user._id
-        });
+        const { projectedata } = req.body;
+        const userId = req.user._id;
+        if (!Array.isArray(projectedata) || projectedata.length === 0) {
+            return res.status(400).json({
+                message: "No experience data provided",
+                success: false
+            });
+        }
+        const projectRecords = projectedata.map(data => ({
+            ...data,
+            user: userId
+        }));
+        const createProject = await Project.insertMany(projectRecords);
         return res.status(200).json({
-            message: "your project hasbeen created!",
+            message: "Project records created successfully",
             success: true,
-            newProject
-        })
+            createProject
+        });
     } catch (error) {
         return res.status(500).json({
             message: "Internal server error in creating the project!",
@@ -80,8 +83,7 @@ module.exports.delete = async (req, res)=>{
 
 module.exports.getAllDetails = async (req, res)=>{
     try {
-        const userId = req.params.userId
-        const getAllData = await Project.find({user: userId})
+        const getAllData = await Project.find({user: req.user._id}).sort({createdAt: -1})
         if(!getAllData){
             return res.status(400).json({
                 message: "details not found or not available!!!",

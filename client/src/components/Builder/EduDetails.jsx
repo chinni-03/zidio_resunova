@@ -1,17 +1,16 @@
-
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import Panel from "./Panel";
 import GetStartedBtn from "../homepage/GetStartedBtn";
 import Resume from "./Resume/Resume";
-import { useEducation } from "../../context/resumeContext/education_details";
-import { ToastContainer, toast } from "react-toastify";
-import { useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import RoundBtn from "../RoundBtn";
+import { useEducation } from "../../context/resumeContext/education_details";
+import { ToastContainer } from "react-toastify";
 
 export default function EduDetails() {
-    const { educationdata, handleOnChange, handleEdusubmit } = useEducation();
+    const { educationdata, handleOnChange, handleEdusubmit,handleReset } = useEducation();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -40,15 +39,15 @@ export default function EduDetails() {
         setEducationinputs(updatedSections);
     };
 
-    const {resumeType} = useParams();
+    const { resumeType } = useParams();
 
     const render = () => {
-        if(resumeType === "resume") {
-            return <Resume />
+        if (resumeType === "resume") {
+            return <Resume />;
         } else if (resumeType === "resume2") {
-            return <Resume2 />
+            return <Resume2 />;
         }
-    }
+    };
 
     return (
         <>
@@ -103,9 +102,12 @@ export default function EduDetails() {
                 <div className="res-parent">
                     {render()}
                 </div>
+                <button  type="button" onClick={handleReset}>
                 <RoundBtn />
-                <ToastContainer/>
+                </button>
+                <ToastContainer />
             </div>
         </>
     );
 }
+

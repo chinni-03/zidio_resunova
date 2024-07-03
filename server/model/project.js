@@ -19,7 +19,7 @@ const projectSchema = new mongoose.Schema({
     endyear:{
         type: Number
     },
-    decription:{
+    description:{
         type: String
     },
     user:{

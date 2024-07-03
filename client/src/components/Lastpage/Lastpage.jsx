@@ -4,10 +4,15 @@ import happy from '../../assets/images/happy.png';
 import logo from '../../assets/images/resunova-logo.png';
 import {Link} from 'react-router-dom';
 import RoundBtn from '../RoundBtn';
+import Resume from "../Builder/Resume/Resume";
+import { useEducation } from "../../context/resumeContext/education_details";
+import { useResume } from "../../context/ResumeDowload";
 
 
 export default function Lastpage()
 {
+    const {getEducationData} = useEducation();
+    const {downloadPdf} = useResume();
     return (
         <>
         <div class="down">
@@ -18,6 +23,7 @@ export default function Lastpage()
                 </Link>
                 <div class="preview">
                     <div className="resume-pdf">
+                        <Resume resumeDetails={getEducationData}/>
                     </div>
                 </div>
             </div>
@@ -30,7 +36,9 @@ export default function Lastpage()
                     </div>
                     <img src={happy} alt="" />
                 </div>
+                <button  type="button" onClick={downloadPdf}>
                 <RoundBtn />
+                </button>
             </div>
         </div>
         </>

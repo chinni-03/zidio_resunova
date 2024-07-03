@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const SkillContext = createContext();
@@ -14,6 +14,8 @@ export const SkillProvider = ({children})=>{
         skill: ""
     }])
 
+    const [getSkilldata, setGetSkillData] = useState([]);
+
     const handleOnChange = (index, e)=>{
         const updateData = [...skillData];
         updateData[index] = {
@@ -26,7 +28,7 @@ export const SkillProvider = ({children})=>{
     const handleSubmitData = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("/skill/create",{skillData},
+            const response = await axios.post("/skill/create",{skilldata:skillData},
                 {headers:{
                     "Authorization": `Bearer ${token}`
                 }}
@@ -44,8 +46,27 @@ export const SkillProvider = ({children})=>{
             console.log(error)
         }
     }
+
+    const fetcSkillData = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get("/skill/view-all-data",{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            if(response.status===200){
+                setGetSkillData(response.data.getAllData)
+            }else{
+                toast.error(response.data.message)
+            }
+        } catch (error) {
+            console.log("Error fetching experience data", error);
+        }
+    }
+    useEffect(()=>{fetcSkillData()},[getSkilldata])
     return(
-        <SkillContext.Provider value={{skillData, handleOnChange, handleSubmitData}}>
+        <SkillContext.Provider value={{skillData, handleOnChange, handleSubmitData, getSkilldata}}>
             {children}
         </SkillContext.Provider>
     )

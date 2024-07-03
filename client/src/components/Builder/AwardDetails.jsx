@@ -78,7 +78,7 @@ export default function AwardDetails() {
                     </div>
                     ))}
                     <div className="btns">
-                        <button className="w-50" type="button">
+                        <button className="w-50" type="button" onClick={handleSubmitData}>
                             <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
                         </button>
                         <button type="button" className="w-50" onClick={addmoreSection}>

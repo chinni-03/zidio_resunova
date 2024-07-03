@@ -20,6 +20,7 @@ export const EducationProvider = ({ children }) => {
             endgradumonth: null
         }
     ]);
+    const [getEducationData, setGetEducationData] = useState([]);
 
     const handleOnChange = (index, e) => {
         const updatedEducationData = [...educationdata];
@@ -33,35 +34,71 @@ export const EducationProvider = ({ children }) => {
     const handleEdusubmit = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("/education/create-details", 
-                { educationdata }, 
-                {
-                    headers: {
-                        "Authorization": `Bearer ${token}`
-                    }
+
+            const payload = { educationdata };
+
+            const response = await axios.post("/education/create-details", payload, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
                 }
-            );
+            });
+
             if (response.status === 200) {
                 toast.success("Education details updated!");
                 setEducationdata([{
                     institute: "",
                     qualification: "",
                     subject: "",
-                    startgraduyear: null,
-                    startgradumonth: null,
-                    endgraduyear: null,
-                    endgradumonth: null
+                    startgraduyear: "",
+                    startgradumonth: "",
+                    endgraduyear: "",
+                    endgradumonth: ""
                 }]);
+                await fetchEducationdata();
             } else {
                 toast.error(response.data.message);
             }
         } catch (error) {
-            console.log("Error in creating the education details", error);
+            console.error("Error in creating the education details", error);
+            if (error.response) {
+                toast.error(`Error: ${error.response.data.message || 'Something went wrong'}`);
+            } else if (error.request) {
+                toast.error("No response received from server");
+            } else {
+                toast.error("Error in setting up request");
+            }
+        }
+    };
+    
+
+    const fetchEducationdata = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get("/education/get-All-data", {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if (response.status === 200) {
+                setGetEducationData(response.data.getAllData);
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            console.log("error in fetching education data", error);
         }
     };
 
+    const handleReset = ()=>{
+        setGetEducationData([])
+    }
+
+    useEffect(() => {
+        fetchEducationdata();
+    }, [getEducationData]);
+
     return (
-        <EducationContext.Provider value={{ educationdata, handleOnChange, handleEdusubmit }}>
+        <EducationContext.Provider value={{ educationdata, handleOnChange, handleEdusubmit, getEducationData,handleReset}}>
             {children}
         </EducationContext.Provider>
     );

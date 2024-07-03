@@ -6,11 +6,14 @@ const db = require("./config/database");
 const router = require("./routes");
 const passportJWT = require("./config/passport-jwt")
 const app = express();
-const port = 8800;
+const port = 8800 || process.env.PORT;
 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors());
+
+app.use(express.static(path.join(__dirname,'downloads')))
 
 app.use("/", router)
 app.listen(port, (err)=>{

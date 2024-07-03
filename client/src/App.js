@@ -25,6 +25,7 @@ import { ProjectProvider } from './context/resumeContext/projectdetails';
 import Lastpage from './components/Lastpage/Lastpage';
 import { SkillProvider } from './context/resumeContext/skilldetail';
 import { AwardProvider } from './context/resumeContext/awardDetails';
+import { ResumeDownloadProvider } from './context/ResumeDowload';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                   <ProjectProvider>
                     <SkillProvider>
                       <AwardProvider>
+                        <ResumeDownloadProvider>
                   <Routes>
                     <Route exact path="/" element={<Homepage />} />
                     <Route path="/signup" element={<Signup />} />
@@ -55,6 +57,7 @@ function App() {
                     <Route path='/developers' element={<About />} />
                     <Route path='/download-resume' element={<Lastpage />} />
                   </Routes>
+                  </ResumeDownloadProvider>
                   </AwardProvider>
                   </SkillProvider>
                   </ProjectProvider>

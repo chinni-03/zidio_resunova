@@ -2,15 +2,24 @@ const Skill = require("../model/skill");
 
 module.exports.create = async (req, res)=>{
     try {
-        const newSkill = await Skill.create({
-            skill: req.body.skill,
-            user: req.user._id
-        });
+        const { skilldata } = req.body;
+        const userId = req.user._id;
+        if (!Array.isArray(skilldata) || skilldata.length === 0) {
+            return res.status(400).json({
+                message: "No experience data provided",
+                success: false
+            });
+        }
+        const skillRecords = skilldata.map(data => ({
+            ...data,
+            user: userId
+        }));
+        const createSkill = await Skill.insertMany(skillRecords);
         return res.status(200).json({
-            message: "Skill has been added successfully!",
+            message: "Skill records created successfully",
             success: true,
-            newSkill
-        })
+            createSkill
+        });
     } catch (error) {
         return res.status(500).json({
             message: "Internal error in adding the skill!",
@@ -66,8 +75,7 @@ module.exports.delete = async (req,res)=>{
 
 module.exports.getAllDetails = async (req, res)=>{
     try {
-        const userId = req.params.userId
-        const getAllData = await Skill.find({user: userId})
+        const getAllData = await Skill.find({user: req.user._id}).sort({createdAt: -1})
         if(!getAllData){
             return res.status(400).json({
                 message: "details not found or not available!!!",
