@@ -54,7 +54,7 @@ module.exports.update = async (req, res)=>{
 
 module.exports.delete = async (req,res)=>{
     try {
-        const deleteskill = await Skill.findByIdAndDelete(req.params.id);
+        const deleteskill = await Skill.deleteMany({user:req.user._id});
         if(!deleteskill){
             return res.status(400).json({
                 message: "skill not available to does not found!!",

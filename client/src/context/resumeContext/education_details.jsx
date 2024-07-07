@@ -89,16 +89,26 @@ export const EducationProvider = ({ children }) => {
         }
     };
 
-    const handleReset = ()=>{
-        setGetEducationData([])
+    useEffect(()=>{fetchEducationdata()},[]);
+
+    const deleteEducationData = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.delete("/education/delete-details", {
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            if(response.status === 200){
+                toast.success(response.data.message)
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
     }
 
-    useEffect(() => {
-        fetchEducationdata();
-    }, [getEducationData]);
-
     return (
-        <EducationContext.Provider value={{ educationdata, handleOnChange, handleEdusubmit, getEducationData,handleReset}}>
+        <EducationContext.Provider value={{ educationdata, handleOnChange, handleEdusubmit, getEducationData,deleteEducationData}}>
             {children}
         </EducationContext.Provider>
     );

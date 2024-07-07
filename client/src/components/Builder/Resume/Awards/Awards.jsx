@@ -1,13 +1,13 @@
 import React from "react";
-import { useAward } from "../../../context/resumeContext/awardDetails";
+import { useAward } from "../../../../context/resumeContext/awardDetails";
 
 export default function Awards() {
-    const {getAwardData} = useAward();
+    const {awardData} = useAward();
     return (
         <>
         <p className="section head first">Awards</p>
         <hr className="hr-mira" />
-            {getAwardData.map((awardData, index)=>(
+            {awardData.map((awardData, index)=>(
                 <div className="edu" key={index}>
                     <p className="institute">{awardData?.awardname||"Dean's List"} | 
                         <span className="company">{awardData?.institute||"Bellows College"}</span></p>

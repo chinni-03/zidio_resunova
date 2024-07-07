@@ -60,7 +60,7 @@ module.exports.update = async (req, res)=>{
 
 module.exports.delete = async (req, res)=>{
     try {
-        const findProject = await Project.findById(req.params.id);
+        const findProject = await Project.deleteMany({user:req.user._id});
         if(!findProject){
             return res.status(400).json({
                 message: "project is not available or not found!",

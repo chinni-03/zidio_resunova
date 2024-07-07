@@ -65,7 +65,7 @@ module.exports.updateDetails = async (req, res)=>{
 
 module.exports.deleteDetails = async (req, res)=>{
     try {
-        const details = await PersonalDetails.findByIdAndDelete(req.params.id);
+        const details = await PersonalDetails.deleteMany({user:req.user._id});
         if(!details){
             return res.status(400).json({
                 message: "details not found or not available!!!",

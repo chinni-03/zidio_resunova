@@ -58,7 +58,7 @@ module.exports.updateExe = async (req, res) => {
 
 module.exports.deleteExe = async (req, res) => {
     try {
-        const deleteData = await Experience.findByIdAndDelete(req.params.id);
+        const deleteData = await Experience.deleteMany({user:req.user._id});
         if(!deleteData){
             return res.status(400).json({
                 message: "data is not available or does not exist!!",

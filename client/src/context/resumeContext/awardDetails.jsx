@@ -25,7 +25,7 @@ export const AwardProvider = ({children})=>{
         }
         setAwardData(updateData)
     }
-    const handleSubmitData = async ()=>{
+    const handleSubmitAwarData = async ()=>{
         try {
             const token = localStorage.getItem("token");
             const response = await axios.post("/award/create-details",{awarddata:awardData},
@@ -68,8 +68,25 @@ export const AwardProvider = ({children})=>{
         }
     }
     useEffect(()=>{fetchAwardData()},[getAwardData])
+
+    const deleteAwardData = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.delete("/award/delete-details",{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if(response.status === 200){
+                toast.success(response.data.message)
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+
     return(
-        <AwardContext.Provider value={{handleOnChange, awardData, handleSubmitData, getAwardData}}>
+        <AwardContext.Provider value={{handleOnChange, awardData, handleSubmitAwarData, getAwardData,deleteAwardData}}>
             {children}
         </AwardContext.Provider>
     )

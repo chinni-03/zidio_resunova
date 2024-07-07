@@ -5,7 +5,7 @@ const passport = require('passport');
 
 router.post("/create", passport.authenticate("jwt", {session: false}),projecftController.create);
 router.patch('/update/:id', passport.authenticate("jwt", {session: false}),projecftController.update);
-router.delete('/delete/:id', passport.authenticate("jwt", {session: false}),projecftController.delete);
+router.delete('/delete', passport.authenticate("jwt", {session: false}),projecftController.delete);
 router.get('/get-details/:id', passport.authenticate("jwt", {session: false}),projecftController.getData);
 router.get("/view-all-detail", passport.authenticate("jwt", {session: false}), projecftController.getAllDetails);
 

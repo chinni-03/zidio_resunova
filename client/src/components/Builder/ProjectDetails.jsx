@@ -3,13 +3,24 @@ import Nav from "./Nav";
 import Panel from "./Panel";
 import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import RoundBtn from "../RoundBtn";
 import { useProject } from "../../context/resumeContext/projectdetails";
+import { useSkill } from "../../context/resumeContext/skilldetail";
+import { useAward } from "../../context/resumeContext/awardDetails";
+import { useEducation } from "../../context/resumeContext/education_details";
+import { useExperience } from "../../context/resumeContext/experience_details";
+import { usePersonal } from "../../context/resumeContext/personal_details";
 
 export default function ProjectDetails() {
+    const navigate = useNavigate();
     const { handleOnChange, handleSubmitProject, projectData } = useProject();
+    const {handleSubmitData} = useSkill();
+    const {handleSubmitAwarData} = useAward();
+    const {handleEdusubmit} = useEducation();
+    const {handleSubmitExe} = useExperience();
+    const {handlePersonalsignup} = usePersonal();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -47,6 +58,16 @@ export default function ProjectDetails() {
             return <Resume2 />;
         }
     };
+
+    const finalSubmit = async ()=>{
+        await handleSubmitProject();
+        await handleEdusubmit();
+        await handlePersonalsignup();
+        await handleSubmitAwarData();
+        await handleSubmitData();
+        await handleSubmitExe();
+        navigate("/download-resume")
+    }
 
     return (
         <>
@@ -88,8 +109,8 @@ export default function ProjectDetails() {
                             </div>
                         ))}
                         <div className="btns">
-                            <button type="button" className="w-50" onClick={handleSubmitProject}>
-                                <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
+                            <button type="button" className="w-50" onClick={finalSubmit}>
+                                <GetStartedBtn extraClass="add align-left w-50" btn="Save & Next" />
                             </button>
                             <button type="button" className="w-50" onClick={addProSection}>
                                 <GetStartedBtn extraClass="add align-right w-50 transparent" btn="Add more" />

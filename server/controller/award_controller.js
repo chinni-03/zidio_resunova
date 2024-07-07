@@ -57,7 +57,7 @@ module.exports.update = async (req, res)=>{
 
 module.exports.delete = async (req, res)=>{
     try {
-        const deletesward = await Award.findByIdAndDelete(req.params.id);
+        const deletesward = await Award.deleteMany({user:req.user._id});
         if(!deletesward){
             return res.status(400).json({
                 message: "Award is not exist or does not available!!",

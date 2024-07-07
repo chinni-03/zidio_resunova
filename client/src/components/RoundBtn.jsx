@@ -1,7 +1,7 @@
 import React from "react";
 import download from '../assets/images/download-green.png';
 import downloadHover from '../assets/images/download.png';
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 export default function RoundBtn() {
 
@@ -17,7 +17,7 @@ export default function RoundBtn() {
 
     return (
         <>
-        <Link to={'/download-resume'}>
+        <Link to={`/download-resume`}>
             <button type="button" id="download-btn" className="round-btn-white" onMouseOver={changeBtn} onMouseLeave={changeBack}>
                 <img src={download} alt="" id="download-resume" />
             </button>

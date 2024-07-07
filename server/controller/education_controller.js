@@ -53,7 +53,7 @@ module.exports.updateEdu = async (req, res) => {
 
 module.exports.deleteEdu = async (req, res)=>{
     try {
-        const deleteData = await Education.findByIdAndDelete(req.params.id);
+        const deleteData = await Education.deleteMany({user: req.user._id});
         if(!deleteData){
             return res.status(400).json({
                 message: "data does not exist!!",

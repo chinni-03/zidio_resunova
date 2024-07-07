@@ -1,13 +1,14 @@
 import React from "react";
-import { useSkill } from "../../../context/resumeContext/skilldetail";
+import { useSkill } from "../../../../context/resumeContext/skilldetail";
 
-export default function Skills2() {
-    const {skillData} = useSkill();
+export default function SkillsResume() {
+    const {getSkilldata} = useSkill();
     return (
         <>
-        <p className="section head serif">Skills</p>
-        <hr className="hr-mira" />
-        {skillData.map((skilldata, index)=>(
+        <div className="section">
+            <p className="head">Skills</p>
+            <hr className="hr-mira" />
+            {getSkilldata.map((skilldata, index)=>(
             <ul className="skills serif" key={index}>
                 <li className="serif">{skilldata?.skill||"Platform expertise"}</li>
                 {/* <li className="serif">Content creation</li>
@@ -18,6 +19,7 @@ export default function Skills2() {
             </ul>
 
         ))}
+        </div>
         </>
     )
 }
