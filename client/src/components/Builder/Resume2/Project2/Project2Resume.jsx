@@ -1,7 +1,7 @@
 import React from "react";
-import { useProject } from "../../../context/resumeContext/projectdetails";
+import { useProject } from "../../../../context/resumeContext/projectdetails";
 
-export default function Projects2() {
+export default function Projects2Resume() {
     const {projectData} = useProject();
     return (
         <>

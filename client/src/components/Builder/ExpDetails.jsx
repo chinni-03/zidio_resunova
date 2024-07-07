@@ -3,13 +3,13 @@ import Nav from "./Nav";
 import Panel from "./Panel";
 import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import { useExperience } from "../../context/resumeContext/experience_details";
 import RoundBtn from '../RoundBtn';
 
 export default function ExpDetails() {
-    const {handleOnchange,experienceData,handleSubmitExe} = useExperience();
+    const {handleOnchange,experienceData} = useExperience();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -84,9 +84,9 @@ export default function ExpDetails() {
                             </div>
                         ))}
                         <div className="btns">
-                            <button className="w-50" type="button" onClick={handleSubmitExe}>
-                                <GetStartedBtn extraClass="add align-left w-50" btn="Save" />
-                            </button>
+                            <Link className="w-50" type="button" to={`/skills/${resumeType}`}>
+                                <GetStartedBtn extraClass="add align-left w-50" btn="Next" />
+                            </Link>
                             <button type="button" className="w-50" onClick={addExpSection}>
                                 <GetStartedBtn extraClass="add align-right w-50 transparent" btn="Add more" />
                             </button>

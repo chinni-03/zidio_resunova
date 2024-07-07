@@ -64,9 +64,26 @@ export const SkillProvider = ({children})=>{
             console.log("Error fetching experience data", error);
         }
     }
-    useEffect(()=>{fetcSkillData()},[getSkilldata])
+
+    const deleteSkillData = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.delete("/skill/delete",{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if(response.status === 200){
+                toast.success(response.data.message)
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+
+    useEffect(()=>{fetcSkillData()},[])
     return(
-        <SkillContext.Provider value={{skillData, handleOnChange, handleSubmitData, getSkilldata}}>
+        <SkillContext.Provider value={{skillData, handleOnChange, handleSubmitData, getSkilldata, deleteSkillData}}>
             {children}
         </SkillContext.Provider>
     )

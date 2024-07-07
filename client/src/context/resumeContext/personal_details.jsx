@@ -26,7 +26,7 @@ export const PersonalProvider = ({ children }) => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handlePersonalsignup = async (formData) => {
+    const handlePersonalsignup = async () => {
         try {
             const token = localStorage.getItem("token");
             const response = await axios.post("/personal/create-details",
@@ -37,6 +37,7 @@ export const PersonalProvider = ({ children }) => {
                     }
                 });
             if (response.status === 200) {
+                console.log("hadsgf", formData)
                 toast.success("Your personal details entered successfully");
                 return true;
             } else {
@@ -64,15 +65,31 @@ export const PersonalProvider = ({ children }) => {
                 toast.error(response.data.message);
             }
         } catch (error) {
-            toast.error("An error occurred while fetching the details");
+     
             console.log("Error fetching personal details", error);
         }
     };
 
-    useEffect(()=>{fetchData()},[getPersonaldata])
+    const deletePersonal = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.delete("/personal/delete-details",{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if(response.status === 200){
+                toast.success(response.data.message)
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+
+    useEffect(()=>{fetchData()},[])
 
     return (
-        <PersonalContext.Provider value={{ handleOnChange, formData, handlePersonalsignup, fetchData, setFormData, getPersonaldata }}>
+        <PersonalContext.Provider value={{ handleOnChange, formData, handlePersonalsignup, fetchData, setFormData, getPersonaldata, deletePersonal }}>
             {children}
         </PersonalContext.Provider>
     );

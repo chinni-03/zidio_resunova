@@ -3,14 +3,14 @@ import Nav from "./Nav";
 import Panel from "./Panel";
 import Resume from "./Resume/Resume";
 import GetStartedBtn from "../homepage/GetStartedBtn";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Resume2 from "./Resume2/Resume2";
 import RoundBtn from "../RoundBtn";
 import { useSkill } from "../../context/resumeContext/skilldetail";
 import { ToastContainer } from "react-toastify";
 
 export default function SkillDetails() {
-    const {skillData, handleOnChange, handleSubmitData} = useSkill();
+    const {skillData, handleOnChange} = useSkill();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -76,9 +76,9 @@ export default function SkillDetails() {
                     </div>
                     ))}
                     <div className="btns">
-                        <button type="button" className="w-50" onClick={handleSubmitData}>
-                            <GetStartedBtn extraClass="add w-50 align-left" btn="Save" />
-                        </button>
+                        <Link type="button" className="w-50" to={`/awards/${resumeType}`}>
+                            <GetStartedBtn extraClass="add w-50 align-left" btn="Next" />
+                        </Link>
                         <button type="button" className="w-50" onClick={addmoreSkill}>
                             <GetStartedBtn extraClass="add w-50 align-right transparent" btn="Add more" />
                         </button>

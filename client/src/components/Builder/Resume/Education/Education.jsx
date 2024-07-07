@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import { useEducation } from "../../../context/resumeContext/education_details";
+import { useEducation } from "../../../../context/resumeContext/education_details";
+
 
 export default function Education() {
-    const { educationdata,getEducationData } = useEducation();
-
-    const educationdetails = educationdata || getEducationData ||  [];
+    const { educationdata } = useEducation();
   
     return (
         <>
             <p className="section head">Education</p>
             <hr className="hr-mira" />
-            {getEducationData.map((education, index) => (
+            {educationdata.map((education, index) => (
                 <div className="edu" key={index}>
                     <p className="institute">{education.institute || "Bellows College"}</p>
                     <p className="bold upper year">

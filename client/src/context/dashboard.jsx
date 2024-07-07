@@ -1,70 +1,88 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const DashboardContext = createContext();
 
-export const useDashboard = ()=>{
+export const useDashboard = () => {
     const value = useContext(DashboardContext);
-    return value
-}
+    return value;
+};
 
-export const DashboardProvider = ({children})=>{
+export const DashboardProvider = ({ children }) => {
     const navigate = useNavigate();
     const [data, setData] = useState(null);
+    const [updateDetails, setUpdateDetails] = useState({ email: "", password: "", cpassword: "" });
 
-        const loggedIn = async ()=>{
-            try {
-                const token = localStorage.getItem("token")
-                const response = await axios.get(`/user/user-data`,{
-                    headers:{
-                        "Authorization": `Bearer ${token}`
-                    }
-            })
-                if(response.status === 200){
-                    const userData = response.data.user;
-                    setData(userData)
-                }else{
-                    console.log(response.data.message)
+    const loggedIn = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get(`/user/user-data`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
                 }
-            } catch (error) {
-                if(error.response && error.response.data) {
-                    // Display the error message from the server response
-                    console.log(error)
-                } else {
-                    // Handle other types of errors (e.g., network issues)
-                    console.error("An error occurred during getting the data. Please try again.");
-                }
+            });
+            if (response.status === 200) {
+                const userData = response.data.user;
+                setData(userData);
+            } else {
+                console.log(response.data.message);
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                console.log(error);
+            } else {
+                console.error("An error occurred during getting the data. Please try again.");
             }
         }
-     // Only fetch data if data is null (to prevent infinite loop
-     const checkTokenExpiry = () => {
+    };
+
+    const checkTokenExpiry = () => {
         const token = localStorage.getItem("token");
         const tokenExp = localStorage.getItem("time");
 
         if (token && tokenExp) {
             const currentTime = Date.now() / 1000; // Current time in seconds
             if (currentTime > tokenExp) {
-                // Token has expired
                 localStorage.removeItem("token");
                 localStorage.removeItem("time");
                 navigate("/signin");
             }
         } else {
-            // Token or token expiry time not found, redirect to sign-in
             navigate("/signin");
         }
-    }
+    };
 
-    function handleLoggedout(){
+    const handleLoggedout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("time");
-        navigate("/signin")
-    }
-    
-    return(
-        <DashboardContext.Provider value={{data, loggedIn, checkTokenExpiry,handleLoggedout}}>
+        navigate("/signin");
+    };
+
+    const handleSetPassword = async () => {
+        try {
+            const { email, password, cpassword } = updateDetails;
+            const token = localStorage.getItem("token");
+            const response = await axios.patch('/user/update', { email, password, cpassword }, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if (response.status === 200) {
+                toast.success("Your password updated successfully!");
+                setUpdateDetails({ email: "", password: "", cpassword: "" });
+                navigate("/signin");
+            }
+        } catch (error) {
+            console.error("Error in handleSetPassword:", error);
+            toast.error(error.response.data.message);
+        }
+    };
+
+    return (
+        <DashboardContext.Provider value={{ data, loggedIn, checkTokenExpiry, handleLoggedout, updateDetails, setUpdateDetails, handleSetPassword }}>
             {children}
         </DashboardContext.Provider>
-    )
-}
+    );
+};

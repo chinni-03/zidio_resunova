@@ -55,7 +55,6 @@ export const FormProvider = ({ children }) => {
             const { email, password } = usersignIn;
             if (email === "" || password === "") {
                 toast.warn("input section should not be empty!!");
-                console.log("here")
                 return;
             }
             const response = await axios.post("/user/signin", { email, password });

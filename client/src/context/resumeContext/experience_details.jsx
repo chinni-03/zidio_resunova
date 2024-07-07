@@ -79,12 +79,24 @@ export const ExperienceProvider = ({children})=>{
         }
     };
 
-    useEffect(() => {
-        fetchExperienceData();
-    }, [getExeperienceData]);
-    
+    const deleteExperienceData = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.delete("/experience/delete-exe",{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            if(response.status === 200){
+                toast.success(response.data.message)
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+    useEffect(()=>{fetchExperienceData()},[])
     return(
-        <ExperienceContext.Provider value={{handleOnchange,experienceData,handleSubmitExe,getExeperienceData}}>
+        <ExperienceContext.Provider value={{handleOnchange,experienceData,handleSubmitExe,getExeperienceData,deleteExperienceData}}>
             {children}
         </ExperienceContext.Provider>
     )

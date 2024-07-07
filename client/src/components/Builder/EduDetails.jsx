@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Nav from "./Nav";
 import Panel from "./Panel";
 import GetStartedBtn from "../homepage/GetStartedBtn";
@@ -10,7 +10,7 @@ import { useEducation } from "../../context/resumeContext/education_details";
 import { ToastContainer } from "react-toastify";
 
 export default function EduDetails() {
-    const { educationdata, handleOnChange, handleEdusubmit,handleReset } = useEducation();
+    const { educationdata, handleOnChange } = useEducation();
 
     useEffect(() => {
         document.title = "Resume Builder";
@@ -90,9 +90,9 @@ export default function EduDetails() {
                             </div>
                         ))}
                         <div className="btns">
-                            <button type="button" className="w-50" onClick={handleEdusubmit}>
-                                <GetStartedBtn extraClass="add w-50 align-left" btn="Save" />
-                            </button>
+                            <Link className="w-50" type="button" to={`/experience-details/${resumeType}`}>
+                                <GetStartedBtn extraClass="add align-left w-50" btn="Next" />
+                            </Link>
                             <button type="button" className="w-50" onClick={addMoreSections}>
                                 <GetStartedBtn extraClass="add w-50 align-right transparent" btn="Add more" />
                             </button>
@@ -102,9 +102,7 @@ export default function EduDetails() {
                 <div className="res-parent">
                     {render()}
                 </div>
-                <button  type="button" onClick={handleReset}>
                 <RoundBtn />
-                </button>
                 <ToastContainer />
             </div>
         </>

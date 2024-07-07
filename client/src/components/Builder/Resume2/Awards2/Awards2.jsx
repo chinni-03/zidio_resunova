@@ -1,5 +1,5 @@
 import React from "react";
-import { useAward } from "../../../context/resumeContext/awardDetails";
+import { useAward } from "../../../../context/resumeContext/awardDetails";
 
 export default function Awards2() {
     const {awardData} = useAward();

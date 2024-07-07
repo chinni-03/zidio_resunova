@@ -1,14 +1,14 @@
 import React from "react";
-import { useProject } from "../../../context/resumeContext/projectdetails";
+import { useProject } from "../../../../context/resumeContext/projectdetails";
 
-export default function Projects() {
+export default function ProjectsResume() {
     const {getProjectData} = useProject();
     return (
         <>
         <p className="section head">Projects</p>
         <hr className="hr-mira" />
         {getProjectData.map((projData, index)=>(
-            <div className="proj">
+            <div className="proj" key={index}>
             <div className="col-exp">
                 <p className="institute">{projData?.title||"Social Media Marketing Specialist"} | 
                     <span className="company">{projData?.company||"Google"}</span></p>

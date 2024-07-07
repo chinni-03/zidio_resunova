@@ -1,7 +1,7 @@
 import React from "react";
-import { useEducation } from "../../../context/resumeContext/education_details";
+import { useEducation } from "../../../../context/resumeContext/education_details";
 
-export default function Education2() {
+export default function Education2Resume() {
     const {educationdata} = useEducation();
 
     return (

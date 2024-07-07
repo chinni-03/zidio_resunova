@@ -75,15 +75,28 @@ export const ProjectProvider = ({children})=>{
                 toast.error(response.data.message);
             }
         } catch (error) {
-            toast.error("An error occurred while fetching the details");
             console.log("Error fetching personal details", error);
         }
     };
 
-    useEffect(()=>{fetchData()},[getProjectData])
-
+    const deleteProjectDelete = async ()=>{
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.delete("/project/delete",{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            if(response.status === 200){
+                toast.success(response.data.message)
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+    useEffect(()=>{fetchData()},[])
     return(
-        <ProjectContext.Provider value={{handleOnChange, handleSubmitProject, projectData,getProjectData}}>
+        <ProjectContext.Provider value={{handleOnChange, handleSubmitProject, projectData,getProjectData, deleteProjectDelete}}>
             {children}
         </ProjectContext.Provider>
     )
